@@ -1,0 +1,1669 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>黑马排序模型进阶-FTRL on Tensorflow | 黑马头条推荐系统项目课程定位、目标</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../day07/section8.html" />
+    
+    
+    <link rel="prev" href="../day07/section6.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="8.7"
+        data-chapter-title="黑马排序模型进阶-FTRL on Tensorflow"
+        data-filepath="day07/section7.md"
+        data-basepath=".."
+        data-revision="Wed Jun 05 2019 18:41:21 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        黑马头条推荐系统项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="reco/index.html">
+            
+                
+                    <a href="../reco/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        黑马头条推荐架构介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="reco/section1.html">
+            
+                
+                    <a href="../reco/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        头条推荐架构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="reco/section2.html">
+            
+                
+                    <a href="../reco/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        开发环境介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="day01/index.html">
+            
+                
+                    <a href="../day01/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        离线计算更新文章画像
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="day01/section0.html">
+            
+                
+                    <a href="../day01/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        数据库迁移
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="day01/section1.html">
+            
+                
+                    <a href="../day01/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        用户行为收集到HIVE
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="day01/section2.html">
+            
+                
+                    <a href="../day01/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        离线画像业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="day01/section3.html">
+            
+                
+                    <a href="../day01/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        离线文章画像计算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="day01/section4.html">
+            
+                
+                    <a href="../day01/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        离线增量画像更新代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="day01/section5.html">
+            
+                
+                    <a href="../day01/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Apscheduler定时更新文章画像
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="day01/section6.html">
+            
+                
+                    <a href="../day01/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Word2Vec与文章相似度
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="day01/section7.html">
+            
+                
+                    <a href="../day01/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        文章相似度增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="day01/section8.html">
+            
+                
+                    <a href="../day01/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="day01/section9.html">
+            
+                
+                    <a href="../day01/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="day02/index.html">
+            
+                
+                    <a href="../day02/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        离线用户画像更新与召回排序计算
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="day02/section1.html">
+            
+                
+                    <a href="../day02/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        用户画像逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="day02/section2.html">
+            
+                
+                    <a href="../day02/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        用户画像增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="day02/section3.html">
+            
+                
+                    <a href="../day02/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        离线召回与排序介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="day02/section4.html">
+            
+                
+                    <a href="../day02/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        离线用户基于模型召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="day02/section5.html">
+            
+                
+                    <a href="../day02/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        离线用户基于内容召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="day02/section6.html">
+            
+                
+                    <a href="../day02/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        离线用户召回定时更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="day02/section7.html">
+            
+                
+                    <a href="../day02/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        离线排序模型训练基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="day02/section8.html">
+            
+                
+                    <a href="../day02/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        离线ctr特征中心更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="day02/section9.html">
+            
+                
+                    <a href="../day02/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="day02/section10.html">
+            
+                
+                    <a href="../day02/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="day03/index.html">
+            
+                
+                    <a href="../day03/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        实时计算业务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="day03/section0.html">
+            
+                
+                    <a href="../day03/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        实时计算业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="day03/section1.html">
+            
+                
+                    <a href="../day03/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        实时日志分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="day03/section2.html">
+            
+                
+                    <a href="../day03/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        实时召回集业务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="day03/section3.html">
+            
+                
+                    <a href="../day03/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        热门与新文章召回
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="day03/section4.html">
+            
+                
+                    <a href="../day03/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="day03/section5.html">
+            
+                
+                    <a href="../day03/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="day04/index.html">
+            
+                
+                    <a href="../day04/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        推荐业务流实现与ABTest
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="day04/section0.html">
+            
+                
+                    <a href="../day04/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        实时推荐业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="day04/section1.html">
+            
+                
+                    <a href="../day04/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        grpc接口对接
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="day04/section2.html">
+            
+                
+                    <a href="../day04/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        ABTest实验中心
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="day04/section3.html">
+            
+                
+                    <a href="../day04/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        推荐中心逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="day04/section4.html">
+            
+                
+                    <a href="../day04/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        召回集读取服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="day04/section5.html">
+            
+                
+                    <a href="../day04/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        推荐缓存服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="day04/section6.html">
+            
+                
+                    <a href="../day04/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        排序模型在线预测
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="day04/section7.html">
+            
+                
+                    <a href="../day04/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="day04/section8.html">
+            
+                
+                    <a href="../day04/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="day05/index.html">
+            
+                
+                    <a href="../day05/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        深度学习与推荐系统
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="day05/section1.html">
+            
+                
+                    <a href="../day05/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        推荐系统的深度学习关联
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="day05/section2.html">
+            
+                
+                    <a href="../day05/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        深度学习应用简介
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="day06/index.html">
+            
+                
+                    <a href="../day06/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        TensorFlow框架介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="day06/section1.html">
+            
+                
+                    <a href="../day06/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        TF数据流图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="day06/section2.html">
+            
+                
+                    <a href="../day06/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        图与TensorBoard
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="day06/section3.html">
+            
+                
+                    <a href="../day06/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        会话、张量、变量OP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="day06/section4.html">
+            
+                
+                    <a href="../day06/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        案例：TensorFlow实现线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="day06/section5.html">
+            
+                
+                    <a href="../day06/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        TFAPI使用2.0建议
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.6" data-path="day06/section6.html">
+            
+                
+                    <a href="../day06/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                        tf.estimator使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.7" data-path="day06/section7.html">
+            
+                
+                    <a href="../day06/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.8" data-path="day06/section8.html">
+            
+                
+                    <a href="../day06/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="day07/index.html">
+            
+                
+                    <a href="../day07/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        黑马头条排序模型进阶
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="day07/section1.html">
+            
+                
+                    <a href="../day07/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        神经网络基础与原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="day07/section2.html">
+            
+                
+                    <a href="../day07/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        tf.data与tf.feature_column
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="day07/section3.html">
+            
+                
+                    <a href="../day07/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        案例：DNN文本分类与word2vec原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="day07/section4.html">
+            
+                
+                    <a href="../day07/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        TFRecords与黑马训练数据存储
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="day07/section5.html">
+            
+                
+                    <a href="../day07/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        深度学习与排序模型发展
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="day07/section6.html">
+            
+                
+                    <a href="../day07/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        分桶与特征交叉
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="8.7" data-path="day07/section7.html">
+            
+                
+                    <a href="../day07/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        黑马排序模型进阶-FTRL on Tensorflow
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="day07/section8.html">
+            
+                
+                    <a href="../day07/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        黑马排序模型进阶-Wide&amp;Deep
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" data-path="day07/section9.html">
+            
+                
+                    <a href="../day07/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                        WDL模型导出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" data-path="day07/section10.html">
+            
+                
+                    <a href="../day07/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.</b>
+                        
+                        TensorFlow Serving模型部署
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.11" data-path="day07/section11.html">
+            
+                
+                    <a href="../day07/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.11.</b>
+                        
+                        排序模型在线测试
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12" data-path="day07/section12.html">
+            
+                
+                    <a href="../day07/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.12.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13" data-path="day07/section13.html">
+            
+                
+                    <a href="../day07/section13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.13.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >黑马头条推荐系统项目课程定位、目标</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="58-&#x6392;&#x5E8F;&#x6A21;&#x578B;&#x8FDB;&#x9636;ftrl">5.8 &#x6392;&#x5E8F;&#x6A21;&#x578B;&#x8FDB;&#x9636;-FTRL</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x76EE;&#x6807;<ul>
+<li>&#x65E0;</li>
+</ul>
+</li>
+<li>&#x5E94;&#x7528;<ul>
+<li>&#x65E0;</li>
+</ul>
+</li>
+</ul>
+<h3 id="581-&#x95EE;&#x9898;">5.8.1 &#x95EE;&#x9898;</h3>
+<p>&#x5728;&#x5B9E;&#x9645;&#x9879;&#x76EE;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7ECF;&#x5E38;&#x4F1A;&#x9047;&#x5230;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x975E;&#x5E38;&#x5927;&#x5BFC;&#x81F4;&#x4E00;&#x4E9B;&#x7B97;&#x6CD5;&#x5B9E;&#x9645;&#x4E0A;&#x4E0D;&#x80FD;&#x64CD;&#x4F5C;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6BD4;&#x5982;&#x5728;&#x63A8;&#x8350;&#x884C;&#x4E1A;&#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;DSP&#x7684;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x91CF;&#x7279;&#x522B;&#x5927;&#xFF0C;&#x4E00;&#x4E2A;&#x661F;&#x671F;&#x7684;&#x6570;&#x636E;&#x5F80;&#x5F80;&#x6709;&#x4E0A;&#x767E;G&#xFF0C;&#x8FD9;&#x79CD;&#x7EA7;&#x522B;&#x7684;&#x6570;&#x636E;&#x5728;&#x8BAD;&#x7EC3;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x76F4;&#x63A5;&#x5957;&#x7528;&#x4E00;&#x4E9B;&#x7B97;&#x6CD5;&#x6846;&#x67B6;&#x662F;&#x6CA1;&#x529E;&#x6CD5;&#x8BAD;&#x7EC3;&#x7684;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x5728;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x7684;&#x9636;&#x6BB5;&#x5C31;&#x4E00;&#x7B79;&#x83AB;&#x5C55;&#x3002;&#x901A;&#x5E38;&#x91C7;&#x7528;&#x91C7;&#x6837;&#x3001;&#x622A;&#x65AD;&#x7684;&#x65B9;&#x5F0F;&#x83B7;&#x53D6;&#x66F4;&#x5C0F;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x6216;&#x8005;&#x4F7F;&#x7528;&#x5927;&#x6570;&#x636E;&#x96C6;&#x7FA4;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x5728;&#x4F5C;&#x8005;&#x770B;&#x6765;&#x76EE;&#x524D;&#x5B58;&#x5728;&#x4E24;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
+<ul>
+<li>&#x91C7;&#x6837;&#x6570;&#x636E;&#x6216;&#x8005;&#x622A;&#x65AD;&#x6570;&#x636E;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x975E;&#x5E38;&#x7684;&#x4F9D;&#x8D56;&#x524D;&#x671F;&#x7684;&#x6570;&#x636E;&#x5206;&#x6790;&#x4EE5;&#x53CA;&#x7ECF;&#x9A8C;&#x3002;</li>
+<li>&#x5927;&#x6570;&#x636E;&#x96C6;&#x7FA4;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x76EE;&#x524D;spark&#x539F;&#x751F;&#x652F;&#x6301;&#x7684;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#x6BD4;&#x8F83;&#x5C11;&#xFF1B;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x7B97;&#x6CD5;&#x6A21;&#x578B;&#x7684;&#x8BDD;&#xFF0C;&#x9700;&#x8981;spark&#x96C6;&#x7FA4;&#x7684;2.3&#x4EE5;&#x4E0A;&#xFF1B;&#x800C;&#x4E14;spark&#x8BAD;&#x7EC3;&#x51FA;&#x6765;&#x7684;&#x6A21;&#x578B;&#x5F80;&#x5F80;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x5B9E;&#x9645;&#x7EBF;&#x4E0A;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5BF9;&#x5185;&#x5B58;&#x4EE5;&#x53CA;QPS&#x7684;&#x538B;&#x529B;&#x6BD4;&#x8F83;&#x5927;&#x3002;</li>
+</ul>
+<p><img src="../images/&#x5B9E;&#x65F6;&#x6392;&#x5E8F;&#x903B;&#x8F91;.png" alt=""></p>
+<h3 id="582-&#x5728;&#x7EBF;&#x4F18;&#x5316;&#x7B97;&#x6CD5;onlinelearning">5.8.2 &#x5728;&#x7EBF;&#x4F18;&#x5316;&#x7B97;&#x6CD5;-Online-learning</h3>
+<ol>
+<li>&#x6A21;&#x578B;&#x66F4;&#x65B0;&#x5468;&#x671F;&#x6162;&#xFF0C;&#x4E0D;&#x80FD;&#x6709;&#x6548;&#x53CD;&#x6620;&#x7EBF;&#x4E0A;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x6700;&#x5FEB;&#x5C0F;&#x65F6;&#x7EA7;&#x522B;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x5929;&#x7EA7;&#x522B;&#x751A;&#x81F3;&#x5468;&#x7EA7;&#x522B;&#x3002;</li>
+<li>&#x6A21;&#x578B;&#x53C2;&#x6570;&#x591A;&#x7EBF;&#x4E0A;predict&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x5185;&#x5B58;&#x5927;&#xFF0C;QPS&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x3002;<ul>
+<li>&#x5BF9;1&#x91C7;&#x7528;On-line-learning&#x7684;&#x7B97;&#x6CD5;&#x3002;</li>
+<li>&#x5BF9;2&#x91C7;&#x7528;&#x4E00;&#x4E9B;&#x4F18;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x4FDD;&#x8BC1;&#x7CBE;&#x5EA6;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x5C3D;&#x91CF;&#x83B7;&#x53D6;&#x7A00;&#x758F;&#x89E3;&#xFF0C;&#x4ECE;&#x800C;&#x964D;&#x4F4E;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x7684;&#x6570;&#x91CF;&#x3002;</li>
+</ul>
+</li>
+</ol>
+<p>&#x6BD4;&#x8F83;&#x51FA;&#x540D;&#x7684;&#x5728;&#x7EBF;&#x6700;&#x4F18;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#x6709;&#xFF1A;</p>
+<ul>
+<li>TG(Truncated Gradient)</li>
+<li>FOBOS(Forward-Backward Splitting)</li>
+<li>RDA(Regularized Dual Averaging)</li>
+<li><strong>FTRL(Follow the Regularized Leader)</strong></li>
+</ul>
+<p>SGD&#x7B97;&#x6CD5;&#x662F;&#x5E38;&#x7528;&#x7684;online learning&#x7B97;&#x6CD5;&#xFF0C;&#x5B83;&#x80FD;&#x5B66;&#x4E60;&#x51FA;&#x4E0D;&#x9519;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x4F46;&#x5B66;&#x51FA;&#x7684;&#x6A21;&#x578B;&#x4E0D;&#x662F;&#x7A00;&#x758F;&#x7684;&#x3002;&#x4E3A;&#x6B64;&#xFF0C;&#x5B66;&#x672F;&#x754C;&#x548C;&#x5DE5;&#x4E1A;&#x754C;&#x90FD;&#x5728;&#x7814;&#x7A76;&#x8FD9;&#x6837;&#x4E00;&#x79CD;online learning&#x7B97;&#x6CD5;&#xFF0C;&#x5B83;&#x80FD;&#x5B66;&#x4E60;&#x51FA;&#x6709;&#x6548;&#x7684;&#x4E14;&#x7A00;&#x758F;&#x7684;&#x6A21;&#x578B;</p>
+<h3 id="582-follow-the-regularized-leaderftlr">5.8.2 Follow The Regularized Leader(FTLR)</h3>
+<ul>
+<li>&#x4E00;&#x79CD;&#x83B7;&#x5F97;&#x7A00;&#x758F;&#x6A21;&#x578B;&#x5E76;&#x4E14;&#x9632;&#x6B62;&#x8FC7;&#x62DF;&#x5408;&#x7684;&#x4F18;&#x5316;&#x65B9;&#x6CD5;</li>
+</ul>
+<p><img src="../images/FTRL&#x5171;&#x8BC6;.png" alt=""></p>
+<h3 id="&#x6B63;&#x5219;&#x5316;regularization">&#x6B63;&#x5219;&#x5316;(Regularization)</h3>
+<p><strong>&#x6B63;&#x5219;&#x5316;</strong>&#xFF0C;<strong>&#x5373;&#x5728;&#x6210;&#x672C;&#x51FD;&#x6570;&#x4E2D;&#x52A0;&#x5165;&#x4E00;&#x4E2A;&#x6B63;&#x5219;&#x5316;&#x9879;(&#x60E9;&#x7F5A;&#x9879;)&#xFF0C;&#x60E9;&#x7F5A;&#x6A21;&#x578B;&#x7684;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x9632;&#x6B62;&#x7F51;&#x7EDC;&#x8FC7;&#x62DF;&#x5408;</strong></p>
+<h4 id="&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x7684;l1&#x4E0E;l2&#x6B63;&#x5219;&#x5316;">&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x7684;L1&#x4E0E;L2&#x6B63;&#x5219;&#x5316;</h4>
+<p>&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x7684;&#x53C2;&#x6570;W&#x6570;&#x91CF;&#x6839;&#x636E;&#x7279;&#x5F81;&#x7684;&#x6570;&#x91CF;&#x800C;&#x5B9A;&#xFF0C;&#x90A3;&#x4E48;&#x6B63;&#x5219;&#x5316;&#x5982;&#x4E0B;</p>
+<ul>
+<li>&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x7684;&#x635F;&#x5931;&#x51FD;&#x6570;&#x4E2D;&#x589E;&#x52A0;L2&#x6B63;&#x5219;&#x5316;</li>
+</ul>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mo>(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mi>m</mi></mrow></mfrac><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><mi>L</mi><mo>(</mo><msup><mover accent="true"><mrow><mi>y</mi></mrow><mo>^</mo></mover><mrow><mo>(</mo><mi>i</mi><mo>)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>y</mi><mrow><mo>(</mo><mi>i</mi><mo>)</mo></mrow></msup><mo>)</mo><mo>+</mo><mfrac><mrow><mi>&#x3BB;</mi></mrow><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><msubsup><mrow><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi><mi>w</mi><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi></mrow><mn>2</mn><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">J(w,b) = \frac{1}{m}\sum_{i=1}^mL(\hat{y}^{(i)},y^{(i)})+\frac{\lambda}{2m}{||w||}^2_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.2329999999999999em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mord mathit">b</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">m</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit">L</span><span class="mopen">(</span><span class="mord"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span><span style="top:0em;margin-left:0.11112em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight">i</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight">i</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mbin">+</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">&#x3BB;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord"><span class="mord textstyle uncramped"><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span></span><span class="msupsub"><span class="vlist"><span style="top:0.3em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span></span></span><span style="top:-0.36399999999999993em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></p>
+<p>&#x5176;&#x4E2D;&#x7684;L2&#x8303;&#x6570;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#xFF1A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>&#x3BB;</mi></mrow><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><msubsup><mrow><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi><mi>w</mi><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi></mrow><mn>2</mn><mn>2</mn></msubsup><mo>=</mo><mfrac><mrow><mi>&#x3BB;</mi></mrow><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><msubsup><mo>&#x2211;</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mrow><msub><mi>n</mi><mi>x</mi></msub></mrow></msubsup><msubsup><mi>w</mi><mi>j</mi><mn>2</mn></msubsup><mo>=</mo><mfrac><mrow><mi>&#x3BB;</mi></mrow><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><msup><mi>w</mi><mi>T</mi></msup><mi>w</mi></mrow><annotation encoding="application/x-tex">\frac{\lambda}{2m}{||w||}^2_2=\frac{\lambda}{2m}\sum_{j=1}^{n_x}w^2_j = \frac{\lambda}{2m}w^Tw</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8801079999999999em;"></span><span class="strut bottom" style="height:1.2930799999999998em;vertical-align:-0.412972em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">&#x3BB;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord"><span class="mord textstyle uncramped"><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span></span><span class="msupsub"><span class="vlist"><span style="top:0.3em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span></span></span><span style="top:-0.36399999999999993em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">&#x3BB;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.276864em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.44489999999999996em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span><span class="msupsub"><span class="vlist"><span style="top:0.143em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord mathit mtight">x</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.258664em;margin-left:-0.02691em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">&#x3BB;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.13889em;">T</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit" style="margin-right:0.02691em;">w</span></span></span></span></p>
+<p>&#x89E3;&#x91CA;&#xFF1A;&#x6240;&#x6709;w&#x53C2;&#x6570;&#x7684;&#x5E73;&#x65B9;&#x548C;&#x7684;&#x7ED3;&#x679C;</p>
+<ul>
+<li>&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x7684;&#x635F;&#x5931;&#x51FD;&#x6570;&#x4E2D;&#x589E;&#x52A0;L1&#x6B63;&#x5219;&#x5316;</li>
+</ul>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi><mo>(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo>)</mo><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mi>m</mi></mrow></mfrac><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><mi>L</mi><mo>(</mo><msup><mover accent="true"><mrow><mi>y</mi></mrow><mo>^</mo></mover><mrow><mo>(</mo><mi>i</mi><mo>)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>y</mi><mrow><mo>(</mo><mi>i</mi><mo>)</mo></mrow></msup><mo>)</mo><mo>+</mo><mfrac><mrow><mi>&#x3BB;</mi></mrow><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><msub><mrow><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi><mi>w</mi><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi></mrow><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">J(w,b) = \frac{1}{m}\sum_{i=1}^mL(\hat{y}^{(i)},y^{(i)}) + \frac{\lambda}{2m}{||w||}_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8879999999999999em;"></span><span class="strut bottom" style="height:1.2329999999999999em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mpunct">,</span><span class="mord mathit">b</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">m</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathit">L</span><span class="mopen">(</span><span class="mord"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span></span></span><span style="top:0em;margin-left:0.11112em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight">i</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mopen mtight">(</span><span class="mord mathit mtight">i</span><span class="mclose mtight">)</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span><span class="mbin">+</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">&#x3BB;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord"><span class="mord textstyle uncramped"><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span></span><span class="msupsub"><span class="vlist"><span style="top:0.3em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></p>
+<p>&#x5176;&#x4E2D;L2&#x8303;&#x6570;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#xFF1A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>&#x3BB;</mi></mrow><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><msub><mrow><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi><mi>w</mi><mi mathvariant="normal">&#x2223;</mi><mi mathvariant="normal">&#x2223;</mi></mrow><mn>1</mn></msub><mo>=</mo><mfrac><mrow><mi>&#x3BB;</mi></mrow><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><msubsup><mo>&#x2211;</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mrow><msub><mi>n</mi><mi>x</mi></msub></mrow></msubsup><mrow><mi mathvariant="normal">&#x2223;</mi><msub><mi>w</mi><mi>j</mi></msub><mi mathvariant="normal">&#x2223;</mi></mrow></mrow><annotation encoding="application/x-tex">\frac{\lambda}{2m}{||w||}_1 = \frac{\lambda}{2m}\sum_{j=1}^{n_x}{|w_j|}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8801079999999999em;"></span><span class="strut bottom" style="height:1.2930799999999998em;vertical-align:-0.412972em;"></span><span class="base textstyle uncramped"><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">&#x3BB;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord"><span class="mord textstyle uncramped"><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mord mathrm">&#x2223;</span><span class="mord mathrm">&#x2223;</span></span><span class="msupsub"><span class="vlist"><span style="top:0.3em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">&#x3BB;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.276864em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.44489999999999996em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mtight"><span class="mord mathit mtight">n</span><span class="msupsub"><span class="vlist"><span style="top:0.143em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord mathit mtight">x</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord textstyle uncramped"><span class="mord mathrm">&#x2223;</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord mathrm">&#x2223;</span></span></span></span></span></p>
+<p>&#x6CE8;&#xFF1A;&#x5176;&#x4E2D;&#xFF0C;&#x3BB; &#x4E3A;&#x6B63;&#x5219;&#x5316;&#x56E0;&#x5B50;&#xFF0C;&#x662F;<strong>&#x8D85;&#x53C2;&#x6570;</strong>&#x3002;&#x7531;&#x4E8E; L1 &#x6B63;&#x5219;&#x5316;&#x6700;&#x540E;&#x5F97;&#x5230; w &#x5411;&#x91CF;&#x4E2D;&#x5C06;&#x5B58;&#x5728;&#x5927;&#x91CF;&#x7684; 0&#xFF0C;&#x4F7F;&#x6A21;&#x578B;&#x53D8;&#x5F97;&#x7A00;&#x758F;&#x5316;&#xFF0C;&#x56E0;&#x6B64; L2 &#x6B63;&#x5219;&#x5316;&#x66F4;&#x52A0;&#x5E38;&#x7528;&#x3002;</p>
+<h4 id="&#x6B63;&#x5219;&#x5316;&#x9879;&#x7684;&#x7406;&#x89E3;">&#x6B63;&#x5219;&#x5316;&#x9879;&#x7684;&#x7406;&#x89E3;</h4>
+<p>&#x5728;&#x635F;&#x5931;&#x51FD;&#x6570;&#x4E2D;&#x589E;&#x52A0;&#x4E00;&#x9879;&#xFF0C;&#x90A3;&#x4E48;&#x5176;&#x5B9E;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x662F;&#x8981;&#x51CF;&#x5C11;&#x635F;&#x5931;&#x51FD;&#x6570;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5BF9;&#x4E8E;L2&#x6216;&#x8005;L1&#x6765;&#x8BB2;&#x90FD;&#x662F;&#x8981;&#x53BB;&#x51CF;&#x5C11;&#x8FD9;&#x4E2A;&#x6B63;&#x5219;&#x9879;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x90A3;&#x4E48;&#x4E5F;&#x5C31;&#x662F;&#x4F1A;&#x51CF;&#x5C11;W&#x6743;&#x91CD;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x8FD9;&#x662F;&#x6211;&#x4EEC;&#x4E00;&#x4E2A;&#x76F4;&#x89C2;&#x4E0A;&#x7684;&#x611F;&#x53D7;&#x3002;</p>
+<ul>
+<li>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x65B9;&#x5411;&#x4F20;&#x64AD;&#x6765;&#x7406;&#x89E3;&#x8FD9;&#x4E2A;&#x5176;&#x4E2D;&#x7684;L2&#xFF0C;&#x5BF9;&#x4E8E;&#x635F;&#x5931;&#x51FD;&#x6570;&#x6211;&#x4EEC;&#x8981;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x6C42;&#x53C2;&#x6570;&#x68AF;&#x5EA6;&#xFF1A;</li>
+</ul>
+<p>(1) <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi><mi>W</mi><mo>=</mo><mfrac><mrow><mi mathvariant="normal">&#x2202;</mi><mi>L</mi></mrow><mrow><mi mathvariant="normal">&#x2202;</mi><mi>w</mi></mrow></mfrac><mo>+</mo><mfrac><mrow><mi>&#x3BB;</mi></mrow><mrow><mi>m</mi></mrow></mfrac><mrow><mi>W</mi></mrow></mrow><annotation encoding="application/x-tex">dW = \frac{\partial L}{\partial w}+ \frac{\lambda}{m} {W}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8801079999999999em;"></span><span class="strut bottom" style="height:1.2251079999999999em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord mathit">d</span><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mrel">=</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight" style="margin-right:0.05556em;">&#x2202;</span><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight" style="margin-right:0.05556em;">&#x2202;</span><span class="mord mathit mtight">L</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mbin">+</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">&#x3BB;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">W</span></span></span></span></span></p>
+<p>&#x524D;&#x9762;&#x7684;&#x9ED8;&#x8BA4;&#x635F;&#x5931;&#x51FD;&#x6570;&#x7684;&#x68AF;&#x5EA6;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x9ED8;&#x8BA4;&#x4E3A;backprop&#xFF0C;&#x90A3;&#x4E48;&#x66F4;&#x65B0;&#x7684;&#x53C2;&#x6570;&#x5C31;&#x4E3A;</p>
+<p>(2) <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mo>:</mo><mo>=</mo><mi>W</mi><mo>&#x2212;</mo><mi>&#x3B1;</mi><mi>d</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">W := W - \alpha dW</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mrel">:</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mbin">&#x2212;</span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="mord mathit">d</span><span class="mord mathit" style="margin-right:0.13889em;">W</span></span></span></span>
+&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C06;&#x7B2C;&#x4E00;&#x4E2A;&#x516C;&#x5F0F;&#x5E26;&#x5165;&#x7B2C;&#x4E8C;&#x4E2A;&#x5F97;&#x5230;</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#x2212;</mo><mo>&#x2212;</mo><mo>&gt;</mo><mi>W</mi><mo>:</mo><mo>=</mo><mi>W</mi><mo>&#x2212;</mo><mi>&#x3B1;</mi><mo>(</mo><mfrac><mrow><mi mathvariant="normal">&#x2202;</mi><mi>L</mi></mrow><mrow><mi mathvariant="normal">&#x2202;</mi><mi>w</mi></mrow></mfrac><mo>+</mo><mfrac><mrow><mi>&#x3BB;</mi></mrow><mrow><mi>m</mi></mrow></mfrac><mi>W</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">--&gt;W := W - \alpha(\frac{\partial L}{\partial w} + \frac{\lambda}{m}W)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8801079999999999em;"></span><span class="strut bottom" style="height:1.2251079999999999em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord">&#x2212;</span><span class="mord">&#x2212;</span><span class="mrel">&gt;</span><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mrel">:</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mbin">&#x2212;</span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="mopen">(</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight" style="margin-right:0.05556em;">&#x2202;</span><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight" style="margin-right:0.05556em;">&#x2202;</span><span class="mord mathit mtight">L</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mbin">+</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight">&#x3BB;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mclose">)</span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>&#x2212;</mo><mo>&#x2212;</mo><mo>&gt;</mo><mo>=</mo><mi>W</mi><mo>&#x2212;</mo><mfrac><mrow><mi>&#x3B1;</mi><mi>&#x3BB;</mi></mrow><mrow><mi>m</mi></mrow></mfrac><mi>W</mi><mo>&#x2212;</mo><mi>&#x3B1;</mi><mo>&#x2217;</mo><mfrac><mrow><mi mathvariant="normal">&#x2202;</mi><mi>L</mi></mrow><mrow><mi mathvariant="normal">&#x2202;</mi><mi>w</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">--&gt;=W - \frac{\alpha \lambda}{m}W - \alpha*\frac{\partial L}{\partial w}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8801079999999999em;"></span><span class="strut bottom" style="height:1.2251079999999999em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord">&#x2212;</span><span class="mord">&#x2212;</span><span class="mrel">&gt;</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mbin">&#x2212;</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.0037em;">&#x3B1;</span><span class="mord mathit mtight">&#x3BB;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mbin">&#x2212;</span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="mbin">&#x2217;</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathrm mtight" style="margin-right:0.05556em;">&#x2202;</span><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight" style="margin-right:0.05556em;">&#x2202;</span><span class="mord mathit mtight">L</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span></span></span></span></p>
+<p>&#x6240;&#x4EE5;&#x6BCF;&#x6B21;&#x66F4;&#x65B0;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x4F1A;&#x8BA9;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>W</mi><mo>(</mo><mn>1</mn><mo>&#x2212;</mo><mfrac><mrow><mi>&#x3B1;</mi><mi>&#x3BB;</mi></mrow><mrow><mi>m</mi></mrow></mfrac><mo>)</mo></mrow><annotation encoding="application/x-tex">W(1 - \frac{\alpha \lambda}{m})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8801079999999999em;"></span><span class="strut bottom" style="height:1.2251079999999999em;vertical-align:-0.345em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mopen">(</span><span class="mord mathrm">1</span><span class="mbin">&#x2212;</span><span class="mord reset-textstyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.345em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">m</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.394em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.0037em;">&#x3B1;</span><span class="mord mathit mtight">&#x3BB;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mclose">)</span></span></span></span>,&#x8FD9;&#x4E2A;&#x7CFB;&#x6570;&#x6C38;&#x8FDC;&#x5C0F;&#x4E8E;1&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x79F0;L2&#x8303;&#x6570;&#x4E3A;<strong>&#x6743;&#x91CD;&#x8870;&#x51CF;</strong>&#x3002;</p>
+<p>FTRL&#x7B97;&#x6CD5;&#x7684;&#x8BBE;&#x8BA1;&#x601D;&#x60F3;&#x5176;&#x5B9E;&#x5E76;&#x4E0D;&#x590D;&#x6742;&#xFF0C;&#x5C31;&#x662F;<strong>&#x6BCF;&#x6B21;&#x627E;&#x5230;&#x8BA9;&#x4E4B;&#x524D;&#x6240;&#x6709;&#x76EE;&#x6807;&#x51FD;&#x6570;&#xFF08;&#x635F;&#x5931;&#x51FD;&#x6570;&#x52A0;&#x6B63;&#x5219;&#x9879;&#xFF09;&#x4E4B;&#x548C;&#x6700;&#x5C0F;&#x7684;&#x53C2;&#x6570;</strong>&#x3002;&#x8BE5;&#x7B97;&#x6CD5;&#x5728;&#x5904;&#x7406;&#x8BF8;&#x5982;&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x4E4B;&#x7C7B;&#x7684;&#x5E26;&#x975E;&#x5149;&#x6ED1;&#x6B63;&#x5219;&#x5316;&#x9879;&#xFF08;&#x5982;L1&#x6B63;&#x5219;&#x9879;&#xFF09;&#x7684;&#x51F8;&#x4F18;&#x5316;&#x95EE;&#x9898;&#x4E0A;&#x8868;&#x73B0;&#x51FA;&#x8272;&#xFF0C;&#x5728;&#x8BA1;&#x7B97;&#x7CBE;&#x5EA6;&#x548C;&#x7279;&#x5F81;&#x7684;&#x7A00;&#x758F;&#x6027;&#x4E0A;&#x505A;&#x5230;&#x4E86;&#x5F88;&#x597D;&#x7684;trade-off&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x5DE5;&#x7A0B;&#x5B9E;&#x73B0;&#x4E0A;&#x505A;&#x4E86;&#x5927;&#x91CF;&#x4F18;&#x5316;&#xFF0C;&#x6027;&#x80FD;&#x4F18;&#x5F02;&#x3002;</p>
+<ul>
+<li><strong>&#x6B63;&#x5219;&#x9879;</strong>&#xFF1A;&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;<strong>&#x76EE;&#x6807;&#x51FD;&#x6570;&#x6DFB;&#x52A0;L1&#x6B63;&#x5219;&#x9879;&#x53EF;&#x589E;&#x52A0;&#x6A21;&#x578B;&#x89E3;&#x7684;&#x7A00;&#x758F;&#x6027;&#xFF0C;&#x6DFB;&#x52A0;L2&#x6B63;&#x5219;&#x9879;&#x6709;&#x5229;&#x4E8E;&#x9632;&#x6B62;&#x6A21;&#x578B;&#x8FC7;&#x62DF;&#x5408;</strong>&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x5C06;&#x4E24;&#x8005;&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#xFF0C;&#x5373;&#x6DF7;&#x5408;&#x6B63;&#x5219;&#xFF0C;FTRL&#x5C31;&#x662F;&#x8FD9;&#x6837;&#x8BBE;&#x8BA1;&#x7684;&#x3002;<ul>
+<li><strong>&#x7A00;&#x758F;&#x6027;</strong>&#xFF1A;&#x6A21;&#x578B;&#x89E3;&#x7684;&#x7A00;&#x758F;&#x6027;&#x5728;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x4E2D;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5728;&#x5DE5;&#x7A0B;&#x5E94;&#x7528;&#x9886;&#x57DF;&#x3002;&#x7A00;&#x758F;&#x7684;&#x6A21;&#x578B;&#x89E3;&#x4F1A;&#x5927;&#x5927;&#x51CF;&#x5C11;&#x9884;&#x6D4B;&#x65F6;&#x7684;&#x5185;&#x5B58;&#x548C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x3002;&#x5E38;&#x7528;&#x7684;&#x7A00;&#x758F;&#x6027;&#x65B9;&#x6CD5;&#x5305;&#x62EC;&#xFF1A;</li>
+</ul>
+</li>
+</ul>
+<h3 id="583-&#x6848;&#x4F8B;&#xFF1A;&#x7F8E;&#x56FD;&#x666E;&#x67E5;&#x6570;&#x636E;ftrl&#x4F7F;&#x7528;">5.8.3 &#x6848;&#x4F8B;&#xFF1A;&#x7F8E;&#x56FD;&#x666E;&#x67E5;&#x6570;&#x636E;-FTRL&#x4F7F;&#x7528;</h3>
+<h4 id="tensorflow-ftrl-&#x8BFB;&#x53D6;&#x8BAD;&#x7EC3;">TensorFlow FTRL &#x8BFB;&#x53D6;&#x8BAD;&#x7EC3;</h4>
+<ul>
+<li>&#x7B97;&#x6CD5;&#x53C2;&#x6570;<ul>
+<li>lambda1&#xFF1A;L1&#x6B63;&#x5219;&#x7CFB;&#x6570;&#xFF0C;&#x53C2;&#x8003;&#x503C;&#xFF1A;10 ~ 15</li>
+<li>lambda2&#xFF1A;L2&#x6B63;&#x5219;&#x7CFB;&#x6570;&#xFF0C;&#x53C2;&#x8003;&#x503C;&#xFF1A;10 ~ 15</li>
+<li>alpha&#xFF1A;FTRL&#x53C2;&#x6570;&#xFF0C;&#x53C2;&#x8003;&#x503C;&#xFF1A;0.1</li>
+<li>beta&#xFF1A;FTRL&#x53C2;&#x6570;&#xFF0C;&#x53C2;&#x8003;&#x503C;&#xFF1A;1.0</li>
+<li>batchSize: mini-batch&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x53C2;&#x8003;&#x503C;&#xFF1A;10000</li>
+</ul>
+</li>
+<li><p>&#x6027;&#x80FD;&#x8BC4;&#x6D4B;</p>
+<ul>
+<li>&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#xFF1A;<ul>
+<li>lambda1 = 15&#xFF0C;lambda2 = 15&#xFF0C; alpha = 0.1&#xFF0C; beta = 1.0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>&#x4F7F;&#x7528;FTRL&#x7B97;&#x6CD5;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;</p>
+</li>
+</ul>
+<pre><code class="lang-python">classifiry = tf.estimator.LinearClassifier(feature_columns=feature_cl,
+                                               optimizer=tf.train.FtrlOptimizer(
+                                                   learning_rate=<span class="hljs-number">0.01</span>,
+                                                   l1_regularization_strength=<span class="hljs-number">10</span>,
+                                                   l2_regularization_strength=<span class="hljs-number">15</span>,
+                                               ))
+</code></pre>
+<p>&#x4F46;&#x662F;&#x4F1A;&#x53D1;&#x73B0;&#xFF0C;&#x52A0;&#x4E0A;&#x6B63;&#x5219;&#x5316;&#x4E4B;&#x540E;&#x6548;&#x679C;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x5F97;&#x5230;&#x663E;&#x8457;&#x63D0;&#x5347;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x5728;&#x4E8E;FTRL&#x66F4;&#x9002;&#x5408;&#x5927;&#x91CF;&#x7684;&#x7A00;&#x758F;&#x7279;&#x5F81;&#x548C;&#x5927;&#x91CF;&#x6570;&#x636E;&#x573A;&#x666F;&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>baseline</th>
+<th>Feature intersection</th>
+<th>FTRL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accuracy</td>
+<td>0.8323813</td>
+<td>0.8401818</td>
+<td>0.8191143</td>
+</tr>
+<tr>
+<td>auc</td>
+<td>0.87850624</td>
+<td>0.89078486</td>
+<td>0.8677618</td>
+</tr>
+</tbody>
+</table>
+<h3 id="584-&#x9ED1;&#x9A6C;&#x79BB;&#x7EBF;&#x6570;&#x636E;&#x8BAD;&#x7EC3;ftrl&#x6A21;&#x578B;">5.8.4 &#x9ED1;&#x9A6C;&#x79BB;&#x7EBF;&#x6570;&#x636E;&#x8BAD;&#x7EC3;FTRL&#x6A21;&#x578B;</h3>
+<ul>
+<li>&#x76EE;&#x7684;&#xFF1A;&#x901A;&#x8FC7;&#x79BB;&#x7EBF;TFRecords&#x6837;&#x672C;&#x6570;&#x636E;&#xFF0C;&#x8BAD;&#x7EC3;FTRL&#x6A21;&#x578B;</li>
+<li>&#x6B65;&#x9AA4;&#xFF1A;<ul>
+<li>1&#x3001;&#x6784;&#x5EFA;TFRecords&#x7684;&#x8F93;&#x5165;&#x6570;&#x636E;</li>
+<li>2&#x3001;&#x4F7F;&#x7528;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x7279;&#x5F81;&#x5217;&#x6307;&#x5B9A;</li>
+<li>3&#x3001;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x4EE5;&#x53CA;&#x9884;&#x4F30;</li>
+</ul>
+</li>
+</ul>
+<p><strong>1&#x3001;&#x6784;&#x5EFA;TFRecords&#x7684;&#x8F93;&#x5165;&#x6570;&#x636E;</strong></p>
+<ul>
+<li>feature: 121&#x5217;&#x503C;&#xFF0C;1channel_id, 100 vector, 10user_weights, 10 article_weights<ul>
+<li>(1)&#x7ED9;&#x6BCF;&#x4E2A;&#x503C;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;</li>
+<li>(2)&#x540E;&#x9762;&#x4E09;&#x79CD;&#xFF0C;&#x8BA1;&#x7B97;&#x5E73;&#x5747;&#x503C;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x7279;&#x5F81;(&#x5C11;&#x91CF;&#x4EE3;&#x7801;)</li>
+</ul>
+</li>
+<li>&#x89E3;&#x6790;example:tf.parse_single_example(example_proto, features)<ul>
+<li>features = {
+&quot;label&quot;: tf.FixedLenFeature([], tf.int64),
+&quot;feature&quot;: tf.FixedLenFeature([], tf.string)
+}</li>
+<li>&#x9488;&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x6837;&#x672C;&#x6307;&#x5B9A;&#xFF0C;string&#x7C7B;&#x578B;&#x9700;&#x8981;&#x89E3;&#x6790;</li>
+<li>tf.decode_raw(parsed_features[&apos;feature&apos;], tf.float64)</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python">FEATURE_COLUMNS = [<span class="hljs-string">&apos;channel_id&apos;</span>, <span class="hljs-string">&apos;vector&apos;</span>, <span class="hljs-string">&apos;user_weigths&apos;</span>, <span class="hljs-string">&apos;article_weights&apos;</span>]
+
+
+<span class="hljs-decorator">@staticmethod</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_ctr_records</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># &#x5B9A;&#x4E49;&#x8F6C;&#x6362;&#x51FD;&#x6570;,&#x8F93;&#x5165;&#x65F6;&#x5E8F;&#x5217;&#x5316;&#x7684;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse_tfrecords_function</span><span class="hljs-params">(example_proto)</span>:</span>
+        features = {
+            <span class="hljs-string">&quot;label&quot;</span>: tf.FixedLenFeature([], tf.int64),
+            <span class="hljs-string">&quot;feature&quot;</span>: tf.FixedLenFeature([], tf.string)
+        }
+        parsed_features = tf.parse_single_example(example_proto, features)
+
+        feature = tf.decode_raw(parsed_features[<span class="hljs-string">&apos;feature&apos;</span>], tf.float64)
+        feature = tf.reshape(tf.cast(feature, tf.float32), [<span class="hljs-number">1</span>, <span class="hljs-number">121</span>])
+        <span class="hljs-comment"># &#x7279;&#x5F81;&#x987A;&#x5E8F; 1 channel_id,  100 article_vector, 10 user_weights, 10 article_weights</span>
+        <span class="hljs-comment"># 1 channel_id&#x7C7B;&#x522B;&#x578B;&#x7279;&#x5F81;&#xFF0C; 100&#x7EF4;&#x6587;&#x7AE0;&#x5411;&#x91CF;&#x6C42;&#x5E73;&#x5747;&#x503C;&#x5F53;&#x8FDE;&#x7EED;&#x7279;&#x5F81;&#xFF0C;10&#x7EF4;&#x7528;&#x6237;&#x6743;&#x91CD;&#x6C42;&#x5E73;&#x5747;&#x503C;&#x5F53;&#x8FDE;&#x7EED;&#x7279;&#x5F81;</span>
+        channel_id = tf.cast(tf.slice(feature, [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]), tf.int32)
+        vector = tf.reduce_sum(tf.slice(feature, [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">100</span>]), axis=<span class="hljs-number">1</span>)
+        user_weights = tf.reduce_sum(tf.slice(feature, [<span class="hljs-number">0</span>, <span class="hljs-number">101</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">10</span>]), axis=<span class="hljs-number">1</span>)
+        article_weights = tf.reduce_sum(tf.slice(feature, [<span class="hljs-number">0</span>, <span class="hljs-number">111</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">10</span>]), axis=<span class="hljs-number">1</span>)
+
+        label = tf.cast(parsed_features[<span class="hljs-string">&apos;label&apos;</span>], tf.float32)
+
+        <span class="hljs-comment"># &#x6784;&#x9020;&#x5B57;&#x5178; &#x540D;&#x79F0;-tensor</span>
+        tensor_list = [channel_id, vector, user_weights, article_weights]
+
+        feature_dict = dict(zip(FEATURE_COLUMNS, tensor_list))
+
+        <span class="hljs-keyword">return</span> feature_dict, label
+
+    dataset = tf.data.TFRecordDataset([<span class="hljs-string">&quot;./train_ctr_20190605.tfrecords&quot;</span>])
+    dataset = dataset.map(parse_tfrecords_function)
+    dataset = dataset.batch(<span class="hljs-number">64</span>)
+    dataset = dataset.repeat(<span class="hljs-number">10</span>)
+    <span class="hljs-keyword">return</span> dataset
+</code></pre>
+<p>2&#x3001;&#x4F7F;&#x7528;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x7279;&#x5F81;&#x5217;&#x6307;&#x5B9A;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">train_eval</span><span class="hljs-params">(self)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x8BAD;&#x7EC3;&#x6A21;&#x578B;
+    :return:
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment"># &#x79BB;&#x6563;&#x5206;&#x7C7B;</span>
+    article_id = tf.feature_column.categorical_column_with_identity(<span class="hljs-string">&apos;channel_id&apos;</span>, num_buckets=<span class="hljs-number">25</span>)
+    <span class="hljs-comment"># &#x8FDE;&#x7EED;&#x7C7B;&#x578B;</span>
+    vector = tf.feature_column.numeric_column(<span class="hljs-string">&apos;vector&apos;</span>)
+    user_weigths = tf.feature_column.numeric_column(<span class="hljs-string">&apos;user_weigths&apos;</span>)
+    article_weights = tf.feature_column.numeric_column(<span class="hljs-string">&apos;article_weights&apos;</span>)
+
+    feature_columns = [article_id, vector, user_weigths, article_weights]
+</code></pre>
+<p>3&#x3001;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x4EE5;&#x53CA;&#x9884;&#x4F30;</p>
+<pre><code class="lang-python">classifiry = tf.estimator.LinearClassifier(feature_columns=feature_columns,
+                                           optimizer=tf.train.FtrlOptimizer(learning_rate=<span class="hljs-number">0.1</span>,
+                                                                            l1_regularization_strength=<span class="hljs-number">10</span>,
+                                                                            l2_regularization_strength=<span class="hljs-number">10</span>))
+classifiry.train(LrWithFtrl.read_ctr_records, steps=<span class="hljs-number">10000</span>)
+result = classifiry.evaluate(LrWithFtrl.read_ctr_records)
+print(result)
+</code></pre>
+<p>&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf
+
+FEATURE_COLUMNS = [<span class="hljs-string">&apos;channel_id&apos;</span>, <span class="hljs-string">&apos;vector&apos;</span>, <span class="hljs-string">&apos;user_weigths&apos;</span>, <span class="hljs-string">&apos;article_weights&apos;</span>]
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LrWithFtrl</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;LR&#x4EE5;FTRL&#x65B9;&#x5F0F;&#x4F18;&#x5316;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-decorator">    @staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_ctr_records</span><span class="hljs-params">()</span>:</span>
+        <span class="hljs-comment"># &#x5B9A;&#x4E49;&#x8F6C;&#x6362;&#x51FD;&#x6570;,&#x8F93;&#x5165;&#x65F6;&#x5E8F;&#x5217;&#x5316;&#x7684;</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse_tfrecords_function</span><span class="hljs-params">(example_proto)</span>:</span>
+            features = {
+                <span class="hljs-string">&quot;label&quot;</span>: tf.FixedLenFeature([], tf.int64),
+                <span class="hljs-string">&quot;feature&quot;</span>: tf.FixedLenFeature([], tf.string)
+            }
+            parsed_features = tf.parse_single_example(example_proto, features)
+
+            feature = tf.decode_raw(parsed_features[<span class="hljs-string">&apos;feature&apos;</span>], tf.float64)
+            feature = tf.reshape(tf.cast(feature, tf.float32), [<span class="hljs-number">1</span>, <span class="hljs-number">121</span>])
+            <span class="hljs-comment"># &#x7279;&#x5F81;&#x987A;&#x5E8F; 1 channel_id,  100 article_vector, 10 user_weights, 10 article_weights</span>
+            <span class="hljs-comment"># 1 channel_id&#x7C7B;&#x522B;&#x578B;&#x7279;&#x5F81;&#xFF0C; 100&#x7EF4;&#x6587;&#x7AE0;&#x5411;&#x91CF;&#x6C42;&#x5E73;&#x5747;&#x503C;&#x5F53;&#x8FDE;&#x7EED;&#x7279;&#x5F81;&#xFF0C;10&#x7EF4;&#x7528;&#x6237;&#x6743;&#x91CD;&#x6C42;&#x5E73;&#x5747;&#x503C;&#x5F53;&#x8FDE;&#x7EED;&#x7279;&#x5F81;</span>
+            channel_id = tf.cast(tf.slice(feature, [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>]), tf.int32)
+            vector = tf.reduce_sum(tf.slice(feature, [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">100</span>]), axis=<span class="hljs-number">1</span>)
+            user_weights = tf.reduce_sum(tf.slice(feature, [<span class="hljs-number">0</span>, <span class="hljs-number">101</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">10</span>]), axis=<span class="hljs-number">1</span>)
+            article_weights = tf.reduce_sum(tf.slice(feature, [<span class="hljs-number">0</span>, <span class="hljs-number">111</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">10</span>]), axis=<span class="hljs-number">1</span>)
+
+            label = tf.cast(parsed_features[<span class="hljs-string">&apos;label&apos;</span>], tf.float32)
+
+            <span class="hljs-comment"># &#x6784;&#x9020;&#x5B57;&#x5178; &#x540D;&#x79F0;-tensor</span>
+            tensor_list = [channel_id, vector, user_weights, article_weights]
+
+            feature_dict = dict(zip(FEATURE_COLUMNS, tensor_list))
+
+            <span class="hljs-keyword">return</span> feature_dict, label
+
+        dataset = tf.data.TFRecordDataset([<span class="hljs-string">&quot;./train_ctr_20190605.tfrecords&quot;</span>])
+        dataset = dataset.map(parse_tfrecords_function)
+        dataset = dataset.batch(<span class="hljs-number">64</span>)
+        dataset = dataset.repeat(<span class="hljs-number">10</span>)
+        <span class="hljs-keyword">return</span> dataset
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">train_eval</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x8BAD;&#x7EC3;&#x6A21;&#x578B;
+        :return:
+        &quot;&quot;&quot;</span>
+        <span class="hljs-comment"># &#x79BB;&#x6563;&#x5206;&#x7C7B;</span>
+        article_id = tf.feature_column.categorical_column_with_identity(<span class="hljs-string">&apos;channel_id&apos;</span>, num_buckets=<span class="hljs-number">25</span>)
+        <span class="hljs-comment"># &#x8FDE;&#x7EED;&#x7C7B;&#x578B;</span>
+        vector = tf.feature_column.numeric_column(<span class="hljs-string">&apos;vector&apos;</span>)
+        user_weigths = tf.feature_column.numeric_column(<span class="hljs-string">&apos;user_weigths&apos;</span>)
+        article_weights = tf.feature_column.numeric_column(<span class="hljs-string">&apos;article_weights&apos;</span>)
+
+        feature_columns = [article_id, vector, user_weigths, article_weights]
+
+        classifiry = tf.estimator.LinearClassifier(feature_columns=feature_columns,
+                                                   optimizer=tf.train.FtrlOptimizer(learning_rate=<span class="hljs-number">0.1</span>,
+                                                                                    l1_regularization_strength=<span class="hljs-number">10</span>,
+                                                                                    l2_regularization_strength=<span class="hljs-number">10</span>))
+        classifiry.train(LrWithFtrl.read_ctr_records, steps=<span class="hljs-number">10000</span>)
+        result = classifiry.evaluate(LrWithFtrl.read_ctr_records)
+        print(result)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    lwf = LrWithFtrl()
+    lwf.train_eval()
+</code></pre>
+<p><strong>&#x62D3;&#x5C55;&#xFF1A;</strong></p>
+<p>keras&#x7248;&#x672C;&#x4EE3;&#x7801;&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf
+<span class="hljs-keyword">from</span> tensorflow.python <span class="hljs-keyword">import</span> keras
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LrWithFtrl</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;LR&#x4EE5;FTRL&#x65B9;&#x5F0F;&#x4F18;&#x5316;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.model = keras.Sequential([
+            keras.layers.Dense(<span class="hljs-number">1</span>, activation=<span class="hljs-string">&apos;sigmoid&apos;</span>, input_shape=(<span class="hljs-number">121</span>,))
+        ])
+
+<span class="hljs-decorator">    @staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">read_ctr_records</span><span class="hljs-params">()</span>:</span>
+        <span class="hljs-comment"># &#x5B9A;&#x4E49;&#x8F6C;&#x6362;&#x51FD;&#x6570;,&#x8F93;&#x5165;&#x65F6;&#x5E8F;&#x5217;&#x5316;&#x7684;</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse_tfrecords_function</span><span class="hljs-params">(example_proto)</span>:</span>
+            features = {
+                <span class="hljs-string">&quot;label&quot;</span>: tf.FixedLenFeature([], tf.int64),
+                <span class="hljs-string">&quot;feature&quot;</span>: tf.FixedLenFeature([], tf.string)
+            }
+            parsed_features = tf.parse_single_example(example_proto, features)
+
+            feature = tf.decode_raw(parsed_features[<span class="hljs-string">&apos;feature&apos;</span>], tf.float64)
+            feature = tf.reshape(tf.cast(feature, tf.float32), [<span class="hljs-number">1</span>, <span class="hljs-number">121</span>])
+            label = tf.reshape(tf.cast(parsed_features[<span class="hljs-string">&apos;label&apos;</span>], tf.float32), [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>])
+            <span class="hljs-keyword">return</span> feature, label
+
+        dataset = tf.data.TFRecordDataset([<span class="hljs-string">&quot;./train_ctr_201904.tfrecords&quot;</span>])
+        dataset = dataset.map(parse_tfrecords_function)
+        dataset = dataset.shuffle(buffer_size=<span class="hljs-number">10000</span>)
+        dataset = dataset.repeat(<span class="hljs-number">10000</span>)
+        <span class="hljs-keyword">return</span> dataset
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">train</span><span class="hljs-params">(self, dataset)</span>:</span>
+
+        self.model.compile(optimizer=tf.train.FtrlOptimizer(<span class="hljs-number">0.03</span>, l1_regularization_strength=<span class="hljs-number">0.01</span>,
+                                                            l2_regularization_strength=<span class="hljs-number">0.01</span>),
+                           loss=<span class="hljs-string">&apos;binary_crossentropy&apos;</span>,
+                           metrics=[<span class="hljs-string">&apos;binary_accuracy&apos;</span>])
+        self.model.fit(dataset, steps_per_epoch=<span class="hljs-number">10000</span>, epochs=<span class="hljs-number">10</span>)
+        self.model.summary()
+        self.model.save_weights(<span class="hljs-string">&apos;./ckpt/ctr_lr_ftrl.h5&apos;</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">predict</span><span class="hljs-params">(self, inputs)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;&#x9884;&#x6D4B;
+        :return:
+        &quot;&quot;&quot;</span>
+        <span class="hljs-comment"># &#x9996;&#x5148;&#x52A0;&#x8F7D;&#x6A21;&#x578B;</span>
+        self.model.load_weights(<span class="hljs-string">&apos;/root/toutiao_project/reco_sys/offline/models/ckpt/ctr_lr_ftrl.h5&apos;</span>)
+        init = tf.global_variables_initializer()
+
+        <span class="hljs-keyword">with</span> tf.Session() <span class="hljs-keyword">as</span> sess:
+            sess.run(init)
+            predictions = self.model.predict(sess.run(inputs))
+        <span class="hljs-keyword">return</span> predictions
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    lwf = LrWithFtrl()
+    dataset = lwf.read_ctr_records()
+    inputs, labels = dataset.make_one_shot_iterator().get_next()
+    print(inputs, labels)
+    lwf.predict(inputs)
+</code></pre>
+<h3 id="&#x5728;&#x7EBF;&#x9884;&#x6D4B;">&#x5728;&#x7EBF;&#x9884;&#x6D4B;</h3>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">lrftrl_sort_service</span><span class="hljs-params">(reco_set, temp, hbu)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x6392;&#x5E8F;&#x8FD4;&#x56DE;&#x63A8;&#x8350;&#x6587;&#x7AE0;
+    :param reco_set:&#x53EC;&#x56DE;&#x5408;&#x5E76;&#x8FC7;&#x6EE4;&#x540E;&#x7684;&#x7ED3;&#x679C;
+    :param temp: &#x53C2;&#x6570;
+    :param hbu: Hbase&#x5DE5;&#x5177;
+    :return:
+    &quot;&quot;&quot;</span>
+    print(<span class="hljs-number">344565</span>)
+    <span class="hljs-comment"># &#x6392;&#x5E8F;</span>
+    <span class="hljs-comment"># 1&#x3001;&#x8BFB;&#x53D6;&#x7528;&#x6237;&#x7279;&#x5F81;&#x4E2D;&#x5FC3;&#x7279;&#x5F81;</span>
+    <span class="hljs-keyword">try</span>:
+        user_feature = eval(hbu.get_table_row(<span class="hljs-string">&apos;ctr_feature_user&apos;</span>,
+                                              <span class="hljs-string">&apos;{}&apos;</span>.format(temp.user_id).encode(),
+                                              <span class="hljs-string">&apos;channel:{}&apos;</span>.format(temp.channel_id).encode()))
+        logger.info(<span class="hljs-string">&quot;{} INFO get user user_id:{} channel:{} profile data&quot;</span>.format(
+            datetime.now().strftime(<span class="hljs-string">&apos;%Y-%m-%d %H:%M:%S&apos;</span>), temp.user_id, temp.channel_id))
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        user_feature = []
+        logger.info(<span class="hljs-string">&quot;{} WARN get user user_id:{} channel:{} profile data failed&quot;</span>.format(
+            datetime.now().strftime(<span class="hljs-string">&apos;%Y-%m-%d %H:%M:%S&apos;</span>), temp.user_id, temp.channel_id))
+    reco_set = [<span class="hljs-number">13295</span>, <span class="hljs-number">44020</span>, <span class="hljs-number">14335</span>, <span class="hljs-number">4402</span>, <span class="hljs-number">2</span>, <span class="hljs-number">14839</span>, <span class="hljs-number">44024</span>, <span class="hljs-number">18427</span>, <span class="hljs-number">43997</span>, <span class="hljs-number">17375</span>]
+    <span class="hljs-keyword">if</span> user_feature <span class="hljs-keyword">and</span> reco_set:
+        <span class="hljs-comment"># 2&#x3001;&#x8BFB;&#x53D6;&#x6587;&#x7AE0;&#x7279;&#x5F81;&#x4E2D;&#x5FC3;&#x7279;&#x5F81;</span>
+        result = []
+        <span class="hljs-keyword">for</span> article_id <span class="hljs-keyword">in</span> reco_set:
+            <span class="hljs-keyword">try</span>:
+                article_feature = eval(hbu.get_table_row(<span class="hljs-string">&apos;ctr_feature_article&apos;</span>,
+                                                         <span class="hljs-string">&apos;{}&apos;</span>.format(article_id).encode(),
+                                                         <span class="hljs-string">&apos;article:{}&apos;</span>.format(article_id).encode()))
+            <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+                article_feature = []
+
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> article_feature:
+                article_feature = [<span class="hljs-number">0.0</span>] * <span class="hljs-number">111</span>
+            f = []
+            f.extend(user_feature)
+            f.extend(article_feature)
+
+            result.append(f)
+
+        <span class="hljs-comment"># 4&#x3001;&#x9884;&#x6D4B;&#x5E76;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x662F;&#x7B5B;&#x9009;</span>
+        arr = np.array(result)
+
+        <span class="hljs-comment"># &#x52A0;&#x8F7D;&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x6A21;&#x578B;</span>
+        lwf = LrWithFtrl()
+        print(tf.convert_to_tensor(np.reshape(arr, [len(reco_set), <span class="hljs-number">121</span>])))
+        predictions = lwf.predict(tf.constant(arr))
+
+        df = pd.DataFrame(np.concatenate((np.array(reco_set).reshape(len(reco_set), <span class="hljs-number">1</span>), predictions),
+                                          axis=<span class="hljs-number">1</span>),
+                          columns=[<span class="hljs-string">&apos;article_id&apos;</span>, <span class="hljs-string">&apos;prob&apos;</span>])
+
+        df_sort = df.sort_values(by=[<span class="hljs-string">&apos;prob&apos;</span>], ascending=<span class="hljs-keyword">True</span>)
+
+        <span class="hljs-comment"># &#x6392;&#x5E8F;&#x540E;&#xFF0C;&#x53EA;&#x5C06;&#x6392;&#x540D;&#x5728;&#x524D;100&#x4E2A;&#x6587;&#x7AE0;ID&#x8FD4;&#x56DE;&#x7ED9;&#x7528;&#x6237;&#x63A8;&#x8350;</span>
+        <span class="hljs-keyword">if</span> len(df_sort) &gt; <span class="hljs-number">100</span>:
+            reco_set = list(df_sort.iloc[:<span class="hljs-number">100</span>, <span class="hljs-number">0</span>])
+        reco_set = list(df_sort.iloc[:, <span class="hljs-number">0</span>])
+
+    <span class="hljs-keyword">return</span> reco_set
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../day07/section6.html" class="navigation navigation-prev " aria-label="Previous page: 分桶与特征交叉"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../day07/section8.html" class="navigation navigation-next " aria-label="Next page: 黑马排序模型进阶-Wide&amp;Deep"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"katex":{},"expandable-chapters-small":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

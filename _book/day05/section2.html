@@ -1,0 +1,1382 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>深度学习应用简介 | 黑马头条推荐系统项目课程定位、目标</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../day06/index.html" />
+    
+    
+    <link rel="prev" href="../day05/section1.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="6.2"
+        data-chapter-title="深度学习应用简介"
+        data-filepath="day05/section2.md"
+        data-basepath=".."
+        data-revision="Wed Jun 05 2019 18:41:21 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        黑马头条推荐系统项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="reco/index.html">
+            
+                
+                    <a href="../reco/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        黑马头条推荐架构介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="reco/section1.html">
+            
+                
+                    <a href="../reco/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        头条推荐架构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="reco/section2.html">
+            
+                
+                    <a href="../reco/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        开发环境介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="day01/index.html">
+            
+                
+                    <a href="../day01/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        离线计算更新文章画像
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="day01/section0.html">
+            
+                
+                    <a href="../day01/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        数据库迁移
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="day01/section1.html">
+            
+                
+                    <a href="../day01/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        用户行为收集到HIVE
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="day01/section2.html">
+            
+                
+                    <a href="../day01/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        离线画像业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="day01/section3.html">
+            
+                
+                    <a href="../day01/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        离线文章画像计算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="day01/section4.html">
+            
+                
+                    <a href="../day01/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        离线增量画像更新代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="day01/section5.html">
+            
+                
+                    <a href="../day01/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Apscheduler定时更新文章画像
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="day01/section6.html">
+            
+                
+                    <a href="../day01/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Word2Vec与文章相似度
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="day01/section7.html">
+            
+                
+                    <a href="../day01/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        文章相似度增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="day01/section8.html">
+            
+                
+                    <a href="../day01/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="day01/section9.html">
+            
+                
+                    <a href="../day01/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="day02/index.html">
+            
+                
+                    <a href="../day02/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        离线用户画像更新与召回排序计算
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="day02/section1.html">
+            
+                
+                    <a href="../day02/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        用户画像逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="day02/section2.html">
+            
+                
+                    <a href="../day02/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        用户画像增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="day02/section3.html">
+            
+                
+                    <a href="../day02/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        离线召回与排序介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="day02/section4.html">
+            
+                
+                    <a href="../day02/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        离线用户基于模型召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="day02/section5.html">
+            
+                
+                    <a href="../day02/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        离线用户基于内容召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="day02/section6.html">
+            
+                
+                    <a href="../day02/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        离线用户召回定时更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="day02/section7.html">
+            
+                
+                    <a href="../day02/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        离线排序模型训练基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="day02/section8.html">
+            
+                
+                    <a href="../day02/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        离线ctr特征中心更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="day02/section9.html">
+            
+                
+                    <a href="../day02/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="day02/section10.html">
+            
+                
+                    <a href="../day02/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="day03/index.html">
+            
+                
+                    <a href="../day03/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        实时计算业务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="day03/section0.html">
+            
+                
+                    <a href="../day03/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        实时计算业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="day03/section1.html">
+            
+                
+                    <a href="../day03/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        实时日志分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="day03/section2.html">
+            
+                
+                    <a href="../day03/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        实时召回集业务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="day03/section3.html">
+            
+                
+                    <a href="../day03/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        热门与新文章召回
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="day03/section4.html">
+            
+                
+                    <a href="../day03/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="day03/section5.html">
+            
+                
+                    <a href="../day03/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="day04/index.html">
+            
+                
+                    <a href="../day04/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        推荐业务流实现与ABTest
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="day04/section0.html">
+            
+                
+                    <a href="../day04/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        实时推荐业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="day04/section1.html">
+            
+                
+                    <a href="../day04/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        grpc接口对接
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="day04/section2.html">
+            
+                
+                    <a href="../day04/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        ABTest实验中心
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="day04/section3.html">
+            
+                
+                    <a href="../day04/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        推荐中心逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="day04/section4.html">
+            
+                
+                    <a href="../day04/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        召回集读取服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="day04/section5.html">
+            
+                
+                    <a href="../day04/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        推荐缓存服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="day04/section6.html">
+            
+                
+                    <a href="../day04/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        排序模型在线预测
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="day04/section7.html">
+            
+                
+                    <a href="../day04/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="day04/section8.html">
+            
+                
+                    <a href="../day04/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="day05/index.html">
+            
+                
+                    <a href="../day05/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        深度学习与推荐系统
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="day05/section1.html">
+            
+                
+                    <a href="../day05/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        推荐系统的深度学习关联
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="6.2" data-path="day05/section2.html">
+            
+                
+                    <a href="../day05/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        深度学习应用简介
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="day06/index.html">
+            
+                
+                    <a href="../day06/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        TensorFlow框架介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="day06/section1.html">
+            
+                
+                    <a href="../day06/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        TF数据流图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="day06/section2.html">
+            
+                
+                    <a href="../day06/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        图与TensorBoard
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="day06/section3.html">
+            
+                
+                    <a href="../day06/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        会话、张量、变量OP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="day06/section4.html">
+            
+                
+                    <a href="../day06/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        案例：TensorFlow实现线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="day06/section5.html">
+            
+                
+                    <a href="../day06/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        TFAPI使用2.0建议
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.6" data-path="day06/section6.html">
+            
+                
+                    <a href="../day06/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                        tf.estimator使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.7" data-path="day06/section7.html">
+            
+                
+                    <a href="../day06/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.8" data-path="day06/section8.html">
+            
+                
+                    <a href="../day06/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="day07/index.html">
+            
+                
+                    <a href="../day07/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        黑马头条排序模型进阶
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="day07/section1.html">
+            
+                
+                    <a href="../day07/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        神经网络基础与原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="day07/section2.html">
+            
+                
+                    <a href="../day07/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        tf.data与tf.feature_column
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="day07/section3.html">
+            
+                
+                    <a href="../day07/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        案例：DNN文本分类与word2vec原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="day07/section4.html">
+            
+                
+                    <a href="../day07/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        TFRecords与黑马训练数据存储
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="day07/section5.html">
+            
+                
+                    <a href="../day07/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        深度学习与排序模型发展
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="day07/section6.html">
+            
+                
+                    <a href="../day07/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        分桶与特征交叉
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="day07/section7.html">
+            
+                
+                    <a href="../day07/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        黑马排序模型进阶-FTRL on Tensorflow
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="day07/section8.html">
+            
+                
+                    <a href="../day07/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        黑马排序模型进阶-Wide&amp;Deep
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" data-path="day07/section9.html">
+            
+                
+                    <a href="../day07/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                        WDL模型导出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" data-path="day07/section10.html">
+            
+                
+                    <a href="../day07/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.</b>
+                        
+                        TensorFlow Serving模型部署
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.11" data-path="day07/section11.html">
+            
+                
+                    <a href="../day07/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.11.</b>
+                        
+                        排序模型在线测试
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12" data-path="day07/section12.html">
+            
+                
+                    <a href="../day07/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.12.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13" data-path="day07/section13.html">
+            
+                
+                    <a href="../day07/section13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.13.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >黑马头条推荐系统项目课程定位、目标</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="62-&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x5E94;&#x7528;&#x7B80;&#x4ECB;">6.2 &#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x5E94;&#x7528;&#x7B80;&#x4ECB;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x76EE;&#x6807;<ul>
+<li>&#x65E0;</li>
+</ul>
+</li>
+<li>&#x5E94;&#x7528;<ul>
+<li>&#x65E0;</li>
+</ul>
+</li>
+</ul>
+<h2 id="621-&#x533A;&#x522B;">6.2.1 &#x533A;&#x522B;</h2>
+<p><img src="../images/%E5%8C%BA%E5%88%AB.png" alt="&#x533A;&#x522B;"></p>
+<p><strong>&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x65B9;&#x9762;</strong></p>
+<ul>
+<li>&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7684;<strong>&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x6B65;&#x9AA4;&#x662F;&#x8981;&#x9760;&#x624B;&#x52A8;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x800C;&#x4E14;&#x9700;&#x8981;&#x5927;&#x91CF;&#x9886;&#x57DF;&#x4E13;&#x4E1A;&#x77E5;&#x8BC6;</strong></li>
+<li>&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;<strong>&#x901A;&#x5E38;&#x7531;&#x591A;&#x4E2A;&#x5C42;&#x7EC4;&#x6210;&#xFF0C;&#x5B83;&#x4EEC;&#x901A;&#x5E38;&#x5C06;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x6A21;&#x578B;&#x7EC4;&#x5408;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x901A;&#x8FC7;&#x5C06;&#x6570;&#x636E;&#x4ECE;&#x4E00;&#x5C42;&#x4F20;&#x9012;&#x5230;&#x53E6;&#x4E00;&#x5C42;&#x6765;&#x6784;&#x5EFA;&#x66F4;&#x590D;&#x6742;&#x7684;&#x6A21;&#x578B;&#x3002;&#x901A;&#x8FC7;&#x5927;&#x91CF;&#x6570;&#x636E;&#x7684;&#x8BAD;&#x7EC3;&#x81EA;&#x52A8;&#x5F97;&#x5230;&#x6A21;&#x578B;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x4EBA;&#x5DE5;&#x8BBE;&#x8BA1;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x73AF;&#x8282;</strong>&#x3002;</li>
+</ul>
+<blockquote>
+<p>&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x8BD5;&#x56FE;&#x4ECE;&#x6570;&#x636E;&#x4E2D;&#x5B66;&#x4E60;&#x9AD8;&#x7EA7;&#x529F;&#x80FD;&#xFF0C;&#x8FD9;&#x662F;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x7684;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x72EC;&#x7279;&#x7684;&#x90E8;&#x5206;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x51CF;&#x5C11;&#x4E86;&#x4E3A;&#x6BCF;&#x4E2A;&#x95EE;&#x9898;&#x5F00;&#x53D1;&#x65B0;&#x7279;&#x5F81;&#x63D0;&#x53D6;&#x5668;&#x7684;&#x4EFB;&#x52A1;&#x3002;<strong>&#x9002;&#x5408;&#x7528;&#x5728;&#x96BE;&#x63D0;&#x53D6;&#x7279;&#x5F81;&#x7684;&#x56FE;&#x50CF;&#x3001;&#x8BED;&#x97F3;&#x3001;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x9886;&#x57DF;</strong> </p>
+</blockquote>
+<p><strong>&#x6570;&#x636E;&#x91CF;</strong></p>
+<p>&#x673A;&#x5668;&#x5B66;&#x4E60;&#x9700;&#x8981;&#x7684;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x8FDC;&#x5C11;&#x4E8E;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#xFF0C;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x53C2;&#x6570;&#x5F80;&#x5F80;&#x5F88;&#x5E9E;&#x5927;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x5927;&#x91CF;&#x6570;&#x636E;&#x7684;&#x591A;&#x6B21;&#x4F18;&#x5316;&#x6765;&#x8BAD;&#x7EC3;&#x53C2;&#x6570;&#x3002; </p>
+<p><img src="../images/%E6%95%B0%E6%8D%AE%E9%87%8F.png" alt="&#x6570;&#x636E;&#x91CF;"></p>
+<blockquote>
+<p>&#x7B2C;&#x4E00;&#x3001;&#x5B83;&#x4EEC;&#x9700;&#x8981;&#x5927;&#x91CF;&#x7684;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x96C6;</p>
+<p>&#x7B2C;&#x4E8C;&#x3001;&#x662F;&#x8BAD;&#x7EC3;&#x6DF1;&#x5EA6;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x9700;&#x8981;&#x5927;&#x91CF;&#x7684;&#x7B97;&#x529B;</p>
+<p>&#x53EF;&#x80FD;&#x8981;&#x82B1;&#x8D39;&#x6570;&#x5929;&#x3001;&#x751A;&#x81F3;&#x6570;&#x5468;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x624D;&#x80FD;&#x4F7F;&#x7528;&#x6570;&#x767E;&#x4E07;&#x5F20;&#x56FE;&#x50CF;&#x7684;&#x6570;&#x636E;&#x96C6;&#x8BAD;&#x7EC3;&#x51FA;&#x4E00;&#x4E2A;&#x6DF1;&#x5EA6;&#x7F51;&#x7EDC;&#x3002;&#x6240;&#x4EE5;&#x4EE5;&#x540E;</p>
+<ul>
+<li>&#x9700;&#x8981;&#x5F3A;&#x5927;&#x5BF9;&#x7684;GPU&#x670D;&#x52A1;&#x5668;&#x6765;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;</li>
+<li>&#x5168;&#x9762;&#x7BA1;&#x7406;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x4E0E;&#x9884;&#x6D4B;&#x670D;&#x52A1;&#x2014;&#x2014;&#x6BD4;&#x5982;<a href="https://cloud.google.com/ml/" target="_blank">&#x8C37;&#x6B4C; TensorFlow &#x4E91;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x5E73;&#x53F0;</a>&#x2014;&#x2014;&#x53EF;&#x80FD;&#x4F1A;&#x89E3;&#x51B3;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x4E3A;&#x5927;&#x5BB6;&#x63D0;&#x4F9B;&#x6210;&#x672C;&#x5408;&#x7406;&#x7684;&#x57FA;&#x4E8E;&#x4E91;&#x7684; CPU &#x548C; GPU</li>
+</ul>
+</blockquote>
+<p><strong>&#x7B97;&#x6CD5;&#x4EE3;&#x8868;</strong></p>
+<ul>
+<li>&#x673A;&#x5668;&#x5B66;&#x4E60;<ul>
+<li>&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#x3001;&#x51B3;&#x7B56;&#x6811;&#x7B49;</li>
+</ul>
+</li>
+<li>&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;<ul>
+<li>&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</li>
+</ul>
+</li>
+</ul>
+<h3 id="622-&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x4E3B;&#x8981;&#x5E94;&#x7528;">6.2.2 &#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x4E3B;&#x8981;&#x5E94;&#x7528;</h3>
+<ul>
+<li>&#x56FE;&#x50CF;&#x8BC6;&#x522B;<ul>
+<li>&#x7269;&#x4F53;&#x8BC6;&#x522B;</li>
+<li>&#x573A;&#x666F;&#x8BC6;&#x522B;</li>
+<li>&#x8F66;&#x578B;&#x8BC6;&#x522B;</li>
+<li>&#x4EBA;&#x8138;&#x68C0;&#x6D4B;&#x8DDF;&#x8E2A;</li>
+<li>&#x4EBA;&#x8138;&#x5173;&#x952E;&#x70B9;&#x5B9A;&#x4F4D;</li>
+<li>&#x4EBA;&#x8138;&#x8EAB;&#x4EFD;&#x8BA4;&#x8BC1;</li>
+</ul>
+</li>
+<li>&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x5904;&#x7406;&#x6280;&#x672F;<ul>
+<li>&#x673A;&#x5668;&#x7FFB;&#x8BD1;</li>
+<li>&#x6587;&#x672C;&#x8BC6;&#x522B;</li>
+<li>&#x804A;&#x5929;&#x5BF9;&#x8BDD;</li>
+</ul>
+</li>
+<li>&#x8BED;&#x97F3;&#x6280;&#x672F;<ul>
+<li>&#x8BED;&#x97F3;&#x8BC6;&#x522B;</li>
+</ul>
+</li>
+<li>&#x63A8;&#x8350;&#x7CFB;&#x7EDF;</li>
+</ul>
+<p>&#x524D;&#x51E0;&#x5E74;&#x4E00;&#x76F4;&#x5173;&#x6CE8;AI&#x6846;&#x67B6;&#xFF0C;&#x4F46;&#x662F;&#x8FD1;&#x5E74;&#x6765;&#x6846;&#x67B6;&#x7684;&#x540C;&#x8D28;&#x5316;&#x8BF4;&#x660E;&#x4E86;&#x5B83;&#x4E0D;&#x518D;&#x662F;&#x4E00;&#x4E2A;&#x9700;&#x8981;&#x82B1;&#x5927;&#x7CBE;&#x529B;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#xFF0C;TensorFlow&#x3001;Pytorch&#x8FD9;&#x6837;&#x7684;&#x6846;&#x67B6;&#x5728;&#x5DE5;&#x4E1A;&#x754C;&#x7684;&#x5E7F;&#x6CDB;&#x5E94;&#x7528;&#xFF0C;&#x4EE5;&#x53CA;&#x5404;&#x79CD;&#x6846;&#x67B6;&#x5229;&#x7528; Python &#x5728;&#x5EFA;&#x6A21;&#x9886;&#x57DF;&#x7684;&#x4F18;&#x79C0;&#x8868;&#x73B0;&#xFF0C;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x89E3;&#x51B3;&#x5F88;&#x591A;&#x4EE5;&#x524D;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7F16;&#x7A0B;&#x5B9E;&#x73B0;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x679C;&#x4F5C;&#x4E3A; AI &#x5DE5;&#x7A0B;&#x5E08;&#xFF0C;&#x6211;&#x4EEC;&#x5E94;&#x8BE5;&#x8DF3;&#x51FA;&#x6846;&#x67B6;&#x7684;&#x684E;&#x688F;&#xFF0C;&#x5F80;&#x66F4;&#x5E7F;&#x6CDB;&#x7684;&#x9886;&#x57DF;&#x5BFB;&#x627E;&#x4EF7;&#x503C;&#x3002;</p>
+<h3 id="623-&#x5E38;&#x89C1;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x6846;&#x67B6;&#x5BF9;&#x6BD4;">6.2.3 &#x5E38;&#x89C1;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x6846;&#x67B6;&#x5BF9;&#x6BD4;</h3>
+<p><img src="../images/%E6%A1%86%E6%9E%B6%E5%85%B3%E6%B3%A8.png" alt="&#x6846;&#x67B6;&#x5173;&#x6CE8;"></p>
+<p>tensorflow&#x7684;github&#xFF1A;</p>
+<p><img src="../images/tensorflowgithub.png" alt=""></p>
+<h2 id="122-tensorflow&#x7684;&#x7279;&#x70B9;">1.2.2 TensorFlow&#x7684;&#x7279;&#x70B9;</h2>
+<p><img src="../images/TF&#x52A8;&#x6001;&#x56FE;.gif" alt=""></p>
+<p>&#x5B98;&#x7F51;&#xFF1A;<a href="https://www.tensorflow.org/" target="_blank">https://www.tensorflow.org/</a></p>
+<ul>
+<li><p>&#x8BED;&#x8A00;&#x591A;&#x6837;&#xFF08;Language Options&#xFF09;</p>
+<ul>
+<li>TensorFlow&#x4F7F;&#x7528;C++&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x7136;&#x540E;&#x7528;Python&#x5C01;&#x88C5;&#x3002;&#x8C37;&#x6B4C;&#x53F7;&#x53EC;&#x793E;&#x533A;&#x901A;&#x8FC7;SWIG&#x5F00;&#x53D1;&#x66F4;&#x591A;&#x7684;&#x8BED;&#x8A00;&#x63A5;&#x53E3;&#x6765;&#x652F;&#x6301;TensorFlow</li>
+</ul>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x5206;&#x53D1;&#x7B56;&#x7565;&#x8FDB;&#x884C;&#x5206;&#x53D1;&#x8BAD;&#x7EC3;</p>
+<ul>
+<li>&#x5BF9;&#x4E8E;&#x5927;&#x578B; ML &#x8BAD;&#x7EC3;&#x4EFB;&#x52A1;&#xFF0C;&#x5206;&#x53D1;&#x7B56;&#x7565; API&#x4F7F;&#x5728;&#x4E0D;&#x66F4;&#x6539;&#x6A21;&#x578B;&#x5B9A;&#x4E49;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x5730;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x786C;&#x4EF6;&#x914D;&#x7F6E;&#x4E0A;&#x5206;&#x53D1;&#x548C;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x3002;&#x7531;&#x4E8E; TensorFlow &#x652F;&#x6301;&#x4E00;&#x7CFB;&#x5217;&#x786C;&#x4EF6;&#x52A0;&#x901F;&#x5668;&#xFF0C;&#x5982; CPU&#x3001;GPU &#x548C; TPU</li>
+</ul>
+</li>
+<li><p>Tensorboard&#x53EF;&#x89C6;&#x5316;</p>
+<ul>
+<li>TensorBoard&#x662F;TensorFlow&#x7684;&#x4E00;&#x7EC4;Web&#x5E94;&#x7528;&#xFF0C;&#x7528;&#x6765;&#x76D1;&#x63A7;TensorFlow&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;</li>
+</ul>
+</li>
+<li><p>&#x5728;&#x4EFB;&#x4F55;&#x5E73;&#x53F0;&#x4E0A;&#x7684;&#x751F;&#x4EA7;&#x4E2D;&#x8FDB;&#x884C;&#x5F3A;&#x5927;&#x7684;&#x6A21;&#x578B;&#x90E8;&#x7F72;</p>
+<p>&#x4E00;&#x65E6;&#x60A8;&#x8BAD;&#x7EC3;&#x5E76;&#x4FDD;&#x5B58;&#x4E86;&#x6A21;&#x578B;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x6267;&#x884C;&#x5B83;&#xFF0C;&#x6216;&#x8005;&#x4F7F;&#x7528;&#x90E8;&#x7F72;&#x5E93;&#x4E3A;&#x5176;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#xFF1A;</p>
+<ul>
+<li><a href="https://www.tensorflow.org/tfx/serving/" target="_blank"><strong>TensorFlow &#x670D;&#x52A1;</strong></a>&#xFF1A;&#x5141;&#x8BB8;&#x6A21;&#x578B;&#x901A;&#x8FC7; HTTP/REST &#x6216; GRPC/&#x534F;&#x8BAE;&#x7F13;&#x51B2;&#x533A;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x7684; TensorFlow &#x5E93;&#x6784;&#x5EFA;&#x3002;</li>
+<li><a href="https://www.tensorflow.org/mobile/tflite/" target="_blank"><strong>TensorFlow Lite</strong></a>&#xFF1A;TensorFlow &#x9488;&#x5BF9;&#x79FB;&#x52A8;&#x548C;&#x5D4C;&#x5165;&#x5F0F;&#x8BBE;&#x5907;&#x7684;&#x8F7B;&#x91CF;&#x7EA7;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x63D0;&#x4F9B;&#x4E86;&#x5728; Android&#x3001;iOS &#x548C;&#x5D4C;&#x5165;&#x5F0F;&#x7CFB;&#x7EDF;&#x4E0A;&#x90E8;&#x7F72;&#x6A21;&#x578B;&#x7684;&#x80FD;&#x529B;&#x3002;</li>
+<li><a href="https://js.tensorflow.org/" target="_blank"><strong>tensorflow.js</strong></a>&#xFF1A;&#x652F;&#x6301;&#x5728; JavaScript &#x73AF;&#x5883;&#x4E2D;&#x90E8;&#x7F72;&#x6A21;&#x578B;&#xFF0C;&#x4F8B;&#x5982;&#x5728; Web &#x6D4F;&#x89C8;&#x5668;&#x6216;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x901A;&#x8FC7; Node.js &#x90E8;&#x7F72;&#x6A21;&#x578B;&#x3002;TensorFlow.js &#x8FD8;&#x652F;&#x6301;&#x5728; JavaScript &#x4E2D;&#x5B9A;&#x4E49;&#x6A21;&#x578B;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x7C7B;&#x4F3C;&#x4E8E; Kera &#x7684; API &#x76F4;&#x63A5;&#x5728; Web &#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 id="123-tensorflow&#x7684;&#x5B89;&#x88C5;">1.2.3 TensorFlow&#x7684;&#x5B89;&#x88C5;</h2>
+<p>&#x5B89;&#x88C5; TensorFlow&#x5728;64 &#x4F4D;&#x7CFB;&#x7EDF;&#x4E0A;&#x6D4B;&#x8BD5;&#x8FD9;&#x4E9B;&#x7CFB;&#x7EDF;&#x652F;&#x6301; TensorFlow&#xFF1A;</p>
+<ul>
+<li>Ubuntu 16.04 &#x6216;&#x66F4;&#x9AD8;&#x7248;&#x672C;</li>
+<li>Windows 7 &#x6216;&#x66F4;&#x9AD8;&#x7248;&#x672C;</li>
+<li>macOS 10.12.6 (Sierra) &#x6216;&#x66F4;&#x9AD8;&#x7248;&#x672C;&#xFF08;&#x4E0D;&#x652F;&#x6301; GPU&#xFF09;</li>
+</ul>
+<p>&#x8FDB;&#x5165;&#x865A;&#x62DF;&#x73AF;&#x5883;&#x5F53;&#x4E2D;&#x518D;&#x5B89;&#x88C5;&#x3002;&#x521A;&#x5F00;&#x59CB;&#x7684;&#x73AF;&#x5883;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x53EA;&#x8981;&#x4E0B;&#x8F7D;tensorflow&#x5373;&#x53EF;</p>
+<ul>
+<li>&#x73AF;&#x5883;&#x5305;&#xFF1A;</li>
+</ul>
+<p>&#x5B89;&#x88C5;&#x8F83;&#x6162;&#xFF0C;&#x6307;&#x5B9A;&#x955C;&#x50CF;&#x6E90;&#xFF0C;&#x8BF7;&#x5728;&#x5E26;&#x6709;numpy&#x7B49;&#x5E93;&#x7684;&#x865A;&#x62DF;&#x73AF;&#x5883;&#x4E2D;&#x5B89;&#x88C5;</p>
+<ul>
+<li>ubuntu&#x5B89;&#x88C5;</li>
+</ul>
+<pre><code>pip install tensorflow==1.13 -i https://mirrors.aliyun.com/pypi/simple
+</code></pre><ul>
+<li>MacOS&#x5B89;&#x88C5;</li>
+</ul>
+<pre><code>pip install tensorflow==1.13 -i https://mirrors.aliyun.com/pypi/simple
+</code></pre><blockquote>
+<p>&#x6CE8;&#xFF1A;&#x5982;&#x679C;&#x9700;&#x8981;&#x4E0B;&#x8F7D;GPU&#x7248;&#x672C;&#x7684;&#xFF08;TensorFlow&#x53EA;&#x63D0;&#x4F9B;windows&#x548C;linux&#x7248;&#x672C;&#x7684;&#xFF0C;&#x6CA1;&#x6709;Macos&#x7248;&#x672C;&#x7684;&#xFF09;&#x53C2;&#x8003;&#x5B98;&#x7F51;<a href="https://www.tensorflow.org/install/gpu?hl=zh-cn" target="_blank">https://www.tensorflow.org/install/gpu?hl=zh-cn</a>, </p>
+<blockquote>
+<p>1&#x3001;&#x865A;&#x62DF;&#x673A;&#x4E0B;linux&#x4E5F;&#x662F;&#x7528;&#x4E0D;&#x4E86;GPU&#x7248;&#x672C;TensorFlow</p>
+<p>2&#x3001;&#x672C;&#x673A;&#x5355;&#x72EC;&#x7684;windows&#x548C;&#x672C;&#x673A;&#x5355;&#x72EC;&#x7684;unbuntu&#x53EF;&#x4EE5;&#x4F7F;&#x7528;GPU&#x7248;&#x672C;TensorFlow&#xFF0C;&#x9700;&#x8981;&#x5B89;&#x88C5;&#x76F8;&#x5173;&#x9A71;&#x52A8;</p>
+</blockquote>
+</blockquote>
+<h3 id="124-tenssorlfow&#x4F7F;&#x7528;&#x6280;&#x5DE7;">1.2.4 Tenssorlfow&#x4F7F;&#x7528;&#x6280;&#x5DE7;</h3>
+<ul>
+<li>&#x4F7F;&#x7528;<strong><a href="https://www.tensorflow.org/guide/keras" target="_blank"> tf.keras</a> </strong>&#x6784;&#x5EFA;&#x3001;&#x8BAD;&#x7EC3;&#x548C;&#x9A8C;&#x8BC1;&#x60A8;&#x7684;&#x6A21;&#x578B;&#xFF0C;tf&#x76F8;&#x5173;API&#x7528;&#x4E8E;&#x635F;&#x5931;&#x8BA1;&#x7B97;&#x4FEE;&#x6539;&#x7B49;</li>
+<li>tensorflow&#x63D0;&#x4F9B;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x90E8;&#x7F72;</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../day05/section1.html" class="navigation navigation-prev " aria-label="Previous page: 推荐系统的深度学习关联"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../day06/index.html" class="navigation navigation-next " aria-label="Next page: TensorFlow框架介绍"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"katex":{},"expandable-chapters-small":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

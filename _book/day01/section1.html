@@ -1,0 +1,1561 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>用户行为收集到HIVE | 黑马头条推荐系统项目课程定位、目标</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../day01/section2.html" />
+    
+    
+    <link rel="prev" href="../day01/section0.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.2"
+        data-chapter-title="用户行为收集到HIVE"
+        data-filepath="day01/section1.md"
+        data-basepath=".."
+        data-revision="Wed Jun 05 2019 18:41:21 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        黑马头条推荐系统项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="reco/index.html">
+            
+                
+                    <a href="../reco/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        黑马头条推荐架构介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="reco/section1.html">
+            
+                
+                    <a href="../reco/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        头条推荐架构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="reco/section2.html">
+            
+                
+                    <a href="../reco/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        开发环境介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="day01/index.html">
+            
+                
+                    <a href="../day01/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        离线计算更新文章画像
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="day01/section0.html">
+            
+                
+                    <a href="../day01/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        数据库迁移
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="day01/section1.html">
+            
+                
+                    <a href="../day01/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        用户行为收集到HIVE
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="day01/section2.html">
+            
+                
+                    <a href="../day01/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        离线画像业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="day01/section3.html">
+            
+                
+                    <a href="../day01/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        离线文章画像计算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="day01/section4.html">
+            
+                
+                    <a href="../day01/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        离线增量画像更新代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="day01/section5.html">
+            
+                
+                    <a href="../day01/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Apscheduler定时更新文章画像
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="day01/section6.html">
+            
+                
+                    <a href="../day01/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Word2Vec与文章相似度
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="day01/section7.html">
+            
+                
+                    <a href="../day01/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        文章相似度增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="day01/section8.html">
+            
+                
+                    <a href="../day01/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="day01/section9.html">
+            
+                
+                    <a href="../day01/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="day02/index.html">
+            
+                
+                    <a href="../day02/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        离线用户画像更新与召回排序计算
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="day02/section1.html">
+            
+                
+                    <a href="../day02/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        用户画像逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="day02/section2.html">
+            
+                
+                    <a href="../day02/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        用户画像增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="day02/section3.html">
+            
+                
+                    <a href="../day02/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        离线召回与排序介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="day02/section4.html">
+            
+                
+                    <a href="../day02/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        离线用户基于模型召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="day02/section5.html">
+            
+                
+                    <a href="../day02/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        离线用户基于内容召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="day02/section6.html">
+            
+                
+                    <a href="../day02/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        离线用户召回定时更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="day02/section7.html">
+            
+                
+                    <a href="../day02/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        离线排序模型训练基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="day02/section8.html">
+            
+                
+                    <a href="../day02/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        离线ctr特征中心更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="day02/section9.html">
+            
+                
+                    <a href="../day02/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="day02/section10.html">
+            
+                
+                    <a href="../day02/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="day03/index.html">
+            
+                
+                    <a href="../day03/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        实时计算业务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="day03/section0.html">
+            
+                
+                    <a href="../day03/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        实时计算业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="day03/section1.html">
+            
+                
+                    <a href="../day03/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        实时日志分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="day03/section2.html">
+            
+                
+                    <a href="../day03/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        实时召回集业务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="day03/section3.html">
+            
+                
+                    <a href="../day03/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        热门与新文章召回
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="day03/section4.html">
+            
+                
+                    <a href="../day03/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="day03/section5.html">
+            
+                
+                    <a href="../day03/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="day04/index.html">
+            
+                
+                    <a href="../day04/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        推荐业务流实现与ABTest
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="day04/section0.html">
+            
+                
+                    <a href="../day04/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        实时推荐业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="day04/section1.html">
+            
+                
+                    <a href="../day04/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        grpc接口对接
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="day04/section2.html">
+            
+                
+                    <a href="../day04/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        ABTest实验中心
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="day04/section3.html">
+            
+                
+                    <a href="../day04/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        推荐中心逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="day04/section4.html">
+            
+                
+                    <a href="../day04/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        召回集读取服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="day04/section5.html">
+            
+                
+                    <a href="../day04/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        推荐缓存服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="day04/section6.html">
+            
+                
+                    <a href="../day04/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        排序模型在线预测
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="day04/section7.html">
+            
+                
+                    <a href="../day04/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="day04/section8.html">
+            
+                
+                    <a href="../day04/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="day05/index.html">
+            
+                
+                    <a href="../day05/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        深度学习与推荐系统
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="day05/section1.html">
+            
+                
+                    <a href="../day05/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        推荐系统的深度学习关联
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="day05/section2.html">
+            
+                
+                    <a href="../day05/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        深度学习应用简介
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="day06/index.html">
+            
+                
+                    <a href="../day06/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        TensorFlow框架介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="day06/section1.html">
+            
+                
+                    <a href="../day06/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        TF数据流图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="day06/section2.html">
+            
+                
+                    <a href="../day06/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        图与TensorBoard
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="day06/section3.html">
+            
+                
+                    <a href="../day06/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        会话、张量、变量OP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="day06/section4.html">
+            
+                
+                    <a href="../day06/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        案例：TensorFlow实现线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="day06/section5.html">
+            
+                
+                    <a href="../day06/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        TFAPI使用2.0建议
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.6" data-path="day06/section6.html">
+            
+                
+                    <a href="../day06/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                        tf.estimator使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.7" data-path="day06/section7.html">
+            
+                
+                    <a href="../day06/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.8" data-path="day06/section8.html">
+            
+                
+                    <a href="../day06/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="day07/index.html">
+            
+                
+                    <a href="../day07/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        黑马头条排序模型进阶
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="day07/section1.html">
+            
+                
+                    <a href="../day07/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        神经网络基础与原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="day07/section2.html">
+            
+                
+                    <a href="../day07/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        tf.data与tf.feature_column
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="day07/section3.html">
+            
+                
+                    <a href="../day07/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        案例：DNN文本分类与word2vec原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="day07/section4.html">
+            
+                
+                    <a href="../day07/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        TFRecords与黑马训练数据存储
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="day07/section5.html">
+            
+                
+                    <a href="../day07/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        深度学习与排序模型发展
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="day07/section6.html">
+            
+                
+                    <a href="../day07/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        分桶与特征交叉
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="day07/section7.html">
+            
+                
+                    <a href="../day07/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        黑马排序模型进阶-FTRL on Tensorflow
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="day07/section8.html">
+            
+                
+                    <a href="../day07/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        黑马排序模型进阶-Wide&amp;Deep
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" data-path="day07/section9.html">
+            
+                
+                    <a href="../day07/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                        WDL模型导出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" data-path="day07/section10.html">
+            
+                
+                    <a href="../day07/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.</b>
+                        
+                        TensorFlow Serving模型部署
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.11" data-path="day07/section11.html">
+            
+                
+                    <a href="../day07/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.11.</b>
+                        
+                        排序模型在线测试
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12" data-path="day07/section12.html">
+            
+                
+                    <a href="../day07/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.12.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13" data-path="day07/section13.html">
+            
+                
+                    <a href="../day07/section13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.13.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >黑马头条推荐系统项目课程定位、目标</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="23-&#x7528;&#x6237;&#x884C;&#x4E3A;&#x6536;&#x96C6;&#x5230;hive">2.3 &#x7528;&#x6237;&#x884C;&#x4E3A;&#x6536;&#x96C6;&#x5230;HIVE</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x76EE;&#x6807;<ul>
+<li>&#x77E5;&#x9053;&#x6536;&#x96C6;&#x7528;&#x6237;&#x65E5;&#x5FD7;&#x5F62;&#x5F0F;&#x3001;&#x6D41;&#x7A0B;</li>
+<li>&#x77E5;&#x9053;flume&#x6536;&#x96C6;&#x76F8;&#x5173;&#x914D;&#x7F6E;&#x3001;hive&#x76F8;&#x5173;&#x914D;&#x7F6E;</li>
+<li>&#x77E5;&#x9053;supervisor&#x5F00;&#x542F;flume&#x6536;&#x96C6;&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;</li>
+</ul>
+</li>
+<li>&#x5E94;&#x7528;<ul>
+<li>&#x5E94;&#x7528;supervisor&#x7BA1;&#x7406;flume&#x5B9E;&#x65F6;&#x6536;&#x96C6;&#x70B9;&#x51FB;&#x65E5;&#x5FD7;</li>
+</ul>
+</li>
+</ul>
+<h3 id="231-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6536;&#x96C6;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x884C;&#x4E3A;&#x65E5;&#x5FD7;">2.3.1 &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6536;&#x96C6;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x884C;&#x4E3A;&#x65E5;&#x5FD7;</h3>
+<p>&#x7528;&#x6237;&#x884C;&#x4E3A;&#x5BF9;&#x4E8E;&#x9ED1;&#x9A6C;&#x5934;&#x6761;&#x6587;&#x7AE0;&#x63A8;&#x8350;&#x6765;&#x8BF4;&#xFF0C;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x3002;&#x7528;&#x6237;&#x7684;&#x884C;&#x4E3A;&#x4EE3;&#x8868;&#x7684;&#x6BCF;&#x4E00;&#x6B21;&#x7684;&#x559C;&#x597D;&#x53CD;&#x9988;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6536;&#x96C6;&#x8D77;&#x6765;&#x5E76;&#x4E14;&#x5B58;&#x5230;HIVE</p>
+<ul>
+<li>&#x4FBF;&#x4E8E;&#x4E86;&#x89E3;&#x5206;&#x6790;&#x7528;&#x6237;&#x7684;&#x884C;&#x4E3A;&#x3001;&#x559C;&#x597D;&#x53D8;&#x5316;</li>
+<li>&#x4E3A;&#x7528;&#x6237;&#x5EFA;&#x7ACB;&#x753B;&#x50CF;&#x63D0;&#x4F9B;&#x4F9D;&#x636E;</li>
+</ul>
+<p><img src="../images/&#x9ED1;&#x9A6C;&#x5934;&#x6761;&#x5BA3;&#x4F20;.png" alt=""></p>
+<h3 id="232-&#x7528;&#x6237;&#x65E5;&#x5FD7;&#x5982;&#x4F55;&#x6536;&#x96C6;">2.3.2 &#x7528;&#x6237;&#x65E5;&#x5FD7;&#x5982;&#x4F55;&#x6536;&#x96C6;</h3>
+<h4 id="2321-&#x57CB;&#x70B9;&#x5F00;&#x53D1;&#x6D4B;&#x8BD5;&#x6D41;&#x7A0B;">2.3.2.1 &#x57CB;&#x70B9;&#x5F00;&#x53D1;&#x6D4B;&#x8BD5;&#x6D41;&#x7A0B;</h4>
+<p>&#x4E00;&#x822C;&#x7528;&#x6237;&#x6709;&#x5F88;&#x591A;&#x65E5;&#x5FD7;&#xFF0C;&#x6211;&#x4EEC;&#x5F53;&#x524D;&#x9ED1;&#x9A6C;&#x5934;&#x6761;&#x63A8;&#x8350;&#x573A;&#x666F;&#x7EDF;&#x4E00;&#x5230;&#x884C;&#x4E3A;&#x65E5;&#x5FD7;&#x4E2D;&#xFF0C;&#x8FD8;&#x6709;&#x5176;&#x5B83;&#x4E1A;&#x52A1;&#x573A;&#x666F;&#x5982;(&#x4E0B;&#x5355;&#x65E5;&#x5FD7;&#x3001;&#x652F;&#x4ED8;&#x65E5;&#x5FD7;)</p>
+<ul>
+<li>&#x57CB;&#x70B9;&#x53C2;&#x6570;<ul>
+<li><strong>&#x5C31;&#x662F;&#x5728;&#x5E94;&#x7528;&#x4E2D;&#x7279;&#x5B9A;&#x7684;&#x6D41;&#x7A0B;&#x6536;&#x96C6;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#xFF0C;&#x7528;&#x6765;&#x8DDF;&#x8E2A;&#x5E94;&#x7528;&#x4F7F;&#x7528;&#x7684;&#x72B6;&#x51B5;&#xFF0C;&#x540E;&#x7EED;&#x7528;&#x6765;&#x8FDB;&#x4E00;&#x6B65;&#x4F18;&#x5316;&#x4EA7;&#x54C1;&#x6216;&#x662F;&#x63D0;&#x4F9B;&#x8FD0;&#x8425;&#x7684;&#x6570;&#x636E;&#x652F;&#x6491;</strong></li>
+<li>&#x91CD;&#x8981;&#x6027;&#xFF1A;&#x57CB;&#x70B9;&#x6570;&#x636E;&#x662F;&#x63A8;&#x8350;&#x7CFB;&#x7EDF;&#x7684;&#x57FA;&#x77F3;&#xFF0C;&#x6A21;&#x578B;&#x8BAD;&#x7EC3;&#x548C;&#x6548;&#x679C;&#x6570;&#x636E;&#x7EDF;&#x8BA1;&#x90FD;&#x57FA;&#x4E8E;&#x57CB;&#x70B9;&#x6570;&#x636E;&#xFF0C;&#x9700;&#x4FDD;&#x8BC1;&#x57CB;&#x70B9;&#x6570;&#x636E;&#x7684;&#x6B63;&#x786E;&#x65E0;&#x8BEF;</li>
+</ul>
+</li>
+<li>&#x6D41;&#x7A0B;&#xFF1A;<ul>
+<li>1&#x3001;PM&#xFF08;&#x9879;&#x76EE;&#x7ECF;&#x7406;&#xFF09;&#x3001;&#x7B97;&#x6CD5;&#x63A8;&#x8350;&#x5DE5;&#x7A0B;&#x5E08;&#x4E00;&#x8D77;&#x6307;&#x5B9A;&#x57CB;&#x70B9;&#x9700;&#x6C42;&#x6587;&#x6863;</li>
+<li>2&#x3001;&#x540E;&#x7AEF;&#x3001;&#x5BA2;&#x6237;&#x7AEF; APP&#x96C6;&#x6210;</li>
+<li>3&#x3001;&#x63A8;&#x8350;&#x4EBA;&#x5458;&#x57FA;&#x4E8E;&#x6587;&#x6863;&#x57CB;&#x70B9;&#x6D4B;&#x8BD5;&#x4E0E;&#x68B3;&#x7406;</li>
+</ul>
+</li>
+</ul>
+<h4 id="2322-&#x9ED1;&#x9A6C;&#x5934;&#x6761;&#x6587;&#x7AE0;&#x63A8;&#x8350;&#x57CB;&#x70B9;&#x9700;&#x6C42;&#x6574;&#x7406;">2.3.2.2 &#x9ED1;&#x9A6C;&#x5934;&#x6761;&#x6587;&#x7AE0;&#x63A8;&#x8350;&#x57CB;&#x70B9;&#x9700;&#x6C42;&#x6574;&#x7406;</h4>
+<p>&#x6587;&#x7AE0;&#x884C;&#x4E3A;&#x7279;&#x70B9;&#xFF1A;&#x70B9;&#x51FB;&#x3001;&#x6D4F;&#x89C8;&#x3001;&#x6536;&#x85CF;&#x3001;&#x5206;&#x4EAB;&#x7B49;&#x884C;&#x4E3A;&#xFF0C;&#x57FA;&#x4E8E;&#x8FD9;&#x4E9B;&#x6211;&#x4EEC;&#x5236;&#x5B9A;&#x9700;&#x6C42;</p>
+<ul>
+<li><p>&#x57CB;&#x70B9;&#x573A;&#x666F;</p>
+</li>
+<li><ul>
+<li>&#x9996;&#x9875;&#x4E2D;&#x7684;&#x5404;&#x9891;&#x9053;&#x63A8;&#x8350;</li>
+</ul>
+</li>
+<li><p>&#x57CB;&#x70B9;&#x4E8B;&#x4EF6;&#x53F7;</p>
+</li>
+<li><ul>
+<li><p>&#x505C;&#x7559;&#x65F6;&#x95F4;</p>
+</li>
+<li><ul>
+<li>read</li>
+</ul>
+</li>
+<li><p>&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;</p>
+</li>
+<li><ul>
+<li>click</li>
+</ul>
+</li>
+<li><p>&#x66DD;&#x5149;&#x4E8B;&#x4EF6;(&#x76F8;&#x5F53;&#x4E8E;&#x5237;&#x65B0;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#x63A8;&#x8350;&#x65B0;&#x6587;&#x7AE0;)</p>
+</li>
+<li><ul>
+<li>exposure</li>
+</ul>
+</li>
+<li><p>&#x6536;&#x85CF;&#x4E8B;&#x4EF6;</p>
+</li>
+<li><ul>
+<li>collect</li>
+</ul>
+</li>
+<li><p>&#x5206;&#x4EAB;&#x4E8B;&#x4EF6;</p>
+</li>
+<li><ul>
+<li>share</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>&#x57CB;&#x70B9;&#x53C2;&#x6570;&#x6587;&#x4EF6;&#x7ED3;&#x6784;</p>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x66DD;&#x5149;&#x7684;&#x53C2;&#x6570;&#xFF0C;</span>
+{<span class="hljs-string">&quot;actionTime&quot;</span>:<span class="hljs-string">&quot;2019-04-10 18:15:35&quot;</span>,<span class="hljs-string">&quot;readTime&quot;</span>:<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-string">&quot;channelId&quot;</span>:<span class="hljs-number">0</span>,<span class="hljs-string">&quot;param&quot;</span>:{<span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;exposure&quot;</span>, <span class="hljs-string">&quot;userId&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;articleId&quot;</span>: <span class="hljs-string">&quot;[18577, 14299]&quot;</span>, <span class="hljs-string">&quot;algorithmCombine&quot;</span>: <span class="hljs-string">&quot;C2&quot;</span>}}
+
+<span class="hljs-comment"># &#x5BF9;&#x6587;&#x7AE0;&#x53D1;&#x751F;&#x884C;&#x4E3A;&#x7684;&#x53C2;&#x6570;</span>
+{<span class="hljs-string">&quot;actionTime&quot;</span>:<span class="hljs-string">&quot;2019-04-10 18:12:11&quot;</span>,<span class="hljs-string">&quot;readTime&quot;</span>:<span class="hljs-string">&quot;2886&quot;</span>,<span class="hljs-string">&quot;channelId&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;param&quot;</span>:{<span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;read&quot;</span>, <span class="hljs-string">&quot;userId&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;articleId&quot;</span>: <span class="hljs-string">&quot;18005&quot;</span>, <span class="hljs-string">&quot;algorithmCombine&quot;</span>: <span class="hljs-string">&quot;C2&quot;</span>}}
+{<span class="hljs-string">&quot;actionTime&quot;</span>:<span class="hljs-string">&quot;2019-04-10 18:15:32&quot;</span>,<span class="hljs-string">&quot;readTime&quot;</span>:<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-string">&quot;channelId&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;param&quot;</span>:{<span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-string">&quot;userId&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;articleId&quot;</span>: <span class="hljs-string">&quot;18005&quot;</span>, <span class="hljs-string">&quot;algorithmCombine&quot;</span>: <span class="hljs-string">&quot;C2&quot;</span>}}
+{<span class="hljs-string">&quot;actionTime&quot;</span>:<span class="hljs-string">&quot;2019-04-10 18:15:34&quot;</span>,<span class="hljs-string">&quot;readTime&quot;</span>:<span class="hljs-string">&quot;1053&quot;</span>,<span class="hljs-string">&quot;channelId&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;param&quot;</span>:{<span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;read&quot;</span>, <span class="hljs-string">&quot;userId&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;articleId&quot;</span>: <span class="hljs-string">&quot;18005&quot;</span>, <span class="hljs-string">&quot;algorithmCombine&quot;</span>: <span class="hljs-string">&quot;C2&quot;</span>}}
+{<span class="hljs-string">&quot;actionTime&quot;</span>:<span class="hljs-string">&quot;2019-04-10 18:15:36&quot;</span>,<span class="hljs-string">&quot;readTime&quot;</span>:<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-string">&quot;channelId&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;param&quot;</span>:{<span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-string">&quot;userId&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;articleId&quot;</span>: <span class="hljs-string">&quot;18577&quot;</span>, <span class="hljs-string">&quot;algorithmCombine&quot;</span>: <span class="hljs-string">&quot;C2&quot;</span>}}
+{<span class="hljs-string">&quot;actionTime&quot;</span>:<span class="hljs-string">&quot;2019-04-10 18:15:38&quot;</span>,<span class="hljs-string">&quot;readTime&quot;</span>:<span class="hljs-string">&quot;1621&quot;</span>,<span class="hljs-string">&quot;channelId&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;param&quot;</span>:{<span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;read&quot;</span>, <span class="hljs-string">&quot;userId&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;articleId&quot;</span>: <span class="hljs-string">&quot;18577&quot;</span>, <span class="hljs-string">&quot;algorithmCombine&quot;</span>: <span class="hljs-string">&quot;C2&quot;</span>}}
+{<span class="hljs-string">&quot;actionTime&quot;</span>:<span class="hljs-string">&quot;2019-04-10 18:15:39&quot;</span>,<span class="hljs-string">&quot;readTime&quot;</span>:<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-string">&quot;channelId&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;param&quot;</span>:{<span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-string">&quot;userId&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;articleId&quot;</span>: <span class="hljs-string">&quot;14299&quot;</span>, <span class="hljs-string">&quot;algorithmCombine&quot;</span>: <span class="hljs-string">&quot;C2&quot;</span>}}
+{<span class="hljs-string">&quot;actionTime&quot;</span>:<span class="hljs-string">&quot;2019-04-10 18:15:39&quot;</span>,<span class="hljs-string">&quot;readTime&quot;</span>:<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-string">&quot;channelId&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;param&quot;</span>:{<span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-string">&quot;userId&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;articleId&quot;</span>: <span class="hljs-string">&quot;14299&quot;</span>, <span class="hljs-string">&quot;algorithmCombine&quot;</span>: <span class="hljs-string">&quot;C2&quot;</span>}}
+{<span class="hljs-string">&quot;actionTime&quot;</span>:<span class="hljs-string">&quot;2019-04-10 18:15:41&quot;</span>,<span class="hljs-string">&quot;readTime&quot;</span>:<span class="hljs-string">&quot;914&quot;</span>,<span class="hljs-string">&quot;channelId&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;param&quot;</span>:{<span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;read&quot;</span>, <span class="hljs-string">&quot;userId&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;articleId&quot;</span>: <span class="hljs-string">&quot;14299&quot;</span>, <span class="hljs-string">&quot;algorithmCombine&quot;</span>: <span class="hljs-string">&quot;C2&quot;</span>}}
+{<span class="hljs-string">&quot;actionTime&quot;</span>:<span class="hljs-string">&quot;2019-04-10 18:15:47&quot;</span>,<span class="hljs-string">&quot;readTime&quot;</span>:<span class="hljs-string">&quot;7256&quot;</span>,<span class="hljs-string">&quot;channelId&quot;</span>:<span class="hljs-number">18</span>,<span class="hljs-string">&quot;param&quot;</span>:{<span class="hljs-string">&quot;action&quot;</span>: <span class="hljs-string">&quot;read&quot;</span>, <span class="hljs-string">&quot;userId&quot;</span>: <span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;articleId&quot;</span>: <span class="hljs-string">&quot;14299&quot;</span>, <span class="hljs-string">&quot;algorithmCombine&quot;</span>: <span class="hljs-string">&quot;C2&quot;</span>}}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x57CB;&#x70B9;&#x53C2;&#x6570;&#x8BBE;&#x8BA1;&#x6210;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x683C;&#x5F0F;&#x7684;json&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x4E86;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x4E8B;&#x4EF6;&#x3001;&#x7B97;&#x6CD5;&#x63A8;&#x8350;&#x53F7;&#x3001;&#x83B7;&#x53D6;&#x884C;&#x4E3A;&#x7684;&#x9891;&#x9053;&#x53F7;&#x3001;&#x5E16;&#x5B50;id&#x5217;&#x8868;&#x3001;&#x5E16;&#x5B50;id&#x3001;&#x7528;&#x6237;id&#x3001;&#x4E8B;&#x4EF6;&#x53F7;&#x5B57;&#x6BB5;&#x3002;</p>
+<h3 id="233-&#x79BB;&#x7EBF;&#x90E8;&#x5206;&#x7528;&#x6237;&#x65E5;&#x5FD7;&#x6536;&#x96C6;">2.3.3 &#x79BB;&#x7EBF;&#x90E8;&#x5206;-&#x7528;&#x6237;&#x65E5;&#x5FD7;&#x6536;&#x96C6;</h3>
+<h4 id="2331&#x76EE;&#x7684;&#xFF1A;&#x901A;&#x8FC7;flume&#x5C06;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#x670D;&#x52A1;&#x5668;a&#x7684;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x5230;hadoop&#x670D;&#x52A1;&#x5668;hdfs&#x7684;hive&#x4E2D;">2.3.3.1&#x76EE;&#x7684;&#xFF1A;&#x901A;&#x8FC7;flume&#x5C06;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#x670D;&#x52A1;&#x5668;A&#x7684;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x5230;hadoop&#x670D;&#x52A1;&#x5668;hdfs&#x7684;hive&#x4E2D;</h4>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x90FD;&#x5728;hadoop-master&#x4E0A;&#x64CD;&#x4F5C;</p>
+<h4 id="2332-&#x6536;&#x96C6;&#x6B65;&#x9AA4;">2.3.3.2 &#x6536;&#x96C6;&#x6B65;&#x9AA4;</h4>
+<ul>
+<li>&#x521B;&#x5EFA;HIVE&#x5BF9;&#x5E94;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x8868;<ul>
+<li>&#x6536;&#x96C6;&#x5230;&#x65B0;&#x7684;&#x6570;&#x636E;&#x5E93;&#x4E2D;</li>
+</ul>
+</li>
+<li>flume&#x6536;&#x96C6;&#x65E5;&#x5FD7;&#x914D;&#x7F6E;</li>
+<li>&#x5F00;&#x542F;&#x6536;&#x96C6;&#x547D;&#x4EE4;</li>
+</ul>
+<h4 id="2333-&#x5B9E;&#x73B0;">2.3.3.3 &#x5B9E;&#x73B0;</h4>
+<h5 id="1&#x3001;flume&#x8BFB;&#x53D6;&#x8BBE;&#x7F6E;">1&#x3001;flume&#x8BFB;&#x53D6;&#x8BBE;&#x7F6E;</h5>
+<ul>
+<li>&#x8FDB;&#x5165;flume/conf&#x76EE;&#x5F55;</li>
+</ul>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;collect_click.conf&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5199;&#x5165;flume&#x7684;&#x914D;&#x7F6E;</p>
+<ul>
+<li>sources&#xFF1A;&#x4E3A;&#x5B9E;&#x65F6;&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x672B;&#x5C3E;&#xFF0C;interceptors&#x89E3;&#x6790;json&#x6587;&#x4EF6;</li>
+<li>channels&#xFF1A;&#x6307;&#x5B9A;&#x5185;&#x5B58;&#x5B58;&#x50A8;&#xFF0C;&#x5E76;&#x4E14;&#x5236;&#x5B9A;batchData&#x7684;&#x5927;&#x5C0F;&#xFF0C;PutList&#x548C;TakeList&#x7684;&#x5927;&#x5C0F;&#x89C1;&#x53C2;&#x6570;&#xFF0C;Channel&#x603B;&#x5BB9;&#x91CF;&#x5927;&#x5C0F;&#x89C1;&#x53C2;&#x6570;</li>
+<li>&#x6307;&#x5B9A;sink&#xFF1A;&#x5F62;&#x5F0F;&#x76F4;&#x63A5;&#x5230;hdfs&#xFF0C;&#x4EE5;&#x53CA;&#x8DEF;&#x5F84;&#xFF0C;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x7B56;&#x7565;&#x9ED8;&#x8BA4;1024&#x3001;event&#x6570;&#x91CF;&#x7B56;&#x7565;&#x3001;&#x6587;&#x4EF6;&#x95F2;&#x7F6E;&#x65F6;&#x95F4;</li>
+</ul>
+<pre><code class="lang-python">a1.sources = s1
+a1.sinks = k1
+a1.channels = c1
+
+a1.sources.s1.channels= c1
+a1.sources.s1.type = <span class="hljs-keyword">exec</span>
+a1.sources.s1.command = tail -F /root/logs/userClick.log
+a1.sources.s1.interceptors=i1 i2
+a1.sources.s1.interceptors.i1.type=regex_filter
+a1.sources.s1.interceptors.i1.regex=\\{.*\\}
+a1.sources.s1.interceptors.i2.type=timestamp
+
+<span class="hljs-comment"># channel1</span>
+a1.channels.c1.type=memory
+a1.channels.c1.capacity=<span class="hljs-number">30000</span>
+a1.channels.c1.transactionCapacity=<span class="hljs-number">1000</span>
+
+<span class="hljs-comment"># k1</span>
+a1.sinks.k1.type=hdfs
+a1.sinks.k1.channel=c1
+a1.sinks.k1.hdfs.path=hdfs://<span class="hljs-number">192.168</span><span class="hljs-number">.19</span><span class="hljs-number">.137</span>:<span class="hljs-number">9000</span>/user/hive/warehouse/profile.db/user_action/%Y-%m-%d
+a1.sinks.k1.hdfs.useLocalTimeStamp = true
+a1.sinks.k1.hdfs.fileType=DataStream
+a1.sinks.k1.hdfs.writeFormat=Text
+a1.sinks.k1.hdfs.rollInterval=<span class="hljs-number">0</span>
+a1.sinks.k1.hdfs.rollSize=<span class="hljs-number">10240</span>
+a1.sinks.k1.hdfs.rollCount=<span class="hljs-number">0</span>
+a1.sinks.k1.hdfs.idleTimeout=<span class="hljs-number">60</span>
+</code></pre>
+<h5 id="2&#x3001;hive&#x8BBE;&#x7F6E;">2&#x3001;HIVE&#x8BBE;&#x7F6E;</h5>
+<p>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x65E5;&#x671F;&#x5206;&#x533A;</p>
+<ul>
+<li>&#x4FEE;&#x6539;&#x8868;&#x7ED3;&#x6784;</li>
+<li>&#x4FEE;&#x6539;flume</li>
+</ul>
+<p>&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6570;&#x636E;&#x5E93;profile&#xFF0C;&#x8868;&#x793A;&#x7528;&#x6237;&#x76F8;&#x5173;&#x6570;&#x636E;&#xFF0C;&#x753B;&#x50CF;&#x5B58;&#x50A8;&#x5230;&#x8FD9;&#x91CC;</p>
+<pre><code class="lang-mysql">create database if not exists profile comment &quot;use action&quot; location &apos;/user/hive/warehouse/profile.db/&apos;;
+</code></pre>
+<p>&#x5728;profile&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x521B;&#x5EFA;user_action&#x8868;&#xFF0C;&#x6307;&#x5B9A;&#x683C;&#x5F0F;</p>
+<pre><code class="lang-mysql">create table user_action(
+actionTime STRING comment &quot;user actions time&quot;,
+readTime STRING comment &quot;user reading time&quot;,
+channelId INT comment &quot;article channel id&quot;,
+param map<string, string=""> comment &quot;action parameter&quot;)
+COMMENT &quot;user primitive action&quot;
+PARTITIONED BY(dt STRING)
+ROW FORMAT SERDE &apos;org.apache.hive.hcatalog.data.JsonSerDe&apos;
+LOCATION &apos;/user/hive/warehouse/profile.db/user_action&apos;;
+</string,></code></pre>
+<ul>
+<li>ROW FORMAT SERDE &apos;org.apache.hive.hcatalog.data.JsonSerDe&apos;:&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;json&#x683C;&#x5F0F;&#x5339;&#x914D;</li>
+</ul>
+<h5 id="3-&#x5F00;&#x542F;&#x6536;&#x96C6;&#x547D;&#x4EE4;">3. &#x5F00;&#x542F;&#x6536;&#x96C6;&#x547D;&#x4EE4;</h5>
+<pre><code>/root/bigdata/flume/bin/flume-ng agent -c /root/bigdata/flume/conf -f /root/bigdata/flume/conf/collect_click.conf -Dflume.root.logger=INFO,console -name a1
+</code></pre><p>&#x5982;&#x679C;&#x8FD0;&#x884C;&#x6210;&#x529F;&#xFF1A;</p>
+<p><img src="../images/flume&#x7B2C;&#x4E00;&#x6B21;&#x6536;&#x96C6;.png" alt=""></p>
+<p>&#x540C;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5411;userClick.log&#x6570;&#x636E;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</p>
+<pre><code>echo {\&quot;actionTime\&quot;:\&quot;2019-04-10 21:04:39\&quot;,\&quot;readTime\&quot;:\&quot;\&quot;,\&quot;channelId\&quot;:18,\&quot;param\&quot;:{\&quot;action\&quot;: \&quot;click\&quot;, \&quot;userId\&quot;: \&quot;2\&quot;, \&quot;articleId\&quot;: \&quot;14299\&quot;, \&quot;algorithmCombine\&quot;: \&quot;C2\&quot;}} &gt;&gt; userClick.log
+</code></pre><p>&#x91CD;&#x8981;&#xFF1A;<strong>&#x8FD9;&#x6837;&#x5C31;&#x6709;HIVE&#x7684;user_action&#x8868;&#xFF0C;&#x5E76;&#x4E14;hadoop&#x6709;&#x76F8;&#x5E94;&#x76EE;&#x5F55;</strong>,flume&#x4F1A;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x76EE;&#x5F55;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x60F3;&#x8981;&#x901A;&#x8FC7;spark sql &#x83B7;&#x53D6;&#x5185;&#x5BB9;&#xFF0C;&#x6BCF;&#x5929;&#x6BCF;&#x6B21;&#x8FD8;&#x662F;&#x8981;&#x4E3B;&#x52A8;&#x5173;&#x8054;&#xFF0C;&#x540E;&#x9762;&#x77E5;&#x8BC6;&#x70B9;&#x4F1A;&#x63D0;&#x53CA;)</p>
+<pre><code class="lang-python">select * <span class="hljs-keyword">from</span> user_action where dt=<span class="hljs-string">&apos;yy-mm-dd&apos;</span>
+
+<span class="hljs-comment"># &#x5982;&#x679C;flume&#x81EA;&#x52A8;&#x751F;&#x6210;&#x76EE;&#x5F55;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x52A8;&#x5173;&#x8054;&#x5206;&#x533A;</span>
+alter table user_action add partition (dt=<span class="hljs-string">&apos;2018-12-11&apos;</span>) location <span class="hljs-string">&quot;/user/hive/warehouse/profile.db/user_action/2018-12-11/&quot;</span>
+
+select * <span class="hljs-keyword">from</span> user_action where dt=<span class="hljs-string">&apos;yy-mm-dd&apos;</span> limit <span class="hljs-number">1</span>;
+</code></pre>
+<h3 id="233-supervisor&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;">2.3.3 Supervisor&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;</h3>
+<p>Supervisor&#x4F5C;&#x4E3A;&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x76D1;&#x542C;&#x3001;&#x542F;&#x52A8;&#x3001;&#x505C;&#x6B62;&#x3001;&#x91CD;&#x542F;&#x4E00;&#x4E2A;&#x6216;<strong>&#x591A;&#x4E2A;</strong>&#x8FDB;&#x7A0B;&#x3002;&#x7528;Supervisor&#x7BA1;&#x7406;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x610F;&#x5916;&#x88AB;&#x6740;&#x6B7B;&#xFF0C;supervisort&#x76D1;&#x542C;&#x5230;&#x8FDB;&#x7A0B;&#x6B7B;&#x540E;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x5B83;&#x91CD;&#x65B0;&#x62C9;&#x8D77;&#xFF0C;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x505A;&#x5230;&#x8FDB;&#x7A0B;&#x81EA;&#x52A8;&#x6062;&#x590D;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5199;shell&#x811A;&#x672C;&#x6765;&#x63A7;&#x5236;&#x3002;</p>
+<h4 id="&#x5B89;&#x88C5;">&#x5B89;&#x88C5;</h4>
+<pre><code class="lang-shell">sudo yum install python-pip     # python2 pip   apt-get
+</code></pre>
+<p><strong>supervisor&#x5BF9;python3&#x652F;&#x6301;&#x4E0D;&#x597D;&#xFF0C;&#x987B;&#x4F7F;&#x7528;python2&#x73AF;&#x5883;</strong></p>
+<pre><code class="lang-bash">sudo pip install supervisor
+</code></pre>
+<h4 id="&#x914D;&#x7F6E;">&#x914D;&#x7F6E;</h4>
+<p>&#x8FD0;&#x884C;<strong>echo_supervisord_conf</strong>&#x547D;&#x4EE4;&#x8F93;&#x51FA;&#x9ED8;&#x8BA4;&#x7684;&#x914D;&#x7F6E;&#x9879;&#xFF0C;&#x53EF;&#x4EE5;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;&#x5C06;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x4FDD;&#x5B58;&#x5230;&#x6587;&#x4EF6;&#x4E2D;</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">echo</span>_supervisord_conf &gt; supervisord.conf
+</code></pre>
+<p>vim &#x6253;&#x5F00;&#x7F16;&#x8F91;supervisord.conf&#x6587;&#x4EF6;&#xFF0C;&#x4FEE;&#x6539;</p>
+<pre><code class="lang-bash">[include]
+files = relative/directory/*.ini
+</code></pre>
+<p>&#x4E3A;</p>
+<pre><code class="lang-bash">[include]
+files = /etc/supervisor/*.conf
+</code></pre>
+<p>include&#x9009;&#x9879;&#x6307;&#x660E;&#x5305;&#x542B;&#x7684;&#x5176;&#x4ED6;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;</p>
+<ul>
+<li>&#x5C06;&#x7F16;&#x8F91;&#x540E;&#x7684;supervisord.conf&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;/etc/&#x76EE;&#x5F55;&#x4E0B;</li>
+</ul>
+<pre><code class="lang-bash">sudo cp supervisord.conf /etc/
+</code></pre>
+<ul>
+<li>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5728;/etc&#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;&#x5B50;&#x76EE;&#x5F55;supervisor&#xFF08;&#x4E0E;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x91CC;&#x7684;&#x9009;&#x9879;&#x76F8;&#x540C;&#xFF09;&#xFF0C;&#x5E76;&#x5728;/etc/supervisor/&#x4E2D;&#x65B0;&#x5EFA;&#x5934;&#x6761;&#x63A8;&#x8350;&#x7BA1;&#x7406;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;reco.conf</li>
+</ul>
+<p><strong>&#x52A0;&#x5165;&#x914D;&#x7F6E;&#x6A21;&#x677F;&#x5982;&#x4E0B;(&#x6A21;&#x677F;)</strong>&#xFF1A;</p>
+<pre><code>[program:recogrpc]
+command=/root/anaconda3/envs/reco_sys/bin/python /root/headlines_project/recommend_system/ABTest/routing.py
+directory=/root/headlines_project/recommend_system/ABTest
+user=root
+autorestart=true
+redirect_stderr=true
+stdout_logfile=/root/logs/reco.log
+loglevel=info
+stopsignal=KILL
+stopasgroup=true
+killasgroup=true
+
+[program:kafka]
+command=/bin/bash /root/headlines_project/scripts/startKafka.sh
+directory=/root/headlines_project/scripts
+user=root
+autorestart=true
+redirect_stderr=true
+stdout_logfile=/root/logs/kafka.log
+loglevel=info
+stopsignal=KILL
+stopasgroup=true
+killasgroup=true
+</code></pre><h5 id="&#x542F;&#x52A8;">&#x542F;&#x52A8;</h5>
+<pre><code class="lang-bash">supervisord -c /etc/supervisord.conf
+</code></pre>
+<p>&#x67E5;&#x770B; supervisord &#x662F;&#x5426;&#x5728;&#x8FD0;&#x884C;&#xFF1A;</p>
+<pre><code class="lang-bash">ps aux | grep supervisord
+</code></pre>
+<h5 id="supervisorctl">supervisorctl</h5>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;supervisorctl&#x6765;&#x7BA1;&#x7406;supervisor&#x3002;</p>
+<pre><code class="lang-bash">supervisorctl
+
+&gt; status    <span class="hljs-comment"># &#x67E5;&#x770B;&#x7A0B;&#x5E8F;&#x72B6;&#x6001;</span>
+&gt; start apscheduler  <span class="hljs-comment"># &#x542F;&#x52A8; apscheduler &#x5355;&#x4E00;&#x7A0B;&#x5E8F;</span>
+&gt; stop toutiao:*   <span class="hljs-comment"># &#x5173;&#x95ED; toutiao&#x7EC4; &#x7A0B;&#x5E8F;</span>
+&gt; start toutiao:*  <span class="hljs-comment"># &#x542F;&#x52A8; toutiao&#x7EC4; &#x7A0B;&#x5E8F;</span>
+&gt; restart toutiao:*    <span class="hljs-comment"># &#x91CD;&#x542F; toutiao&#x7EC4; &#x7A0B;&#x5E8F;</span>
+&gt; update    &#xFF03; &#x91CD;&#x542F;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x8FC7;&#x7684;&#x7A0B;&#x5E8F;
+</code></pre>
+<p>&#x6267;&#x884C;status&#x547D;&#x4EE4;&#x65F6;&#xFF0C;&#x663E;&#x793A;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#x8BF4;&#x660E;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x6B63;&#x5E38;&#xFF1A;</p>
+<pre><code class="lang-bash">supervisor&gt; status
+toutiao:toutiao-app RUNNING pid <span class="hljs-number">32091</span>, uptime <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">02</span>
+</code></pre>
+<h3 id="234-&#x542F;&#x52A8;&#x76D1;&#x542C;flume&#x6536;&#x96C6;&#x65E5;&#x5FD7;&#x7A0B;&#x5E8F;">2.3.4 &#x542F;&#x52A8;&#x76D1;&#x542C;flume&#x6536;&#x96C6;&#x65E5;&#x5FD7;&#x7A0B;&#x5E8F;</h3>
+<p>&#x76EE;&#x7684;&#xFF1A; &#x542F;&#x52A8;&#x76D1;&#x542C;flume&#x6536;&#x96C6;&#x65E5;&#x5FD7;</p>
+<ul>
+<li>&#x6211;&#x4EEC;&#x5C06;&#x542F;&#x52A8;flume&#x7684;&#x7A0B;&#x5E8F;&#x5EFA;&#x7ACB;&#x6210;collect_click.sh&#x811A;&#x672C;</li>
+</ul>
+<p>flume&#x542F;&#x52A8;&#x9700;&#x8981;&#x76F8;&#x5173;hadoop,java&#x73AF;&#x5883;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;shell&#x7A0B;&#x5E8F;&#x6C47;&#x603B;&#x6DFB;&#x52A0;</p>
+<pre><code class="lang-shell">#!/usr/bin/env bash
+
+export JAVA_HOME=/root/bigdata/jdk
+export HADOOP_HOME=/root/bigdata/hadoop
+export PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin
+
+/root/bigdata/flume/bin/flume-ng agent -c /root/bigdata/flume/conf -f /root/bigdata/flume/conf/collect_click.conf -Dflume.root.logger=INFO,console -name a1
+</code></pre>
+<ul>
+<li>&#x5E76;&#x5728;supervisor&#x7684;reco.conf&#x6DFB;&#x52A0;</li>
+</ul>
+<pre><code class="lang-python">[program:collect-click]
+command=/bin/bash /root/toutiao_project/scripts/collect_click.sh
+user=root
+autorestart=true
+redirect_stderr=true
+stdout_logfile=/root/logs/collect.log
+loglevel=info
+stopsignal=KILL
+stopasgroup=true
+killasgroup=true
+</code></pre>
+<h3 id="235-&#x9ED1;&#x9A6C;&#x5934;&#x6761;hive&#x5386;&#x53F2;&#x70B9;&#x51FB;&#x6570;&#x636E;&#x5BFC;&#x5165;">2.3.5 &#x9ED1;&#x9A6C;&#x5934;&#x6761;HIVE&#x5386;&#x53F2;&#x70B9;&#x51FB;&#x6570;&#x636E;&#x5BFC;&#x5165;</h3>
+<p>&#x6536;&#x96C6;&#x4ECA;&#x5929;&#x7684;&#x70B9;&#x51FB;&#x884C;&#x4E3A;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x4E14;&#x4E5F;&#x53EA;&#x80FD;&#x751F;&#x6210;&#x4ECA;&#x5929;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x76EE;&#x5F55;&#xFF0C;&#x540E;&#x9762;&#x4E3A;&#x4E86;&#x66F4;&#x591A;&#x7684;&#x65E5;&#x5FD7;&#x6570;&#x636E;&#x5904;&#x7406;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5386;&#x53F2;&#x6570;&#x636E;&#x5BFC;&#x5165;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x62F7;&#x8D1D;&#x4E86;&#x5386;&#x53F2;&#x6570;&#x636E;&#x5728;&#x672C;&#x5730;</p>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x6709;</p>
+<p><img src="../images/&#x5386;&#x53F2;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x5BFC;&#x5165;.png" alt=""></p>
+<ul>
+<li><p>&#x6B65;&#x9AA4;</p>
+<ul>
+<li>&#x4E4B;&#x524D;&#x7684;Hadoop&#x6536;&#x96C6;&#x7684;&#x82E5;&#x5E72;&#x65F6;&#x95F4;&#x4E4B;&#x524D;&#x7684;&#x6570;&#x636E;&#x62F7;&#x8D1D;&#x5230;hadoop&#x5BF9;&#x5E94;hive&#x6570;&#x636E;&#x76EE;&#x5F55;&#x4E2D;</li>
+</ul>
+</li>
+<li><p>&#x5B9E;&#x73B0;</p>
+</li>
+</ul>
+<p>&#x6211;&#x4EEC;&#x9009;&#x62E9;&#x5168;&#x90E8;&#x8986;&#x76D6;&#x4E86;&#xFF0C;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x4E0D;&#x8981;&#x4E86;</p>
+<pre><code class="lang-shell">hadoop dfs -put /root/bak/hadoopbak/profile.db/user_action/ /user/hive/warehouse/profile.db/
+</code></pre>
+<h3 id="236-&#x603B;&#x7ED3;">2.3.6 &#x603B;&#x7ED3;</h3>
+<ul>
+<li>&#x7528;&#x6237;&#x884C;&#x4E3A;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x7684;&#x76F8;&#x5173;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;</li>
+<li>flume&#x6536;&#x96C6;&#x5230;hive&#x914D;&#x7F6E;</li>
+<li>supervisor&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#x4F7F;&#x7528;</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../day01/section0.html" class="navigation navigation-prev " aria-label="Previous page: 数据库迁移"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../day01/section2.html" class="navigation navigation-next " aria-label="Next page: 离线画像业务介绍"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"katex":{},"expandable-chapters-small":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

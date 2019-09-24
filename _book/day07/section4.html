@@ -1,0 +1,1411 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>TFRecords与黑马训练数据存储 | 黑马头条推荐系统项目课程定位、目标</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../day07/section5.html" />
+    
+    
+    <link rel="prev" href="../day07/section3.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="8.4"
+        data-chapter-title="TFRecords与黑马训练数据存储"
+        data-filepath="day07/section4.md"
+        data-basepath=".."
+        data-revision="Wed Jun 05 2019 18:41:21 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        黑马头条推荐系统项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="reco/index.html">
+            
+                
+                    <a href="../reco/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        黑马头条推荐架构介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="reco/section1.html">
+            
+                
+                    <a href="../reco/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        头条推荐架构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="reco/section2.html">
+            
+                
+                    <a href="../reco/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        开发环境介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="day01/index.html">
+            
+                
+                    <a href="../day01/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        离线计算更新文章画像
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="day01/section0.html">
+            
+                
+                    <a href="../day01/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        数据库迁移
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="day01/section1.html">
+            
+                
+                    <a href="../day01/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        用户行为收集到HIVE
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="day01/section2.html">
+            
+                
+                    <a href="../day01/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        离线画像业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="day01/section3.html">
+            
+                
+                    <a href="../day01/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        离线文章画像计算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="day01/section4.html">
+            
+                
+                    <a href="../day01/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        离线增量画像更新代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="day01/section5.html">
+            
+                
+                    <a href="../day01/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Apscheduler定时更新文章画像
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="day01/section6.html">
+            
+                
+                    <a href="../day01/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Word2Vec与文章相似度
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="day01/section7.html">
+            
+                
+                    <a href="../day01/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        文章相似度增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="day01/section8.html">
+            
+                
+                    <a href="../day01/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="day01/section9.html">
+            
+                
+                    <a href="../day01/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="day02/index.html">
+            
+                
+                    <a href="../day02/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        离线用户画像更新与召回排序计算
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="day02/section1.html">
+            
+                
+                    <a href="../day02/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        用户画像逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="day02/section2.html">
+            
+                
+                    <a href="../day02/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        用户画像增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="day02/section3.html">
+            
+                
+                    <a href="../day02/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        离线召回与排序介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="day02/section4.html">
+            
+                
+                    <a href="../day02/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        离线用户基于模型召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="day02/section5.html">
+            
+                
+                    <a href="../day02/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        离线用户基于内容召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="day02/section6.html">
+            
+                
+                    <a href="../day02/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        离线用户召回定时更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="day02/section7.html">
+            
+                
+                    <a href="../day02/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        离线排序模型训练基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="day02/section8.html">
+            
+                
+                    <a href="../day02/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        离线ctr特征中心更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="day02/section9.html">
+            
+                
+                    <a href="../day02/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="day02/section10.html">
+            
+                
+                    <a href="../day02/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="day03/index.html">
+            
+                
+                    <a href="../day03/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        实时计算业务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="day03/section0.html">
+            
+                
+                    <a href="../day03/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        实时计算业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="day03/section1.html">
+            
+                
+                    <a href="../day03/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        实时日志分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="day03/section2.html">
+            
+                
+                    <a href="../day03/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        实时召回集业务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="day03/section3.html">
+            
+                
+                    <a href="../day03/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        热门与新文章召回
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="day03/section4.html">
+            
+                
+                    <a href="../day03/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="day03/section5.html">
+            
+                
+                    <a href="../day03/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="day04/index.html">
+            
+                
+                    <a href="../day04/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        推荐业务流实现与ABTest
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="day04/section0.html">
+            
+                
+                    <a href="../day04/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        实时推荐业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="day04/section1.html">
+            
+                
+                    <a href="../day04/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        grpc接口对接
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="day04/section2.html">
+            
+                
+                    <a href="../day04/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        ABTest实验中心
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="day04/section3.html">
+            
+                
+                    <a href="../day04/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        推荐中心逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="day04/section4.html">
+            
+                
+                    <a href="../day04/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        召回集读取服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="day04/section5.html">
+            
+                
+                    <a href="../day04/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        推荐缓存服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="day04/section6.html">
+            
+                
+                    <a href="../day04/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        排序模型在线预测
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="day04/section7.html">
+            
+                
+                    <a href="../day04/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="day04/section8.html">
+            
+                
+                    <a href="../day04/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="day05/index.html">
+            
+                
+                    <a href="../day05/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        深度学习与推荐系统
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="day05/section1.html">
+            
+                
+                    <a href="../day05/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        推荐系统的深度学习关联
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="day05/section2.html">
+            
+                
+                    <a href="../day05/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        深度学习应用简介
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="day06/index.html">
+            
+                
+                    <a href="../day06/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        TensorFlow框架介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="day06/section1.html">
+            
+                
+                    <a href="../day06/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        TF数据流图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="day06/section2.html">
+            
+                
+                    <a href="../day06/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        图与TensorBoard
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="day06/section3.html">
+            
+                
+                    <a href="../day06/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        会话、张量、变量OP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="day06/section4.html">
+            
+                
+                    <a href="../day06/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        案例：TensorFlow实现线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="day06/section5.html">
+            
+                
+                    <a href="../day06/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        TFAPI使用2.0建议
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.6" data-path="day06/section6.html">
+            
+                
+                    <a href="../day06/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                        tf.estimator使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.7" data-path="day06/section7.html">
+            
+                
+                    <a href="../day06/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.8" data-path="day06/section8.html">
+            
+                
+                    <a href="../day06/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="day07/index.html">
+            
+                
+                    <a href="../day07/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        黑马头条排序模型进阶
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="day07/section1.html">
+            
+                
+                    <a href="../day07/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        神经网络基础与原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="day07/section2.html">
+            
+                
+                    <a href="../day07/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        tf.data与tf.feature_column
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="day07/section3.html">
+            
+                
+                    <a href="../day07/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        案例：DNN文本分类与word2vec原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="8.4" data-path="day07/section4.html">
+            
+                
+                    <a href="../day07/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        TFRecords与黑马训练数据存储
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="day07/section5.html">
+            
+                
+                    <a href="../day07/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        深度学习与排序模型发展
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="day07/section6.html">
+            
+                
+                    <a href="../day07/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        分桶与特征交叉
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="day07/section7.html">
+            
+                
+                    <a href="../day07/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        黑马排序模型进阶-FTRL on Tensorflow
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="day07/section8.html">
+            
+                
+                    <a href="../day07/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        黑马排序模型进阶-Wide&amp;Deep
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" data-path="day07/section9.html">
+            
+                
+                    <a href="../day07/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                        WDL模型导出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" data-path="day07/section10.html">
+            
+                
+                    <a href="../day07/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.</b>
+                        
+                        TensorFlow Serving模型部署
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.11" data-path="day07/section11.html">
+            
+                
+                    <a href="../day07/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.11.</b>
+                        
+                        排序模型在线测试
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12" data-path="day07/section12.html">
+            
+                
+                    <a href="../day07/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.12.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13" data-path="day07/section13.html">
+            
+                
+                    <a href="../day07/section13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.13.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >黑马头条推荐系统项目课程定位、目标</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="74-tfrecords&#x4E0E;&#x9ED1;&#x9A6C;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x5B58;&#x50A8;">7.4 TFRecords&#x4E0E;&#x9ED1;&#x9A6C;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x5B58;&#x50A8;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x76EE;&#x6807;<ul>
+<li>&#x8BF4;&#x660E;Example&#x7684;&#x7ED3;&#x6784;</li>
+</ul>
+</li>
+<li>&#x5E94;&#x7528;<ul>
+<li>&#x5E94;&#x7528;TF&#x4FDD;&#x5B58;Spark&#x6784;&#x5EFA;&#x7684;&#x6837;&#x672C;&#x5230;TFRecords&#x6587;&#x4EF6;</li>
+</ul>
+</li>
+</ul>
+<h2 id="741-&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#x51C6;&#x5907;&#x6D41;&#x7A0B;">7.4.1 &#x8BAD;&#x7EC3;&#x6837;&#x672C;&#x51C6;&#x5907;&#x6D41;&#x7A0B;</h2>
+<p><img src="../images/&#x5B9E;&#x65F6;&#x6392;&#x5E8F;&#x903B;&#x8F91;.png" alt=""></p>
+<h2 id="282-&#x4EC0;&#x4E48;&#x662F;tfrecords&#x6587;&#x4EF6;">2.8.2 &#x4EC0;&#x4E48;&#x662F;TFRecords&#x6587;&#x4EF6;</h2>
+<p>TFRecords&#x5176;&#x5B9E;&#x662F;&#x4E00;&#x79CD;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#xFF0C;&#x867D;&#x7136;&#x5B83;&#x4E0D;&#x5982;&#x5176;&#x4ED6;&#x683C;&#x5F0F;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x80FD;&#x66F4;&#x597D;&#x7684;&#x5229;&#x7528;&#x5185;&#x5B58;&#xFF0C;&#x66F4;&#x65B9;&#x4FBF;&#x590D;&#x5236;&#x548C;&#x79FB;&#x52A8;&#xFF0C;<strong>&#x5E76;&#x4E14;&#x4E0D;&#x9700;&#x8981;&#x5355;&#x72EC;&#x7684;&#x6807;&#x7B7E;&#x6587;&#x4EF6;</strong>&#x3002;</p>
+<p>TFRecords&#x6587;&#x4EF6;&#x5305;&#x542B;&#x4E86;<code>tf.train.Example</code> &#x534F;&#x8BAE;&#x5185;&#x5B58;&#x5757;(protocol buffer)(&#x534F;&#x8BAE;&#x5185;&#x5B58;&#x5757;&#x5305;&#x542B;&#x4E86;&#x5B57;&#x6BB5; <code>Features</code>)&#x3002;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x4F60;&#x7684;&#x6570;&#x636E;&#xFF0C; &#x5C06;&#x6570;&#x636E;&#x586B;&#x5165;&#x5230;<code>Example</code>&#x534F;&#x8BAE;&#x5185;&#x5B58;&#x5757;(protocol buffer)&#xFF0C;&#x5C06;&#x534F;&#x8BAE;&#x5185;&#x5B58;&#x5757;&#x5E8F;&#x5217;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C; &#x5E76;&#x4E14;&#x901A;&#x8FC7;<code>tf.python_io.TFRecordWriter</code> &#x5199;&#x5165;&#x5230;TFRecords&#x6587;&#x4EF6;&#x3002;</p>
+<ul>
+<li>&#x6587;&#x4EF6;&#x683C;&#x5F0F; *.tfrecords </li>
+</ul>
+<h2 id="283-example&#x7ED3;&#x6784;&#x89E3;&#x6790;">2.8.3 Example&#x7ED3;&#x6784;&#x89E3;&#x6790;</h2>
+<p><code>tf.train.Example</code> &#x534F;&#x8BAE;&#x5185;&#x5B58;&#x5757;(protocol buffer)(&#x534F;&#x8BAE;&#x5185;&#x5B58;&#x5757;&#x5305;&#x542B;&#x4E86;&#x5B57;&#x6BB5; <code>Features</code>)&#xFF0C;<code>Features</code>&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;<code>Feature</code>&#x5B57;&#x6BB5;&#xFF0C;<code>Features</code>&#x4E2D;&#x5305;&#x542B;&#x8981;&#x5199;&#x5165;&#x7684;&#x6570;&#x636E;&#x3001;&#x5E76;&#x6307;&#x660E;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6837;&#x672C;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x6279;&#x6570;&#x636E;&#x9700;&#x8981;&#x5FAA;&#x73AF;&#x5B58;&#x5165;&#x8FD9;&#x6837;&#x7684;&#x7ED3;&#x6784;</p>
+<pre><code class="lang-python"> example = tf.train.Example(features=tf.train.Features(feature={
+                <span class="hljs-string">&quot;features&quot;</span>: tf.train.Feature(bytes_list=tf.train.BytesList(value=[features])),
+                <span class="hljs-string">&quot;label&quot;</span>: tf.train.Feature(int64_list=tf.train.Int64List(value=[label])),
+            }))
+</code></pre>
+<ul>
+<li>tf.train.Example(<strong>features</strong>=None)<ul>
+<li>&#x5199;&#x5165;tfrecords&#x6587;&#x4EF6;</li>
+<li>features:tf.train.Features&#x7C7B;&#x578B;&#x7684;&#x7279;&#x5F81;&#x5B9E;&#x4F8B;</li>
+<li>return&#xFF1A;example&#x683C;&#x5F0F;&#x534F;&#x8BAE;&#x5757;</li>
+</ul>
+</li>
+<li>tf.train.<strong>Features</strong>(<strong>feature</strong>=None)<ul>
+<li>&#x6784;&#x5EFA;&#x6BCF;&#x4E2A;&#x6837;&#x672C;&#x7684;&#x4FE1;&#x606F;&#x952E;&#x503C;&#x5BF9;</li>
+<li>feature:&#x5B57;&#x5178;&#x6570;&#x636E;,key&#x4E3A;&#x8981;&#x4FDD;&#x5B58;&#x7684;&#x540D;&#x5B57;</li>
+<li>value&#x4E3A;tf.train.Feature&#x5B9E;&#x4F8B;</li>
+<li>return:Features&#x7C7B;&#x578B;</li>
+</ul>
+</li>
+<li>tf.train.<strong>Feature</strong>(options)<ul>
+<li>options&#xFF1A;&#x4F8B;&#x5982;<ul>
+<li>bytes_list=tf.train. BytesList(value=[Bytes])</li>
+<li>int64_list=tf.train. Int64List(value=[Value])</li>
+</ul>
+</li>
+<li>&#x652F;&#x6301;&#x5B58;&#x5165;&#x7684;&#x7C7B;&#x578B;&#x5982;&#x4E0B;</li>
+<li>tf.train.Int64List(value=[Value])</li>
+<li>tf.train.BytesList(value=[Bytes]) </li>
+<li>tf.train.FloatList(value=[value]) </li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>&#x8FD9;&#x79CD;&#x7ED3;&#x6784;&#x662F;&#x4E0D;&#x662F;&#x5F88;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x4E86;<strong>&#x6570;&#x636E;&#x548C;&#x6807;&#x7B7E;(&#x8BAD;&#x7EC3;&#x7684;&#x7C7B;&#x522B;&#x6807;&#x7B7E;)&#x6216;&#x8005;&#x5176;&#x4ED6;&#x5C5E;&#x6027;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;</strong> </p>
+</blockquote>
+<p>&#x4F7F;&#x7528;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p><strong>&#x7B2C;&#x4E00;&#x6B65;&#xFF0C;&#x751F;&#x6210;TFRecord Writer</strong></p>
+<pre><code class="lang-python3">writer = tf.python_io.TFRecordWriter(path, options=None)
+</code></pre>
+<p><strong>path&#xFF1A;</strong>TFRecord&#x6587;&#x4EF6;&#x7684;&#x5B58;&#x653E;&#x8DEF;&#x5F84;&#xFF1B;</p>
+<p><strong>option&#xFF1A;</strong>TFRecordOptions&#x5BF9;&#x8C61;&#xFF0C;&#x5B9A;&#x4E49;TFRecord&#x6587;&#x4EF6;&#x4FDD;&#x5B58;&#x7684;&#x538B;&#x7F29;&#x683C;&#x5F0F;&#xFF1B;</p>
+<p><strong>&#x7B2C;&#x4E8C;&#x6B65;&#xFF0C;tf.train.Feature&#x751F;&#x6210;&#x534F;&#x8BAE;&#x4FE1;&#x606F;</strong></p>
+<p>&#x4E00;&#x4E2A;&#x534F;&#x8BAE;&#x4FE1;&#x606F;&#x7279;&#x5F81;&#xFF08;&#x8FD9;&#x91CC;&#x7FFB;&#x8BD1;&#x53EF;&#x80FD;&#x4E0D;&#x51C6;&#x786E;&#xFF09;&#x662F;&#x5C06;&#x539F;&#x59CB;&#x6570;&#x636E;&#x7F16;&#x7801;&#x6210;&#x7279;&#x5B9A;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x5185;&#x5C42;feature&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x5178;&#x503C;&#xFF0C;&#x5B83;&#x662F;&#x5C06;&#x67D0;&#x4E2A;&#x7C7B;&#x578B;&#x5217;&#x8868;&#x7F16;&#x7801;&#x6210;&#x7279;&#x5B9A;&#x7684;feature&#x683C;&#x5F0F;&#xFF0C;&#x800C;&#x8BE5;&#x5B57;&#x5178;&#x952E;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;TFRecords&#x6587;&#x4EF6;&#x65F6;&#x7D22;&#x5F15;&#x5F97;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x67D0;&#x4E2A;&#x7C7B;&#x578B;&#x5217;&#x8868;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x96F6;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x503C;&#xFF0C;<strong>&#x5217;&#x8868;&#x7C7B;&#x578B;&#x4E00;&#x822C;&#x6709;BytesList, FloatList, Int64List</strong></p>
+<pre><code class="lang-python3">tf.train.BytesList(value=[value]) # value&#x8F6C;&#x5316;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF08;&#x4E8C;&#x8FDB;&#x5236;&#xFF09;&#x5217;&#x8868;
+tf.train.FloatList(value=[value]) # value&#x8F6C;&#x5316;&#x4E3A;&#x6D6E;&#x70B9;&#x578B;&#x5217;&#x8868;
+tf.train.Int64List(value=[value]) # value&#x8F6C;&#x5316;&#x4E3A;&#x6574;&#x578B;&#x5217;&#x8868;
+</code></pre>
+<p>&#x5176;&#x4E2D;&#xFF0C;value&#x662F;&#x4F60;&#x8981;&#x4FDD;&#x5B58;&#x7684;&#x6570;&#x636E;&#x3002;&#x5185;&#x5C42;feature&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-python3">feature_internal = {
+&quot;width&quot;:tf.train.Feature(int64_list=tf.train.Int64List(value=[width])),
+&quot;weights&quot;:tf.train.Feature(float_list=tf.train.FloatList(value=[weights])),
+&quot;image_raw&quot;:tf.train.Feature(bytes_list=tf.train.BytesList(value=[image_raw]))
+}
+</code></pre>
+<p>&#x5916;&#x5C42;features&#x518D;&#x5C06;&#x5185;&#x5C42;&#x5B57;&#x5178;&#x7F16;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-text">features_extern = tf.train.Features(feature_internal)
+</code></pre>
+<ul>
+<li>tf.train.Feature&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x53EF;&#x4EE5;&#x7F16;&#x7801;&#x5C01;&#x88C5;&#x5217;&#x8868;&#x7C7B;&#x578B;&#x548C;&#x5B57;&#x5178;&#x7C7B;&#x578B;&#xFF0C;&#x5185;&#x5C42;&#x7528;&#x7684;&#x662F;tf.train.Feature</li>
+<li>&#x5916;&#x5C42;&#x4F7F;&#x7528;tf.train.Features</li>
+</ul>
+<p><strong>&#x7B2C;&#x4E09;&#x6B65;&#xFF0C;&#x4F7F;&#x7528;tf.train.Example&#x5C06;features&#x7F16;&#x7801;&#x6570;&#x636E;&#x5C01;&#x88C5;&#x6210;&#x7279;&#x5B9A;&#x7684;PB&#x534F;&#x8BAE;&#x683C;&#x5F0F;</strong></p>
+<pre><code class="lang-text">example = tf.train.Example(features_extern)
+</code></pre>
+<p><strong>&#x7B2C;&#x56DB;&#x6B65;&#xFF0C;&#x5C06;example&#x6570;&#x636E;&#x7CFB;&#x5217;&#x5316;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;</strong></p>
+<pre><code class="lang-text">example_str = example.SerializeToString()
+</code></pre>
+<p><strong>&#x7B2C;&#x4E94;&#x6B65;&#xFF0C;&#x5C06;&#x7CFB;&#x5217;&#x5316;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x7684;example&#x6570;&#x636E;&#x5199;&#x5165;&#x534F;&#x8BAE;&#x7F13;&#x51B2;&#x533A;</strong></p>
+<pre><code class="lang-text">writer.write(example_str)
+</code></pre>
+<h2 id="284-&#x6848;&#x4F8B;&#xFF1A;cifar10&#x6570;&#x636E;&#x5B58;&#x5165;tfrecords&#x6587;&#x4EF6;">2.8.4 &#x6848;&#x4F8B;&#xFF1A;CIFAR10&#x6570;&#x636E;&#x5B58;&#x5165;TFRecords&#x6587;&#x4EF6;</h2>
+<h3 id="2841-&#x5206;&#x6790;">2.8.4.1 &#x5206;&#x6790;</h3>
+<p><img src="../images/&#x79BB;&#x7EBF;&#x6837;&#x672C;&#x6784;&#x9020;.png" alt=""></p>
+<ul>
+<li><p>&#x6784;&#x9020;&#x5B58;&#x50A8;&#x5B9E;&#x4F8B;&#xFF0C;tf.python_io.TFRecordWriter(path)</p>
+<ul>
+<li>&#x5199;&#x5165;tfrecords&#x6587;&#x4EF6;</li>
+<li>path: TFRecords&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;</li>
+<li>return&#xFF1A;&#x5199;&#x6587;&#x4EF6;</li>
+<li>method</li>
+<li>write(record):&#x5411;&#x6587;&#x4EF6;&#x4E2D;&#x5199;&#x5165;&#x4E00;&#x4E2A;example</li>
+<li>close():&#x5173;&#x95ED;&#x6587;&#x4EF6;&#x5199;&#x5165;&#x5668;</li>
+</ul>
+</li>
+<li><p>&#x5FAA;&#x73AF;&#x5C06;&#x6570;&#x636E;&#x586B;&#x5165;&#x5230;<code>Example</code>&#x534F;&#x8BAE;&#x5185;&#x5B58;&#x5757;(protocol buffer)</p>
+</li>
+</ul>
+<h3 id="2842-&#x4EE3;&#x7801;">2.8.4.2 &#x4EE3;&#x7801;</h3>
+<p>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x6837;&#x672C;&#x6570;&#x636E;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x5199;&#x5165;&#x5230;example&#x5F53;&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x53D6;&#x51FA;&#x6BCF;&#x4E00;&#x6837;&#x672C;&#x8FDB;&#x884C;&#x6784;&#x9020;&#x5B58;&#x5165;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x4FDD;&#x5B58;&#x5230;TFRecords&#x6587;&#x4EF6;&#x4E2D;</span>
+df = train_res.select([<span class="hljs-string">&apos;user_id&apos;</span>, <span class="hljs-string">&apos;article_id&apos;</span>, <span class="hljs-string">&apos;clicked&apos;</span>, <span class="hljs-string">&apos;features&apos;</span>])
+df_array = df.collect()
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+df = pd.DataFrame(df_array)
+</code></pre>
+<p>&#x5B58;&#x50A8;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">write_to_tfrecords</span><span class="hljs-params">(click_batch, feature_batch)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&#x5C06;&#x7528;&#x6237;&#x4E0E;&#x6587;&#x7AE0;&#x7684;&#x70B9;&#x51FB;&#x65E5;&#x5FD7;&#x6784;&#x9020;&#x7684;&#x6837;&#x672C;&#x5199;&#x5165;TFRecords&#x6587;&#x4EF6;
+    &quot;&quot;&quot;</span>
+
+    <span class="hljs-comment"># 1&#x3001;&#x6784;&#x9020;tfrecords&#x7684;&#x5B58;&#x50A8;&#x5B9E;&#x4F8B;</span>
+    writer = tf.python_io.TFRecordWriter(<span class="hljs-string">&quot;./train_ctr_20190605.tfrecords&quot;</span>)
+
+    <span class="hljs-comment"># 2&#x3001;&#x5FAA;&#x73AF;&#x5C06;&#x6240;&#x6709;&#x6837;&#x672C;&#x4E00;&#x4E2A;&#x4E2A;&#x5C01;&#x88C5;&#x6210;example&#xFF0C;&#x5199;&#x5165;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(click_batch)):
+        <span class="hljs-comment"># &#x53D6;&#x51FA;&#x7B2C;i&#x4E2A;&#x6837;&#x672C;&#x7684;&#x7279;&#x5F81;&#x503C;&#x548C;&#x76EE;&#x6807;&#x503C;&#xFF0C;&#x683C;&#x5F0F;&#x8F6C;&#x6362;</span>
+        click = click_batch[i]
+        feature = feature_batch[i].tostring()
+        <span class="hljs-comment"># [18.0, 0.09475817797242475, 0.0543921297305341...</span>
+
+        <span class="hljs-comment"># &#x6784;&#x9020;example&#xFF0C;int64, float64, bytes</span>
+        example = tf.train.Example(features=tf.train.Features(feature={
+            <span class="hljs-string">&quot;label&quot;</span>: tf.train.Feature(int64_list=tf.train.Int64List(value=[click])),
+            <span class="hljs-string">&quot;feature&quot;</span>: tf.train.Feature(bytes_list=tf.train.BytesList(value=[feature]))
+        }))
+
+        <span class="hljs-comment"># &#x5E8F;&#x5217;&#x5316;example,&#x5199;&#x5165;&#x6587;&#x4EF6;</span>
+        writer.write(example.SerializeToString())
+
+    writer.close()
+
+<span class="hljs-comment"># &#x5F00;&#x542F;&#x4F1A;&#x8BDD;&#x6253;&#x5370;&#x5185;&#x5BB9;</span>
+<span class="hljs-keyword">with</span> tf.Session() <span class="hljs-keyword">as</span> sess:
+    <span class="hljs-comment"># &#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x534F;&#x8C03;&#x5668;</span>
+    coord = tf.train.Coordinator()
+
+    <span class="hljs-comment"># &#x5F00;&#x542F;&#x5B50;&#x7EBF;&#x7A0B;&#x53BB;&#x8BFB;&#x53D6;&#x6570;&#x636E;</span>
+    <span class="hljs-comment"># &#x8FD4;&#x56DE;&#x5B50;&#x7EBF;&#x7A0B;&#x5B9E;&#x4F8B;</span>
+    threads = tf.train.start_queue_runners(sess=sess, coord=coord)
+
+    <span class="hljs-comment"># &#x5B58;&#x5165;&#x6570;&#x636E;</span>
+    write_to_tfrecords(df.iloc[:, <span class="hljs-number">2</span>], df.iloc[:, <span class="hljs-number">3</span>])
+
+    <span class="hljs-comment"># &#x5173;&#x95ED;&#x5B50;&#x7EBF;&#x7A0B;&#xFF0C;&#x56DE;&#x6536;</span>
+    coord.request_stop()
+
+    coord.join(threads)
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../day07/section3.html" class="navigation navigation-prev " aria-label="Previous page: 案例：DNN文本分类与word2vec原理"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../day07/section5.html" class="navigation navigation-next " aria-label="Next page: 深度学习与排序模型发展"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"katex":{},"expandable-chapters-small":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

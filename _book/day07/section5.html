@@ -1,0 +1,1347 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>深度学习与排序模型发展 | 黑马头条推荐系统项目课程定位、目标</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../day07/section6.html" />
+    
+    
+    <link rel="prev" href="../day07/section4.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="8.5"
+        data-chapter-title="深度学习与排序模型发展"
+        data-filepath="day07/section5.md"
+        data-basepath=".."
+        data-revision="Wed Jun 05 2019 18:41:21 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        黑马头条推荐系统项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="reco/index.html">
+            
+                
+                    <a href="../reco/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        黑马头条推荐架构介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="reco/section1.html">
+            
+                
+                    <a href="../reco/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        头条推荐架构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="reco/section2.html">
+            
+                
+                    <a href="../reco/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        开发环境介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="day01/index.html">
+            
+                
+                    <a href="../day01/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        离线计算更新文章画像
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="day01/section0.html">
+            
+                
+                    <a href="../day01/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        数据库迁移
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="day01/section1.html">
+            
+                
+                    <a href="../day01/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        用户行为收集到HIVE
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="day01/section2.html">
+            
+                
+                    <a href="../day01/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        离线画像业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="day01/section3.html">
+            
+                
+                    <a href="../day01/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        离线文章画像计算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="day01/section4.html">
+            
+                
+                    <a href="../day01/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        离线增量画像更新代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="day01/section5.html">
+            
+                
+                    <a href="../day01/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Apscheduler定时更新文章画像
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="day01/section6.html">
+            
+                
+                    <a href="../day01/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Word2Vec与文章相似度
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="day01/section7.html">
+            
+                
+                    <a href="../day01/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        文章相似度增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="day01/section8.html">
+            
+                
+                    <a href="../day01/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="day01/section9.html">
+            
+                
+                    <a href="../day01/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="day02/index.html">
+            
+                
+                    <a href="../day02/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        离线用户画像更新与召回排序计算
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="day02/section1.html">
+            
+                
+                    <a href="../day02/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        用户画像逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="day02/section2.html">
+            
+                
+                    <a href="../day02/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        用户画像增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="day02/section3.html">
+            
+                
+                    <a href="../day02/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        离线召回与排序介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="day02/section4.html">
+            
+                
+                    <a href="../day02/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        离线用户基于模型召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="day02/section5.html">
+            
+                
+                    <a href="../day02/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        离线用户基于内容召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="day02/section6.html">
+            
+                
+                    <a href="../day02/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        离线用户召回定时更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="day02/section7.html">
+            
+                
+                    <a href="../day02/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        离线排序模型训练基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="day02/section8.html">
+            
+                
+                    <a href="../day02/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        离线ctr特征中心更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="day02/section9.html">
+            
+                
+                    <a href="../day02/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="day02/section10.html">
+            
+                
+                    <a href="../day02/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="day03/index.html">
+            
+                
+                    <a href="../day03/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        实时计算业务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="day03/section0.html">
+            
+                
+                    <a href="../day03/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        实时计算业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="day03/section1.html">
+            
+                
+                    <a href="../day03/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        实时日志分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="day03/section2.html">
+            
+                
+                    <a href="../day03/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        实时召回集业务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="day03/section3.html">
+            
+                
+                    <a href="../day03/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        热门与新文章召回
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="day03/section4.html">
+            
+                
+                    <a href="../day03/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="day03/section5.html">
+            
+                
+                    <a href="../day03/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="day04/index.html">
+            
+                
+                    <a href="../day04/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        推荐业务流实现与ABTest
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="day04/section0.html">
+            
+                
+                    <a href="../day04/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        实时推荐业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="day04/section1.html">
+            
+                
+                    <a href="../day04/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        grpc接口对接
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="day04/section2.html">
+            
+                
+                    <a href="../day04/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        ABTest实验中心
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="day04/section3.html">
+            
+                
+                    <a href="../day04/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        推荐中心逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="day04/section4.html">
+            
+                
+                    <a href="../day04/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        召回集读取服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="day04/section5.html">
+            
+                
+                    <a href="../day04/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        推荐缓存服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="day04/section6.html">
+            
+                
+                    <a href="../day04/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        排序模型在线预测
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="day04/section7.html">
+            
+                
+                    <a href="../day04/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="day04/section8.html">
+            
+                
+                    <a href="../day04/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="day05/index.html">
+            
+                
+                    <a href="../day05/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        深度学习与推荐系统
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="day05/section1.html">
+            
+                
+                    <a href="../day05/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        推荐系统的深度学习关联
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="day05/section2.html">
+            
+                
+                    <a href="../day05/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        深度学习应用简介
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="day06/index.html">
+            
+                
+                    <a href="../day06/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        TensorFlow框架介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="day06/section1.html">
+            
+                
+                    <a href="../day06/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        TF数据流图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="day06/section2.html">
+            
+                
+                    <a href="../day06/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        图与TensorBoard
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="day06/section3.html">
+            
+                
+                    <a href="../day06/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        会话、张量、变量OP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="day06/section4.html">
+            
+                
+                    <a href="../day06/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        案例：TensorFlow实现线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="day06/section5.html">
+            
+                
+                    <a href="../day06/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        TFAPI使用2.0建议
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.6" data-path="day06/section6.html">
+            
+                
+                    <a href="../day06/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                        tf.estimator使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.7" data-path="day06/section7.html">
+            
+                
+                    <a href="../day06/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.8" data-path="day06/section8.html">
+            
+                
+                    <a href="../day06/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="day07/index.html">
+            
+                
+                    <a href="../day07/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        黑马头条排序模型进阶
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="day07/section1.html">
+            
+                
+                    <a href="../day07/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        神经网络基础与原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="day07/section2.html">
+            
+                
+                    <a href="../day07/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        tf.data与tf.feature_column
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="day07/section3.html">
+            
+                
+                    <a href="../day07/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        案例：DNN文本分类与word2vec原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="day07/section4.html">
+            
+                
+                    <a href="../day07/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        TFRecords与黑马训练数据存储
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="8.5" data-path="day07/section5.html">
+            
+                
+                    <a href="../day07/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        深度学习与排序模型发展
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="day07/section6.html">
+            
+                
+                    <a href="../day07/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        分桶与特征交叉
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="day07/section7.html">
+            
+                
+                    <a href="../day07/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        黑马排序模型进阶-FTRL on Tensorflow
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="day07/section8.html">
+            
+                
+                    <a href="../day07/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        黑马排序模型进阶-Wide&amp;Deep
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" data-path="day07/section9.html">
+            
+                
+                    <a href="../day07/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                        WDL模型导出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" data-path="day07/section10.html">
+            
+                
+                    <a href="../day07/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.</b>
+                        
+                        TensorFlow Serving模型部署
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.11" data-path="day07/section11.html">
+            
+                
+                    <a href="../day07/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.11.</b>
+                        
+                        排序模型在线测试
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12" data-path="day07/section12.html">
+            
+                
+                    <a href="../day07/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.12.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13" data-path="day07/section13.html">
+            
+                
+                    <a href="../day07/section13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.13.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >黑马头条推荐系统项目课程定位、目标</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="85-&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x4E0E;&#x6392;&#x5E8F;&#x6A21;&#x578B;&#x53D1;&#x5C55;">8.5 &#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x4E0E;&#x6392;&#x5E8F;&#x6A21;&#x578B;&#x53D1;&#x5C55;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x76EE;&#x6807;<ul>
+<li>&#x4E86;&#x89E3;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x6392;&#x5E8F;&#x6A21;&#x578B;&#x7684;&#x53D1;&#x5C55;</li>
+</ul>
+</li>
+<li>&#x5E94;&#x7528;<ul>
+<li>&#x65E0;</li>
+</ul>
+</li>
+</ul>
+<h3 id="851-&#x5DE5;&#x7A0B;&#x5F00;&#x53D1;&#x5B9E;&#x8DF5;&#x6D41;&#x7A0B;">8.5.1 &#x5DE5;&#x7A0B;&#x5F00;&#x53D1;&#x5B9E;&#x8DF5;&#x6D41;&#x7A0B;</h3>
+<p><strong>&#x6574;&#x4F53;&#x8BAD;&#x7EC3;&#x6D41;&#x7A0B;</strong></p>
+<p>&#x5BF9;&#x4E8E;&#x7EBF;&#x4E0B;&#x8BAD;&#x7EC3;&#xFF0C;&#x91C7;&#x53D6;&#x5982;&#x4E0B;&#x8BAD;&#x7EC3;&#x6D41;&#x7A0B;&#xFF1A;</p>
+<ul>
+<li>Spark&#x539F;&#x59CB;&#x6570;&#x636E;&#x6574;&#x5408; -&gt; Spark/TF&#x751F;&#x6210;TFRecord -&gt; TF&#x6570;&#x636E;&#x5E76;&#x884C;&#x8BAD;&#x7EC3; -&gt; TensorFlow Serving&#x7EBF;&#x4E0B;&#x8BC4;&#x4F30; -&gt; CPU&#x7EBF;&#x4E0A;&#x9884;&#x6D4B;</li>
+</ul>
+<p><img src="../images/&#x5B9E;&#x65F6;&#x6392;&#x5E8F;&#x903B;&#x8F91;.png" alt=""></p>
+<h3 id="852-&#x6A21;&#x578B;&#x53D1;&#x5C55;">8.5.2 &#x6A21;&#x578B;&#x53D1;&#x5C55;</h3>
+<p>CTR/CVR&#x9884;&#x4F30;&#x7ECF;&#x5386;&#x4E86;&#x4ECE;&#x4F20;&#x7EDF;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#x5230;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#x7684;&#x8FC7;&#x6E21;&#x3002;&#x4E0B;&#x9762;&#x5148;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E0B;&#x4F20;&#x7EDF;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#xFF08;GBDT&#x3001;LR&#x3001;&#x5230;&#x6DF1;&#x5EA6;&#x6A21;&#x578B;&#x53CA;&#x5E94;&#x7528;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x5728;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#x7684;&#x8FED;&#x4EE3;&#x3002;</p>
+<h4 id="lr">LR</h4>
+<p><img src="https://awps-assets.meituan.net/mit-x/blog-images-bundle-2018a/523e1916.png" alt="img"></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>(</mo><mrow><mi mathvariant="bold">x</mi></mrow><mo>)</mo><mo>=</mo><mi>s</mi><mi>i</mi><mi>g</mi><mi>m</mi><mi>o</mi><mi>i</mi><mi>d</mi><mo>(</mo><msub><mi>w</mi><mn>0</mn></msub><mo>+</mo><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>w</mi><mi>i</mi></msub><msub><mi>x</mi><mi>i</mi></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">y(\mathbf{x}) = sigmoid(w_0+ \sum_{i=1}^n w_i x_i)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.0500099999999999em;vertical-align:-0.30001em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord textstyle uncramped"><span class="mord mathbf">x</span></span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit">s</span><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">m</span><span class="mord mathit">o</span><span class="mord mathit">i</span><span class="mord mathit">d</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<p>LR&#x53EF;&#x4EE5;&#x89C6;&#x4F5C;&#x5355;&#x5C42;&#x5355;&#x8282;&#x70B9;&#x7684;&#x201C;DNN&#x201D;, &#x662F;&#x4E00;&#x79CD;&#x5BBD;&#x800C;&#x4E0D;&#x6DF1;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x7279;&#x5F81;&#x76F4;&#x63A5;&#x4F5C;&#x7528;&#x5728;&#x6700;&#x540E;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E0A;&#x3002;&#x6A21;&#x578B;&#x4F18;&#x70B9;&#x662F;&#x7B80;&#x5355;&#x3001;&#x53EF;&#x63A7;&#x6027;&#x597D;&#xFF0C;&#x4F46;&#x662F;&#x6548;&#x679C;&#x7684;&#x597D;&#x574F;&#x76F4;&#x63A5;&#x53D6;&#x51B3;&#x4E8E;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x7684;&#x7A0B;&#x5EA6;&#xFF0C;&#x9700;&#x8981;&#x975E;&#x5E38;&#x7CBE;&#x7EC6;&#x7684;&#x8FDE;&#x7EED;&#x578B;&#x3001;&#x79BB;&#x6563;&#x578B;&#x3001;&#x65F6;&#x95F4;&#x578B;&#x7B49;&#x7279;&#x5F81;&#x5904;&#x7406;&#x53CA;&#x7279;&#x5F81;&#x7EC4;&#x5408;&#x3002;&#x901A;&#x5E38;&#x901A;&#x8FC7;&#x6B63;&#x5219;&#x5316;&#x7B49;&#x65B9;&#x5F0F;&#x63A7;&#x5236;&#x8FC7;&#x62DF;&#x5408;&#x3002;</p>
+<h4 id="fm--ffm">FM &amp; FFM</h4>
+<p>FM&#x53EF;&#x4EE5;&#x770B;&#x505A;&#x5E26;&#x7279;&#x5F81;&#x4EA4;&#x53C9;&#x7684;LR&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="../images/FFM&#x7279;&#x5F81;&#x4EA4;&#x53C9;.png" alt=""></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>(</mo><mrow><mi mathvariant="bold">x</mi></mrow><mo>)</mo><mo>=</mo><msub><mi>w</mi><mn>0</mn></msub><mo>+</mo><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>w</mi><mi>i</mi></msub><msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><msubsup><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msubsup><mo>&#x2211;</mo><mrow><mi>j</mi><mo>=</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mo>&#x27E8;</mo><msub><mrow><mi mathvariant="bold">v</mi></mrow><mrow><mi>i</mi><mo separator="true">,</mo><msub><mi>f</mi><mi>j</mi></msub></mrow></msub><mo separator="true">,</mo><msub><mrow><mi mathvariant="bold">v</mi></mrow><mrow><mi>j</mi><mo separator="true">,</mo><msub><mi>f</mi><mi>i</mi></msub></mrow></msub><mo>&#x27E9;</mo><msub><mi>x</mi><mi>i</mi></msub><msub><mi>x</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">y(\mathbf{x}) = w_0 + \sum_{i=1}^n w_i x_i + \sum_{i=1}^n \sum_{j=i+1}^n \langle \mathbf{v}_{i, f_j}, \mathbf{v}_{j, f_i} \rangle x_i x_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1.186118em;vertical-align:-0.436118em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03588em;">y</span><span class="mopen">(</span><span class="mord textstyle uncramped"><span class="mord mathbf">x</span></span><span class="mclose">)</span><span class="mrel">=</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mop"><span class="mop op-symbol small-op" style="top:-0.0000050000000000050004em;">&#x2211;</span><span class="msupsub"><span class="vlist"><span style="top:0.30001em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mathit mtight">i</span><span class="mbin mtight">+</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.364em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight">n</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mopen">&#x27E8;</span><span class="mord"><span class="mord textstyle uncramped"><span class="mord mathbf" style="margin-right:0.01597em;">v</span></span><span class="msupsub"><span class="vlist"><span style="top:0.14999999999999997em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist"><span style="top:0.14300000000000002em;margin-right:0.07142857142857144em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord textstyle uncramped"><span class="mord mathbf" style="margin-right:0.01597em;">v</span></span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathit mtight" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist"><span style="top:0.143em;margin-right:0.07142857142857144em;margin-left:-0.10764em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">&#x27E9;</span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathit">x</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></p>
+<p>&#x6A21;&#x578B;&#x8986;&#x76D6;&#x4E86;LR&#x7684;&#x5BBD;&#x6A21;&#x578B;&#x7ED3;&#x6784;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x5F15;&#x5165;&#x4E86;&#x4EA4;&#x53C9;&#x7279;&#x5F81;&#xFF0C;&#x589E;&#x52A0;&#x6A21;&#x578B;&#x7684;&#x975E;&#x7EBF;&#x6027;&#xFF0C;&#x63D0;&#x5347;&#x6A21;&#x578B;&#x5BB9;&#x91CF;&#xFF0C;&#x80FD;&#x6355;&#x6349;&#x66F4;&#x591A;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5BF9;&#x4E8E;CTR&#x9884;&#x4F30;&#x7B49;&#x590D;&#x6742;&#x573A;&#x666F;&#x6709;&#x66F4;&#x597D;&#x7684;&#x6355;&#x6349;&#x3002;</p>
+<ul>
+<li>&#x7279;&#x5F81;&#x4EA4;&#x53C9;&#xFF1A;<ul>
+<li>&#x4F8B;&#x5B50;&#xFF1A;&#x5E74;&#x9F84;&#xFF1A;[1990,2000],[2000,2010]</li>
+<li>&#x6027;&#x522B;&#xFF1A;male, female</li>
+<li>&#x4EA4;&#x53C9;&#x7279;&#x5F81;&#xFF1A;male and [1990&#xFF0C;2000]&#xFF0C;female and [1990&#xFF0C;2000] ,male and [2000&#xFF0C;2010], female and [2000, 2010]</li>
+</ul>
+</li>
+<li>&#x7279;&#x5F81;&#x4EA4;&#x53C9;&#x95EE;&#x9898;&#xFF1A;&#x5982;&#x679C;&#x662F;&#x7B80;&#x5355;&#x7684;&#x8FDB;&#x884C;&#x7EC4;&#x5408;&#xFF0C;&#x4F1A;&#x9020;&#x6210;&#x7279;&#x5F81;&#x5217;&#x6570;&#x91CF;&#x8FC7;&#x591A;&#xFF0C;&#x5927;&#x91CF;&#x7279;&#x5F81;&#x5217;<ul>
+<li>&#x89E3;&#x51B3;&#x95EE;&#x9898;&#xFF1A;&#x5BF9;&#x4E8E;&#x4EA4;&#x53C9;&#x7279;&#x5F81;&#x91C7;&#x7528;&#x54C8;&#x5E0C;&#x5206;&#x6876;</li>
+</ul>
+</li>
+</ul>
+<h4 id="dnn">DNN</h4>
+<p><strong>&#x5B9E;&#x9A8C;&#x8868;&#x660E;&#x4ECE;&#x7EBF;&#x6027;&#x7684;LR&#x5230;&#x5177;&#x5907;&#x975E;&#x7EBF;&#x6027;&#x4EA4;&#x53C9;&#x7684;FM&#xFF0C;&#x5230;&#x5177;&#x5907;Field&#x4FE1;&#x606F;&#x4EA4;&#x53C9;&#x7684;FFM</strong>&#xFF0C;&#x6A21;&#x578B;&#x590D;&#x6742;&#x5EA6;&#xFF08;&#x6A21;&#x578B;&#x5BB9;&#x91CF;&#xFF09;&#x7684;&#x63D0;&#x5347;&#xFF0C;&#x5E26;&#x6765;&#x7684;&#x90FD;&#x662F;&#x7ED3;&#x679C;&#x7684;&#x63D0;&#x5347;&#x3002;&#x800C;LR&#x548C;FM/FFM&#x53EF;&#x4EE5;&#x89C6;&#x4F5C;&#x7B80;&#x5355;&#x7684;&#x6D45;&#x5C42;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#xFF0C;&#x57FA;&#x4E8E;&#x4E0B;&#x9762;&#x4E00;&#x4E9B;&#x8003;&#x8651;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x628A;CTR&#x6A21;&#x578B;&#x5207;&#x6362;&#x5230;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x6A21;&#x578B;&#xFF1A;</p>
+<ul>
+<li>&#x901A;&#x8FC7;&#x6539;&#x8FDB;&#x6A21;&#x578B;&#x7ED3;&#x6784;&#xFF0C;<strong>&#x52A0;&#x5165;&#x6DF1;&#x5EA6;&#x7ED3;&#x6784;&#xFF0C;&#x5229;&#x7528;&#x7AEF;&#x5230;&#x7AEF;&#x7684;&#x7ED3;&#x6784;&#x6316;&#x6398;&#x9AD8;&#x9636;&#x975E;&#x7EBF;&#x6027;&#x7279;&#x5F81;</strong>&#xFF0C;&#x4EE5;&#x53CA;&#x6D45;&#x5C42;&#x6A21;&#x578B;&#x65E0;&#x6CD5;&#x6355;&#x6349;&#x7684;&#x6F5C;&#x5728;&#x6A21;&#x5F0F;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x67D0;&#x4E9B;ID&#x7C7B;&#x7279;&#x522B;&#x7A00;&#x758F;&#x7684;&#x7279;&#x5F81;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x578B;&#x4E2D;&#x5B66;&#x4E60;&#x5230;&#x4FDD;&#x6301;&#x5206;&#x5E03;&#x5173;&#x7CFB;&#x7684;&#x7A20;&#x5BC6;&#x8868;&#x8FBE;&#xFF08;embedding&#xFF09;&#x3002;</li>
+<li>&#x5145;&#x5206;&#x5229;&#x7528;&#x56FE;&#x7247;&#x548C;&#x6587;&#x672C;&#x7B49;&#x5728;&#x7B80;&#x5355;&#x6A21;&#x578B;&#x4E2D;&#x4E0D;&#x597D;&#x5229;&#x7528;&#x7684;&#x4FE1;&#x606F;&#x3002;</li>
+</ul>
+<h4 id="wide--deep">Wide &amp; Deep</h4>
+<p>&#x9996;&#x5148;&#x5C1D;&#x8BD5;&#x7684;&#x662F;Google&#x63D0;&#x51FA;&#x7684;&#x7ECF;&#x5178;&#x6A21;&#x578B;Wide &amp; Deep Model&#xFF0C;&#x6A21;&#x578B;&#x5305;&#x542B;Wide&#x548C;Deep&#x4E24;&#x4E2A;&#x90E8;&#x5206;(LR+DNN&#x7684;&#x7ED3;&#x5408;)</p>
+<ul>
+<li>&#x5176;&#x4E2D;Wide&#x90E8;&#x5206;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x5730;&#x5B66;&#x4E60;&#x6837;&#x672C;&#x4E2D;&#x7684;&#x9AD8;&#x9891;&#x90E8;&#x5206;&#xFF0C;&#x5728;LR&#x4E2D;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x7279;&#x5F81;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x5BF9;&#x4E8E;&#x6CA1;&#x6709;&#x89C1;&#x8FC7;&#x7684;ID&#x7C7B;&#x7279;&#x5F81;&#xFF0C;&#x6A21;&#x578B;&#x5B66;&#x4E60;&#x80FD;&#x529B;&#x8F83;&#x5DEE;&#xFF0C;&#x540C;&#x65F6;&#x5408;&#x7406;&#x7684;&#x4EBA;&#x5DE5;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x7684;&#x8868;&#x8FBE;&#x6709;&#x5E2E;&#x52A9;&#x3002;<ul>
+<li><strong>&#x6839;&#x636E;&#x4EBA;&#x5DE5;&#x7ECF;&#x9A8C;&#x3001;&#x4E1A;&#x52A1;&#x80CC;&#x666F;&#xFF0C;&#x5C06;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x6709;&#x4EF7;&#x503C;&#x7684;&#x3001;&#x663E;&#x800C;&#x6613;&#x89C1;&#x7684;&#x7279;&#x5F81;&#x53CA;&#x7279;&#x5F81;&#x7EC4;&#x5408;&#xFF0C;&#x5582;&#x5165;Wide&#x4FA7;</strong>&#x3002;</li>
+</ul>
+</li>
+<li>Deep&#x90E8;&#x5206;&#x53EF;&#x4EE5;&#x8865;&#x5145;&#x5B66;&#x4E60;&#x6837;&#x672C;&#x4E2D;&#x7684;&#x957F;&#x5C3E;&#x90E8;&#x5206;&#xFF0C;&#x540C;&#x65F6;&#x63D0;&#x9AD8;&#x6A21;&#x578B;&#x7684;&#x6CDB;&#x5316;&#x80FD;&#x529B;&#x3002;Wide&#x548C;Deep&#x90E8;&#x5206;&#x5728;&#x8FD9;&#x4E2A;&#x7AEF;&#x5230;&#x7AEF;&#x7684;&#x6A21;&#x578B;&#x91CC;&#x4F1A;&#x8054;&#x5408;&#x8BAD;&#x7EC3;&#x3002;<ul>
+<li><strong>&#x901A;&#x8FC7;embedding&#x5C06;tag&#x5411;&#x91CF;&#x5316;&#xFF0C;&#x53D8;tag&#x7684;&#x7CBE;&#x786E;&#x5339;&#x914D;&#xFF0C;&#x4E3A;tag&#x5411;&#x91CF;&#x7684;&#x6A21;&#x7CCA;&#x67E5;&#x627E;&#xFF0C;&#x4F7F;&#x81EA;&#x5DF1;&#x5177;&#x5907;&#x4E86;&#x826F;&#x597D;&#x7684;&#x201C;&#x6269;&#x5C55;&#x201D;&#x80FD;&#x529B;</strong>&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h3 id="853-&#x7C7B;&#x522B;&#x7279;&#x5F81;&#x5728;&#x63A8;&#x8350;&#x7CFB;&#x7EDF;&#x4E2D;&#x4F5C;&#x7528;">8.5.3 &#x7C7B;&#x522B;&#x7279;&#x5F81;&#x5728;&#x63A8;&#x8350;&#x7CFB;&#x7EDF;&#x4E2D;&#x4F5C;&#x7528;</h3>
+<p>&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x7684;&#x8FD9;&#x4E00;&#x6CE2;&#x70ED;&#x6F6E;&#xFF0C;&#x53D1;&#x6E90;&#x4E8E;CNN&#x5728;&#x56FE;&#x50CF;&#x8BC6;&#x522B;&#x4E0A;&#x6240;&#x53D6;&#x5F97;&#x7684;&#x5DE8;&#x5927;&#x6210;&#x529F;&#xFF0C;&#x540E;&#x6765;&#x624D;&#x6269;&#x5C55;&#x5230;&#x63A8;&#x8350;&#x3001;&#x641C;&#x7D22;&#x7B49;&#x9886;&#x57DF;&#x3002;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x63A8;&#x8350;&#x7CFB;&#x7EDF;&#x4E2D;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x4E0E;&#x8BA1;&#x7B97;&#x673A;&#x89C6;&#x89C9;&#x4E2D;&#x7528;&#x5230;&#x7684;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x6709;&#x5F88;&#x5927;&#x4E0D;&#x540C;&#x3002;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x4E0D;&#x540C;&#xFF0C;&#x5C31;&#x662F;&#x56FE;&#x50CF;&#x90FD;&#x662F;&#x7A20;&#x5BC6;&#x7279;&#x5F81;&#xFF0C;&#x800C;&#x63A8;&#x8350;&#x3001;&#x641C;&#x7D22;&#x4E2D;&#x5927;&#x91CF;&#x7528;&#x5230;&#x7684;&#x662F;&#x7A00;&#x758F;&#x7684;&#x7C7B;&#x522B;/ID&#x7C7B;&#x7279;</p>
+<p>&#x4F18;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>LR, DNN&#x5728;&#x5E95;&#x5C42;&#x8FD8;&#x662F;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#xFF0C;&#x4F46;&#x662F;&#x5B9E;&#x9645;&#x5DE5;&#x4E1A;&#x4E2D;&#xFF0C;<strong>&#x6807;&#x7B7E;y&#x4E0E;&#x7279;&#x5F81;x&#x4E4B;&#x95F4;&#x8F83;&#x5C11;&#x5B58;&#x5728;&#x7EBF;&#x6027;&#x5173;&#x7CFB;&#xFF0C;&#x800C;&#x5F80;&#x5F80;&#x662F;&#x5206;&#x6BB5;&#x7684;</strong>&#x3002;&#x4EE5;&#x201C;&#x70B9;&#x51FB;&#x7387;~&#x5386;&#x53F2;&#x66DD;&#x5149;&#x6B21;&#x6570;&#x201D;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x4E3A;&#x4F8B;&#xFF0C;&#x4E4B;&#x524D;&#x66DD;&#x5149;&#x8FC7;1&#x3001;2&#x6B21;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x201C;&#x70B9;&#x51FB;&#x7387;~&#x5386;&#x53F2;&#x66DD;&#x5149;&#x6B21;&#x6570;&#x201D;&#x4E4B;&#x95F4;&#x4E00;&#x822C;&#x662F;&#x6B63;&#x76F8;&#x5173;&#x7684;&#xFF0C;&#x518D;&#x591A;&#x66DD;&#x5149;1&#x3001;2&#x6B21;&#xFF0C;&#x7528;&#x6237;&#x7531;&#x4E8E;&#x597D;&#x5947;&#xFF0C;&#x6CA1;&#x51C6;&#x5C31;&#x70B9;&#x51FB;&#x4E86;&#xFF1B;&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x66DD;&#x5149;&#x8FC7;8&#x3001;9&#x6B21;&#x4E86;&#xFF0C;&#x7531;&#x4E8E;&#x7528;&#x6237;&#x5DF2;&#x7ECF;&#x5931;&#x53BB;&#x4E86;&#x65B0;&#x9C9C;&#x611F;&#xFF0C;&#x8D8A;&#x591A;&#x66DD;&#x5149;&#xFF0C;&#x7528;&#x6237;&#x8D8A;&#x4E0D;&#x53EF;&#x80FD;&#x518D;&#x70B9;&#xFF0C;&#x8FD9;&#x65F6;&#x201C;&#x70B9;&#x51FB;&#x7387;~&#x5386;&#x53F2;&#x66DD;&#x5149;&#x6B21;&#x6570;&#x201D;&#x5C31;&#x8868;&#x73B0;&#x51FA;&#x8D1F;&#x76F8;&#x5173;&#x6027;&#x3002;&#x56E0;&#x6B64;&#xFF0C;categorical&#x7279;&#x5F81;&#x76F8;&#x6BD4;&#x4E8E;numeric&#x7279;&#x5F81;&#xFF0C;&#x66F4;&#x52A0;&#x7B26;&#x5408;&#x73B0;&#x5B9E;&#x573A;&#x666F;&#x3002;</li>
+<li>&#x63A8;&#x8350;&#x3001;&#x641C;&#x7D22;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x57FA;&#x4E8E;&#x7528;&#x6237;&#x3001;&#x5546;&#x54C1;&#x7684;&#x6807;&#x7B7E;&#x753B;&#x50CF;&#x7CFB;&#x7EDF;&#xFF0C;&#x800C;&#x6807;&#x7B7E;&#x5927;&#x591A;&#x6570;&#x90FD;&#x662F;categorical&#x7684;</li>
+<li>&#x7A00;&#x758F;&#x7684;&#x7C7B;&#x522B;/ID&#x7C7B;&#x7279;&#x5F81;&#xFF0C;&#x53EF;&#x4EE5;<strong>&#x7A00;&#x758F;&#x5730;&#x5B58;&#x50A8;&#x3001;&#x4F20;&#x8F93;&#x3001;&#x8FD0;&#x7B97;&#xFF0C;&#x63D0;&#x5347;&#x8FD0;&#x7B97;&#x6548;&#x7387;</strong>&#x3002;</li>
+</ul>
+<p>&#x7F3A;&#x70B9;&#xFF1A;</p>
+<p>&#x7A00;&#x758F;&#x7684;categorical/ID&#x7C7B;&#x7279;&#x5F81;&#xFF0C;&#x4E5F;&#x6709;&#x7740;<strong>&#x5355;&#x4E2A;&#x7279;&#x5F81;&#x8868;&#x8FBE;&#x80FD;&#x529B;&#x5F31;&#x3001;&#x7279;&#x5F81;&#x7EC4;&#x5408;&#x7206;&#x70B8;&#x3001;&#x5206;&#x5E03;&#x4E0D;&#x5747;&#x5300;&#x5BFC;&#x81F4;&#x53D7;&#x8BAD;&#x7A0B;&#x5EA6;&#x4E0D;&#x5747;&#x5300;</strong>&#x7684;&#x7F3A;&#x70B9;&#x3002;&#x4F46;&#x662F;<strong>&#x5BF9;&#x4E8E;CTR&#x9884;&#x4F30;&#x548C;&#x6392;&#x5E8F;&#x5B66;&#x4E60;&#x7684;&#x9886;&#x57DF;&#xFF0C;&#x76EE;&#x524D;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x5C1A;&#x672A;&#x5728;&#x81EA;&#x52A8;&#x7279;&#x5F81;&#x6316;&#x6398;&#x4E0A;&#x5BF9;&#x4EBA;&#x5DE5;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x5F62;&#x6210;&#x78BE;&#x538B;&#x4E4B;&#x52BF;&#xFF0C;&#x56E0;&#x6B64;&#x4EBA;&#x5DE5;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x4F9D;&#x7136;&#x5F88;&#x91CD;&#x8981;</strong>&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x5728;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x4E0A;&#x4E0E;&#x4F20;&#x7EDF;&#x6A21;&#x578B;&#x7684;&#x7279;&#x5F81;&#x5DE5;&#x7A0B;&#x4E5F;&#x5B58;&#x5728;&#x7740;&#x4E00;&#x4E9B;&#x533A;&#x522B;&#xFF0C;&#x5DE5;&#x4F5C;&#x4E3B;&#x8981;&#x96C6;&#x4E2D;&#x5728;&#x5982;&#x4E0B;&#x51E0;&#x4E2A;&#x65B9;&#x9762;&#x3002;&#x4E3A;&#x6B64;&#xFF0C;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x65B0;&#x6280;&#x672F;&#x88AB;&#x63D0;&#x51FA;&#x6765;&#xFF1A;</p>
+<ul>
+<li><p>1&#x3001;&#x7B97;&#x6CD5;&#x4E0A;&#xFF0C;FTRL&#x8FD9;&#x6837;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x5145;&#x5206;&#x5229;&#x7528;&#x8F93;&#x5165;&#x7684;&#x7A00;&#x758F;&#x6027;&#x5728;&#x7EBF;&#x66F4;&#x65B0;&#x6A21;&#x578B;&#xFF0C;&#x8BAD;&#x7EC3;&#x51FA;&#x7684;&#x6A21;&#x578B;&#x4E5F;&#x662F;&#x7A00;&#x758F;&#x7684;&#xFF0C;&#x4FBF;&#x4E8E;&#x5FEB;&#x901F;&#x9884;&#x6D4B;&#x3002;</p>
+</li>
+<li><p><strong>2&#x3001;&#x7279;&#x5F81;&#x9884;&#x5904;&#x7406;</strong></p>
+<ul>
+<li><strong>&#x7279;&#x5F81;&#x5F52;&#x4E00;&#x5316;</strong>&#xFF1A;&#x6DF1;&#x5EA6;&#x7F51;&#x7EDC;&#x7684;&#x5B66;&#x4E60;&#x51E0;&#x4E4E;&#x90FD;&#x662F;&#x57FA;&#x4E8E;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#xFF0C;&#x800C;&#x6B64;&#x7C7B;&#x68AF;&#x5EA6;&#x4F18;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#x5BF9;&#x4E8E;&#x7279;&#x5F81;&#x7684;&#x5C3A;&#x5EA6;&#x975E;&#x5E38;&#x654F;&#x611F;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x9700;&#x8981;&#x5BF9;&#x7279;&#x5F81;&#x8FDB;&#x884C;&#x5F52;&#x4E00;&#x5316;&#x6216;&#x8005;&#x6807;&#x51C6;&#x5316;&#x4EE5;&#x4FC3;&#x4F7F;&#x6A21;&#x578B;&#x66F4;&#x597D;&#x7684;&#x6536;&#x655B;&#x3002;</li>
+<li><p><strong>&#x7279;&#x5F81;&#x79BB;&#x6563;&#x5316;</strong></p>
+<ul>
+<li>&#x5DE5;&#x4E1A;&#x754C;&#x4E00;&#x822C;&#x5F88;&#x5C11;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8FDE;&#x7EED;&#x503C;&#x4F5C;&#x4E3A;&#x7279;&#x5F81;&#xFF0C;&#x800C;&#x662F;&#x5C06;&#x7279;&#x5F81;&#x79BB;&#x6563;&#x5316;&#x540E;&#x518D;&#x8F93;&#x5165;&#x5230;&#x6A21;&#x578B;&#x4E2D;&#x3002;&#x4E00;&#x65B9;&#x9762;&#x56E0;&#x4E3A;&#x79BB;&#x6563;&#x5316;&#x7279;&#x5F81;&#x5BF9;&#x4E8E;&#x5F02;&#x5E38;&#x503C;&#x5177;&#x6709;&#x66F4;&#x597D;&#x7684;&#x9C81;&#x68D2;&#x6027;&#xFF0C;&#x5176;&#x6B21;&#x53EF;&#x4EE5;&#x4E3A;&#x7279;&#x5F81;&#x5F15;&#x5165;&#x975E;&#x7EBF;&#x6027;&#x7684;&#x80FD;&#x529B;&#x3002;<strong>&#x5E76;&#x4E14;&#xFF0C;&#x79BB;&#x6563;&#x5316;&#x53EF;&#x4EE5;&#x66F4;&#x597D;&#x7684;&#x8FDB;&#x884C;Embedding</strong>&#xFF0C;&#x6211;&#x4EEC;&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x4E24;&#x79CD;&#x79BB;&#x6563;&#x5316;&#x65B9;&#x6CD5;&#xFF1A;</li>
+<li><strong>&#x7B49;&#x9891;&#x5206;&#x6876;</strong>&#xFF1A;&#x6309;&#x6837;&#x672C;&#x9891;&#x7387;&#x8FDB;&#x884C;&#x7B49;&#x9891;&#x5207;&#x5206;&#xFF0C;&#x7F3A;&#x5931;&#x503C;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x7ED9;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x6876;&#x503C;&#x6216;&#x8005;&#x5355;&#x72EC;&#x8BBE;&#x7F6E;&#x5206;&#x6876;&#x3002;</li>
+</ul>
+</li>
+<li><p><strong>&#x7279;&#x5F81;&#x7EC4;&#x5408;</strong>&#xFF1A;&#x57FA;&#x4E8E;&#x4E1A;&#x52A1;&#x573A;&#x666F;&#x5BF9;&#x57FA;&#x7840;&#x7279;&#x5F81;&#x8FDB;&#x884C;&#x7EC4;&#x5408;&#xFF0C;&#x5F62;&#x6210;&#x66F4;&#x4E30;&#x5BCC;&#x7684;&#x884C;&#x4E3A;&#x8868;&#x5F81;&#xFF0C;&#x4E3A;&#x6A21;&#x578B;&#x63D0;&#x4F9B;&#x5148;&#x9A8C;&#x4FE1;&#x606F;&#xFF0C;&#x53EF;&#x52A0;&#x901F;&#x6A21;&#x578B;&#x7684;&#x6536;&#x655B;&#x901F;&#x5EA6;&#x3002;&#x5178;&#x578B;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x7528;&#x6237;&#x6027;&#x522B;&#x4E0E;&#x7C7B;&#x76EE;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x53C9;&#x7279;&#x5F81;&#xFF0C;&#x80FD;&#x591F;&#x523B;&#x753B;&#x51FA;&#x4E0D;&#x540C;&#x6027;&#x522B;&#x7684;&#x7528;&#x6237;&#x5728;&#x7C7B;&#x76EE;&#x4E0A;&#x7684;&#x504F;&#x597D;&#x5DEE;&#x5F02;&#xFF0C;&#x6BD4;&#x5982;&#x7537;&#x6027;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x4F1A;&#x8F83;&#x5C11;&#x5173;&#x6CE8;&#x201C;&#x4E3D;&#x4EBA;&#x201D;&#x76F8;&#x5173;&#x7684;&#x5546;&#x6237;&#x3002;</li>
+<li>&#x65F6;&#x95F4;&#x4E0E;&#x7C7B;&#x76EE;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x53C9;&#x7279;&#x5F81;&#xFF0C;&#x80FD;&#x591F;&#x523B;&#x753B;&#x51FA;&#x4E0D;&#x540C;&#x7C7B;&#x76EE;&#x5546;&#x6237;&#x5728;&#x65F6;&#x95F4;&#x4E0A;&#x7684;&#x5DEE;&#x5F02;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x9152;&#x5427;&#x5728;&#x591C;&#x95F4;&#x4F1A;&#x66F4;&#x5BB9;&#x6613;&#x88AB;&#x70B9;&#x51FB;&#x3002;</li>
+</ul>
+</li>
+<li><strong>&#x591A;&#x8003;&#x8651;Embedding</strong><ul>
+<li>&#x901A;&#x8FC7;Embedding&#x53BB;&#x8868;&#x5F81;&#x7528;&#x6237;&#x7684;&#x4E2A;&#x6027;&#x5316;&#x504F;&#x597D;&#x548C;&#x5546;&#x6237;&#x7684;&#x7CBE;&#x51C6;&#x753B;&#x50CF;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>3&#x3001;&#x589E;&#x52A0;&#x6A21;&#x578B;&#x7684;DNN&#x5C42;&#x7EA7;&#x4E5F;&#x4F1A;&#x589E;&#x52A0;&#x6548;&#x679C;</p>
+</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../day07/section4.html" class="navigation navigation-prev " aria-label="Previous page: TFRecords与黑马训练数据存储"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../day07/section6.html" class="navigation navigation-next " aria-label="Next page: 分桶与特征交叉"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"katex":{},"expandable-chapters-small":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

@@ -1,0 +1,1689 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>离线增量画像更新代码 | 黑马头条推荐系统项目课程定位、目标</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../day01/section5.html" />
+    
+    
+    <link rel="prev" href="../day01/section3.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="2.5"
+        data-chapter-title="离线增量画像更新代码"
+        data-filepath="day01/section4.md"
+        data-basepath=".."
+        data-revision="Wed Jun 05 2019 18:41:21 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        黑马头条推荐系统项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="reco/index.html">
+            
+                
+                    <a href="../reco/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        黑马头条推荐架构介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="reco/section1.html">
+            
+                
+                    <a href="../reco/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        头条推荐架构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="reco/section2.html">
+            
+                
+                    <a href="../reco/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        开发环境介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="day01/index.html">
+            
+                
+                    <a href="../day01/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        离线计算更新文章画像
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="day01/section0.html">
+            
+                
+                    <a href="../day01/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        数据库迁移
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="day01/section1.html">
+            
+                
+                    <a href="../day01/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        用户行为收集到HIVE
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="day01/section2.html">
+            
+                
+                    <a href="../day01/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        离线画像业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="day01/section3.html">
+            
+                
+                    <a href="../day01/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        离线文章画像计算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.5" data-path="day01/section4.html">
+            
+                
+                    <a href="../day01/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        离线增量画像更新代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="day01/section5.html">
+            
+                
+                    <a href="../day01/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Apscheduler定时更新文章画像
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="day01/section6.html">
+            
+                
+                    <a href="../day01/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Word2Vec与文章相似度
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="day01/section7.html">
+            
+                
+                    <a href="../day01/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        文章相似度增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="day01/section8.html">
+            
+                
+                    <a href="../day01/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="day01/section9.html">
+            
+                
+                    <a href="../day01/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="day02/index.html">
+            
+                
+                    <a href="../day02/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        离线用户画像更新与召回排序计算
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="day02/section1.html">
+            
+                
+                    <a href="../day02/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        用户画像逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="day02/section2.html">
+            
+                
+                    <a href="../day02/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        用户画像增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="day02/section3.html">
+            
+                
+                    <a href="../day02/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        离线召回与排序介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="day02/section4.html">
+            
+                
+                    <a href="../day02/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        离线用户基于模型召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="day02/section5.html">
+            
+                
+                    <a href="../day02/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        离线用户基于内容召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="day02/section6.html">
+            
+                
+                    <a href="../day02/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        离线用户召回定时更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="day02/section7.html">
+            
+                
+                    <a href="../day02/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        离线排序模型训练基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="day02/section8.html">
+            
+                
+                    <a href="../day02/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        离线ctr特征中心更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="day02/section9.html">
+            
+                
+                    <a href="../day02/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="day02/section10.html">
+            
+                
+                    <a href="../day02/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="day03/index.html">
+            
+                
+                    <a href="../day03/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        实时计算业务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="day03/section0.html">
+            
+                
+                    <a href="../day03/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        实时计算业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="day03/section1.html">
+            
+                
+                    <a href="../day03/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        实时日志分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="day03/section2.html">
+            
+                
+                    <a href="../day03/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        实时召回集业务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="day03/section3.html">
+            
+                
+                    <a href="../day03/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        热门与新文章召回
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="day03/section4.html">
+            
+                
+                    <a href="../day03/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="day03/section5.html">
+            
+                
+                    <a href="../day03/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="day04/index.html">
+            
+                
+                    <a href="../day04/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        推荐业务流实现与ABTest
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="day04/section0.html">
+            
+                
+                    <a href="../day04/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        实时推荐业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="day04/section1.html">
+            
+                
+                    <a href="../day04/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        grpc接口对接
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="day04/section2.html">
+            
+                
+                    <a href="../day04/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        ABTest实验中心
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="day04/section3.html">
+            
+                
+                    <a href="../day04/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        推荐中心逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="day04/section4.html">
+            
+                
+                    <a href="../day04/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        召回集读取服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="day04/section5.html">
+            
+                
+                    <a href="../day04/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        推荐缓存服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="day04/section6.html">
+            
+                
+                    <a href="../day04/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        排序模型在线预测
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="day04/section7.html">
+            
+                
+                    <a href="../day04/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="day04/section8.html">
+            
+                
+                    <a href="../day04/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="day05/index.html">
+            
+                
+                    <a href="../day05/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        深度学习与推荐系统
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="day05/section1.html">
+            
+                
+                    <a href="../day05/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        推荐系统的深度学习关联
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="day05/section2.html">
+            
+                
+                    <a href="../day05/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        深度学习应用简介
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="day06/index.html">
+            
+                
+                    <a href="../day06/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        TensorFlow框架介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="day06/section1.html">
+            
+                
+                    <a href="../day06/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        TF数据流图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="day06/section2.html">
+            
+                
+                    <a href="../day06/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        图与TensorBoard
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="day06/section3.html">
+            
+                
+                    <a href="../day06/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        会话、张量、变量OP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="day06/section4.html">
+            
+                
+                    <a href="../day06/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        案例：TensorFlow实现线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="day06/section5.html">
+            
+                
+                    <a href="../day06/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        TFAPI使用2.0建议
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.6" data-path="day06/section6.html">
+            
+                
+                    <a href="../day06/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                        tf.estimator使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.7" data-path="day06/section7.html">
+            
+                
+                    <a href="../day06/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.8" data-path="day06/section8.html">
+            
+                
+                    <a href="../day06/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="day07/index.html">
+            
+                
+                    <a href="../day07/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        黑马头条排序模型进阶
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="day07/section1.html">
+            
+                
+                    <a href="../day07/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        神经网络基础与原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="day07/section2.html">
+            
+                
+                    <a href="../day07/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        tf.data与tf.feature_column
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="day07/section3.html">
+            
+                
+                    <a href="../day07/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        案例：DNN文本分类与word2vec原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="day07/section4.html">
+            
+                
+                    <a href="../day07/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        TFRecords与黑马训练数据存储
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="day07/section5.html">
+            
+                
+                    <a href="../day07/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        深度学习与排序模型发展
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="day07/section6.html">
+            
+                
+                    <a href="../day07/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        分桶与特征交叉
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="day07/section7.html">
+            
+                
+                    <a href="../day07/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        黑马排序模型进阶-FTRL on Tensorflow
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="day07/section8.html">
+            
+                
+                    <a href="../day07/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        黑马排序模型进阶-Wide&amp;Deep
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" data-path="day07/section9.html">
+            
+                
+                    <a href="../day07/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                        WDL模型导出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" data-path="day07/section10.html">
+            
+                
+                    <a href="../day07/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.</b>
+                        
+                        TensorFlow Serving模型部署
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.11" data-path="day07/section11.html">
+            
+                
+                    <a href="../day07/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.11.</b>
+                        
+                        排序模型在线测试
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12" data-path="day07/section12.html">
+            
+                
+                    <a href="../day07/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.12.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13" data-path="day07/section13.html">
+            
+                
+                    <a href="../day07/section13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.13.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >黑马头条推荐系统项目课程定位、目标</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="25-&#x79BB;&#x7EBF;&#x589E;&#x91CF;&#x6587;&#x7AE0;&#x753B;&#x50CF;&#x8BA1;&#x7B97;">2.5 &#x79BB;&#x7EBF;&#x589E;&#x91CF;&#x6587;&#x7AE0;&#x753B;&#x50CF;&#x8BA1;&#x7B97;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x76EE;&#x6807;<ul>
+<li>&#x4E86;&#x89E3;&#x589E;&#x91CF;&#x66F4;&#x65B0;&#x4EE3;&#x7801;&#x8FC7;&#x7A0B;</li>
+</ul>
+</li>
+<li>&#x5E94;&#x7528;<ul>
+<li>&#x65E0;</li>
+</ul>
+</li>
+</ul>
+<h3 id="251-&#x79BB;&#x7EBF;&#x6587;&#x7AE0;&#x753B;&#x50CF;&#x66F4;&#x65B0;&#x9700;&#x6C42;">2.5.1 &#x79BB;&#x7EBF;&#x6587;&#x7AE0;&#x753B;&#x50CF;&#x66F4;&#x65B0;&#x9700;&#x6C42;</h3>
+<p>&#x6587;&#x7AE0;&#x753B;&#x50CF;&#xFF0C;&#x5C31;&#x662F;&#x7ED9;&#x6BCF;&#x7BC7;&#x6587;&#x7AE0;&#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x8BCD;&#x3002;</p>
+<ul>
+<li>&#x5173;&#x952E;&#x8BCD;&#xFF1A;TEXTRANK + IDF&#x5171;&#x540C;&#x7684;&#x8BCD;</li>
+<li><p>&#x4E3B;&#x9898;&#x8BCD;&#xFF1A;TEXTRANK + ITFDF&#x5171;&#x540C;&#x7684;&#x8BCD;</p>
+</li>
+<li><p>&#x66F4;&#x65B0;&#x6587;&#x7AE0;&#x65F6;&#x95F4;&#xFF1A;</p>
+</li>
+</ul>
+<p>1&#x3001;toutiao &#x6570;&#x636E;&#x5E93;&#x4E2D;&#xFF0C;news_article_content &#x4E0E;news_article_basic&#x2014;&gt;&#x66F4;&#x65B0;&#x5230;article&#x6570;&#x636E;&#x5E93;&#x4E2D;article_data&#x8868;&#xFF0C;&#x65B9;&#x4FBF;&#x64CD;&#x4F5C;</p>
+<p>&#x7B2C;&#x4E00;&#x6B21;&#xFF1A;&#x6240;&#x6709;&#x66F4;&#x65B0;&#xFF0C;&#x540E;&#x9762;&#x589E;&#x91CF;&#x6BCF;&#x5929;&#x7684;&#x6570;&#x636E;&#x66F4;&#x65B0;26&#x65E5;&#xFF1A;1&#xFF1A;00~2&#xFF1A;00&#xFF0C;2&#xFF1A;00~3&#xFF1A;00&#xFF0C;&#x5DE6;&#x95ED;&#x53F3;&#x5F00;,&#x4E00;&#x4E2A;&#x5C0F;&#x65F6;&#x66F4;&#x65B0;&#x4E00;&#x6B21;</p>
+<p>2&#x3001;&#x521A;&#x624D;&#x65B0;&#x66F4;&#x65B0;&#x7684;&#x6587;&#x7AE0;&#xFF0C;&#x901A;&#x8FC7;&#x5DF2;&#x6709;&#x7684;idf&#x8BA1;&#x7B97;&#x51FA;tfidf&#x503C;&#x4EE5;&#x53CA;hive &#x7684;textrank_keywords_values</p>
+<p>3&#x3001;&#x66F4;&#x65B0;hive&#x7684;<strong>article_profile</strong></p>
+<h3 id="252-&#x5B9A;&#x65F6;&#x66F4;&#x65B0;&#x6587;&#x7AE0;&#x8BBE;&#x7F6E;">2.5.2 &#x5B9A;&#x65F6;&#x66F4;&#x65B0;&#x6587;&#x7AE0;&#x8BBE;&#x7F6E;</h3>
+<ul>
+<li>&#x76EE;&#x7684;&#xFF1A;&#x901A;&#x8FC7;Supervisor&#x7BA1;&#x7406;Apscheduler&#x5B9A;&#x65F6;&#x8FD0;&#x884C;&#x66F4;&#x65B0;&#x7A0B;&#x5E8F;</li>
+<li>&#x6B65;&#x9AA4;&#xFF1A;<ul>
+<li>1&#x3001;&#x66F4;&#x65B0;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x6574;&#x7406;&#xFF0C;&#x5E76;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;</li>
+<li>2&#x3001;Apscheduler&#x8BBE;&#x7F6E;&#x5B9A;&#x65F6;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#xFF0C;&#x5E76;&#x542F;&#x52A8;&#x65E5;&#x5FD7;&#x6DFB;&#x52A0;</li>
+<li>3&#x3001;Supervisor&#x8FDB;&#x7A0B;&#x7BA1;&#x7406;</li>
+</ul>
+</li>
+</ul>
+<h4 id="2521-&#x66F4;&#x65B0;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x6574;&#x7406;&#xFF0C;&#x5E76;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;">2.5.2.1 &#x66F4;&#x65B0;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x6574;&#x7406;&#xFF0C;&#x5E76;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;</h4>
+<p>&#x6CE8;&#x610F;&#x5728;Pycharm&#x4E2D;&#x8FD0;&#x884C;&#x8981;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#xFF1A;</p>
+<pre><code class="lang-python">PYTHONUNBUFFERED=<span class="hljs-number">1</span>
+JAVA_HOME=/root/bigdata/jdk
+SPARK_HOME=/root/bigdata/spark
+HADOOP_HOME=/root/bigdata/hadoop
+PYSPARK_PYTHON=/root/anaconda3/envs/reco_sys/bin/python
+PYSPARK_DRIVER_PYTHON=/root/anaconda3/envs/reco_sys/bin/python
+</code></pre>
+<p><img src="../images/&#x66F4;&#x65B0;&#x73AF;&#x5883;&#x8BBE;&#x7F6E;.png" alt=""></p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> sys
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(<span class="hljs-number">0</span>, os.path.join(BASE_DIR))
+<span class="hljs-keyword">from</span> offline <span class="hljs-keyword">import</span> SparkSessionBase
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> timedelta
+<span class="hljs-keyword">import</span> pyspark.sql.functions <span class="hljs-keyword">as</span> F
+<span class="hljs-keyword">import</span> pyspark
+<span class="hljs-keyword">import</span> gc
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UpdateArticle</span><span class="hljs-params">(SparkSessionBase)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x66F4;&#x65B0;&#x6587;&#x7AE0;&#x753B;&#x50CF;
+    &quot;&quot;&quot;</span>
+    SPARK_APP_NAME = <span class="hljs-string">&quot;updateArticle&quot;</span>
+    ENABLE_HIVE_SUPPORT = <span class="hljs-keyword">True</span>
+
+    SPARK_EXECUTOR_MEMORY = <span class="hljs-string">&quot;7g&quot;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.spark = self._create_spark_session()
+
+        self.cv_path = <span class="hljs-string">&quot;hdfs://hadoop-master:9000/headlines/models/countVectorizerOfArticleWords.model&quot;</span>
+        self.idf_path = <span class="hljs-string">&quot;hdfs://hadoop-master:9000/headlines/models/IDFOfArticleWords.model&quot;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_cv_model</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment"># &#x8BCD;&#x8BED;&#x4E0E;&#x8BCD;&#x9891;&#x7EDF;&#x8BA1;</span>
+        <span class="hljs-keyword">from</span> pyspark.ml.feature <span class="hljs-keyword">import</span> CountVectorizerModel
+        cv_model = CountVectorizerModel.load(self.cv_path)
+        <span class="hljs-keyword">return</span> cv_model
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_idf_model</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">from</span> pyspark.ml.feature <span class="hljs-keyword">import</span> IDFModel
+        idf_model = IDFModel.load(self.idf_path)
+        <span class="hljs-keyword">return</span> idf_model
+
+<span class="hljs-decorator">    @staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compute_keywords_tfidf_topk</span><span class="hljs-params">(words_df, cv_model, idf_model)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;&#x4FDD;&#x5B58;tfidf&#x503C;&#x9AD8;&#x7684;20&#x4E2A;&#x5173;&#x952E;&#x8BCD;
+        :param spark:
+        :param words_df:
+        :return:
+        &quot;&quot;&quot;</span>
+        cv_result = cv_model.transform(words_df)
+        tfidf_result = idf_model.transform(cv_result)
+        <span class="hljs-comment"># print(&quot;transform compelete&quot;)</span>
+
+        <span class="hljs-comment"># &#x53D6;TOP-N&#x7684;TFIDF&#x503C;&#x9AD8;&#x7684;&#x7ED3;&#x679C;</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(partition)</span>:</span>
+            TOPK = <span class="hljs-number">20</span>
+            <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> partition:
+                _ = list(zip(row.idfFeatures.indices, row.idfFeatures.values))
+                _ = sorted(_, key=<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">1</span>], reverse=<span class="hljs-keyword">True</span>)
+                result = _[:TOPK]
+                <span class="hljs-comment">#         words_index = [int(i[0]) for i in result]</span>
+                <span class="hljs-comment">#         yield row.article_id, row.channel_id, words_index</span>
+
+                <span class="hljs-keyword">for</span> word_index, tfidf <span class="hljs-keyword">in</span> result:
+                    <span class="hljs-keyword">yield</span> row.article_id, row.channel_id, int(word_index), round(float(tfidf), <span class="hljs-number">4</span>)
+
+        _keywordsByTFIDF = tfidf_result.rdd.mapPartitions(func).toDF([<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;index&quot;</span>, <span class="hljs-string">&quot;tfidf&quot;</span>])
+
+        <span class="hljs-keyword">return</span> _keywordsByTFIDF
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">merge_article_data</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x5408;&#x5E76;&#x4E1A;&#x52A1;&#x4E2D;&#x589E;&#x91CF;&#x66F4;&#x65B0;&#x7684;&#x6587;&#x7AE0;&#x6570;&#x636E;
+        :return:
+        &quot;&quot;&quot;</span>
+        <span class="hljs-comment"># &#x83B7;&#x53D6;&#x6587;&#x7AE0;&#x76F8;&#x5173;&#x6570;&#x636E;, &#x6307;&#x5B9A;&#x8FC7;&#x53BB;&#x4E00;&#x4E2A;&#x5C0F;&#x65F6;&#x6574;&#x70B9;&#x5230;&#x6574;&#x70B9;&#x7684;&#x66F4;&#x65B0;&#x6570;&#x636E;</span>
+        <span class="hljs-comment"># &#x5982;&#xFF1A;26&#x65E5;&#xFF1A;1&#xFF1A;00~2&#xFF1A;00&#xFF0C;2&#xFF1A;00~3&#xFF1A;00&#xFF0C;&#x5DE6;&#x95ED;&#x53F3;&#x5F00;</span>
+        self.spark.sql(<span class="hljs-string">&quot;use toutiao&quot;</span>)
+        _yester = datetime.today().replace(minute=<span class="hljs-number">0</span>, second=<span class="hljs-number">0</span>, microsecond=<span class="hljs-number">0</span>)
+        start = datetime.strftime(_yester + timedelta(days=<span class="hljs-number">0</span>, hours=-<span class="hljs-number">1</span>, minutes=<span class="hljs-number">0</span>), <span class="hljs-string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)
+        end = datetime.strftime(_yester, <span class="hljs-string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)
+
+        <span class="hljs-comment"># &#x5408;&#x5E76;&#x540E;&#x4FDD;&#x7559;&#xFF1A;article_id&#x3001;channel_id&#x3001;channel_name&#x3001;title&#x3001;content</span>
+        <span class="hljs-comment"># +----------+----------+--------------------+--------------------+</span>
+        <span class="hljs-comment"># | article_id | channel_id | title | content |</span>
+        <span class="hljs-comment"># +----------+----------+--------------------+--------------------+</span>
+        <span class="hljs-comment"># | 141462 | 3 | test - 20190316 - 115123 | &#x4ECA;&#x5929;&#x5929;&#x6C14;&#x4E0D;&#x9519;&#xFF0C;&#x5FC3;&#x60C5;&#x5F88;&#x7F8E;&#x4E3D;&#xFF01;&#xFF01;&#xFF01; |</span>
+        basic_content = self.spark.sql(
+            <span class="hljs-string">&quot;select a.article_id, a.channel_id, a.title, b.content from news_article_basic a &quot;</span>
+            <span class="hljs-string">&quot;inner join news_article_content b on a.article_id=b.article_id where a.review_time &gt;= &apos;{}&apos; &quot;</span>
+            <span class="hljs-string">&quot;and a.review_time &lt; &apos;{}&apos; and a.status = 2&quot;</span>.format(start, end))
+        <span class="hljs-comment"># &#x589E;&#x52A0;channel&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x4F7F;&#x7528;</span>
+        basic_content.registerTempTable(<span class="hljs-string">&quot;temparticle&quot;</span>)
+        channel_basic_content = self.spark.sql(
+            <span class="hljs-string">&quot;select t.*, n.channel_name from temparticle t left join news_channel n on t.channel_id=n.channel_id&quot;</span>)
+
+        <span class="hljs-comment"># &#x5229;&#x7528;concat_ws&#x65B9;&#x6CD5;&#xFF0C;&#x5C06;&#x591A;&#x5217;&#x6570;&#x636E;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x4E2A;&#x957F;&#x6587;&#x672C;&#x5185;&#x5BB9;&#xFF08;&#x9891;&#x9053;&#xFF0C;&#x6807;&#x9898;&#x4EE5;&#x53CA;&#x5185;&#x5BB9;&#x5408;&#x5E76;&#xFF09;</span>
+        self.spark.sql(<span class="hljs-string">&quot;use article&quot;</span>)
+        sentence_df = channel_basic_content.select(<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;channel_name&quot;</span>, <span class="hljs-string">&quot;title&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>, \
+                                                   F.concat_ws(
+                                                       <span class="hljs-string">&quot;,&quot;</span>,
+                                                       channel_basic_content.channel_name,
+                                                       channel_basic_content.title,
+                                                       channel_basic_content.content
+                                                   ).alias(<span class="hljs-string">&quot;sentence&quot;</span>)
+                                                   )
+        <span class="hljs-keyword">del</span> basic_content
+        <span class="hljs-keyword">del</span> channel_basic_content
+        gc.collect()
+
+        sentence_df.write.insertInto(<span class="hljs-string">&quot;article_data&quot;</span>)
+        <span class="hljs-keyword">return</span> sentence_df
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">generate_article_label</span><span class="hljs-params">(self, sentence_df)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x751F;&#x6210;&#x6587;&#x7AE0;&#x6807;&#x7B7E;  tfidf, textrank
+        :param sentence_df: &#x589E;&#x91CF;&#x7684;&#x6587;&#x7AE0;&#x5185;&#x5BB9;
+        :return:
+        &quot;&quot;&quot;</span>
+        <span class="hljs-comment"># &#x8FDB;&#x884C;&#x5206;&#x8BCD;</span>
+        words_df = sentence_df.rdd.mapPartitions(segmentation).toDF([<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;words&quot;</span>])
+        cv_model = self.get_cv_model()
+        idf_model = self.get_idf_model()
+
+        <span class="hljs-comment"># 1&#x3001;&#x4FDD;&#x5B58;&#x6240;&#x6709;&#x7684;&#x8BCD;&#x7684;idf&#x7684;&#x503C;&#xFF0C;&#x5229;&#x7528;idf&#x4E2D;&#x7684;&#x8BCD;&#x7684;&#x6807;&#x7B7E;&#x7D22;&#x5F15;</span>
+        <span class="hljs-comment"># &#x5DE5;&#x5177;&#x4E0E;&#x4E1A;&#x52A1;&#x9694;&#x79BB;</span>
+        _keywordsByTFIDF = UpdateArticle.compute_keywords_tfidf_topk(words_df, cv_model, idf_model)
+
+        keywordsIndex = self.spark.sql(<span class="hljs-string">&quot;select keyword, index idx from idf_keywords_values&quot;</span>)
+
+        keywordsByTFIDF = _keywordsByTFIDF.join(keywordsIndex, keywordsIndex.idx == _keywordsByTFIDF.index).select(
+            [<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;keyword&quot;</span>, <span class="hljs-string">&quot;tfidf&quot;</span>])
+
+        keywordsByTFIDF.write.insertInto(<span class="hljs-string">&quot;tfidf_keywords_values&quot;</span>)
+
+        <span class="hljs-keyword">del</span> cv_model
+        <span class="hljs-keyword">del</span> idf_model
+        <span class="hljs-keyword">del</span> words_df
+        <span class="hljs-keyword">del</span> _keywordsByTFIDF
+        gc.collect()
+
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;textrank</span>
+        textrank_keywords_df = sentence_df.rdd.mapPartitions(textrank).toDF(
+            [<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;keyword&quot;</span>, <span class="hljs-string">&quot;textrank&quot;</span>])
+        textrank_keywords_df.write.insertInto(<span class="hljs-string">&quot;textrank_keywords_values&quot;</span>)
+
+        <span class="hljs-keyword">return</span> textrank_keywords_df, keywordsIndex
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_article_profile</span><span class="hljs-params">(self, textrank, keywordsIndex)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x6587;&#x7AE0;&#x753B;&#x50CF;&#x4E3B;&#x9898;&#x8BCD;&#x5EFA;&#x7ACB;
+        :param idf: &#x6240;&#x6709;&#x8BCD;&#x7684;idf&#x503C;
+        :param textrank: &#x6BCF;&#x4E2A;&#x6587;&#x7AE0;&#x7684;textrank&#x503C;
+        :return: &#x8FD4;&#x56DE;&#x5EFA;&#x7ACB;&#x53F7;&#x589E;&#x91CF;&#x6587;&#x7AE0;&#x753B;&#x50CF;
+        &quot;&quot;&quot;</span>
+        keywordsIndex = keywordsIndex.withColumnRenamed(<span class="hljs-string">&quot;keyword&quot;</span>, <span class="hljs-string">&quot;keyword1&quot;</span>)
+        result = textrank.join(keywordsIndex, textrank.keyword == keywordsIndex.keyword1)
+
+        <span class="hljs-comment"># 1&#x3001;&#x5173;&#x952E;&#x8BCD;&#xFF08;&#x8BCD;&#xFF0C;&#x6743;&#x91CD;&#xFF09;</span>
+        <span class="hljs-comment"># &#x8BA1;&#x7B97;&#x5173;&#x952E;&#x8BCD;&#x6743;&#x91CD;</span>
+        _articleKeywordsWeights = result.withColumn(<span class="hljs-string">&quot;weights&quot;</span>, result.textrank * result.idf).select(
+            [<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;keyword&quot;</span>, <span class="hljs-string">&quot;weights&quot;</span>])
+
+        <span class="hljs-comment"># &#x5408;&#x5E76;&#x5173;&#x952E;&#x8BCD;&#x6743;&#x91CD;&#x5230;&#x5B57;&#x5178;</span>
+        _articleKeywordsWeights.registerTempTable(<span class="hljs-string">&quot;temptable&quot;</span>)
+        articleKeywordsWeights = self.spark.sql(
+            <span class="hljs-string">&quot;select article_id, min(channel_id) channel_id, collect_list(keyword) keyword_list, collect_list(weights) weights_list from temptable group by article_id&quot;</span>)
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_func</span><span class="hljs-params">(row)</span>:</span>
+            <span class="hljs-keyword">return</span> row.article_id, row.channel_id, dict(zip(row.keyword_list, row.weights_list))
+        articleKeywords = articleKeywordsWeights.rdd.map(_func).toDF([<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;keywords&quot;</span>])
+
+        <span class="hljs-comment"># 2&#x3001;&#x4E3B;&#x9898;&#x8BCD;</span>
+        <span class="hljs-comment"># &#x5C06;tfidf&#x548C;textrank&#x5171;&#x73B0;&#x7684;&#x8BCD;&#x4F5C;&#x4E3A;&#x4E3B;&#x9898;&#x8BCD;</span>
+        topic_sql = <span class="hljs-string">&quot;&quot;&quot;
+                select t.article_id article_id2, collect_set(t.keyword) topics from tfidf_keywords_values t
+                inner join 
+                textrank_keywords_values r
+                where t.keyword=r.keyword
+                group by article_id2
+                &quot;&quot;&quot;</span>
+        articleTopics = self.spark.sql(topic_sql)
+
+        <span class="hljs-comment"># 3&#x3001;&#x5C06;&#x4E3B;&#x9898;&#x8BCD;&#x8868;&#x548C;&#x5173;&#x952E;&#x8BCD;&#x8868;&#x8FDB;&#x884C;&#x5408;&#x5E76;&#xFF0C;&#x63D2;&#x5165;&#x8868;</span>
+        articleProfile = articleKeywords.join(articleTopics,
+                                              articleKeywords.article_id == articleTopics.article_id2).select(
+            [<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;keywords&quot;</span>, <span class="hljs-string">&quot;topics&quot;</span>])
+        articleProfile.write.insertInto(<span class="hljs-string">&quot;article_profile&quot;</span>)
+
+        <span class="hljs-keyword">del</span> keywordsIndex
+        <span class="hljs-keyword">del</span> _articleKeywordsWeights
+        <span class="hljs-keyword">del</span> articleKeywords
+        <span class="hljs-keyword">del</span> articleTopics
+        gc.collect()
+
+        <span class="hljs-keyword">return</span> articleProfile
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    ua = UpdateArticle()
+    sentence_df = ua.merge_article_data()
+    <span class="hljs-keyword">if</span> sentence_df.rdd.collect():
+        rank, idf = ua.generate_article_label(sentence_df)
+        articleProfile = ua.get_article_profile(rank, idf)
+</code></pre>
+<h3 id="253-&#x589E;&#x91CF;&#x66F4;&#x65B0;&#x6587;&#x7AE0;tfidf&#x4E0E;textrank&#x4F5C;&#x4E3A;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#xFF0C;&#x4E0D;&#x5F80;hive&#x4E2D;&#x5B58;&#x50A8;">2.5.3 &#x589E;&#x91CF;&#x66F4;&#x65B0;&#x6587;&#x7AE0;TFIDF&#x4E0E;TextRank(&#x4F5C;&#x4E3A;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#xFF0C;&#x4E0D;&#x5F80;HIVE&#x4E2D;&#x5B58;&#x50A8;)</h3>
+<p>&#x5728;jupyter notebook&#x4E2D;&#x5B9E;&#x73B0;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;</p>
+<ul>
+<li>&#x76EE;&#x7684;&#xFF1A;&#x80FD;&#x591F;&#x5B9A;&#x65F6;&#x589E;&#x91CF;&#x7684;&#x66F4;&#x65B0;&#x65B0;&#x53D1;&#x8868;&#x7684;&#x6587;&#x7AE0;</li>
+<li>&#x6B65;&#x9AA4;&#xFF1A;<ul>
+<li>&#x5408;&#x5E76;&#x65B0;&#x6587;&#x7AE0;&#x6570;&#x636E;</li>
+<li>&#x5229;&#x7528;&#x73B0;&#x6709;CV&#x548C;IDF&#x6A21;&#x578B;&#x8BA1;&#x7B97;&#x65B0;&#x6587;&#x7AE0;TFIDF&#x5B58;&#x50A8;&#xFF0C;&#x4EE5;&#x53CA;TextRank&#x4FDD;&#x5B58;</li>
+<li>&#x5229;&#x7528;&#x65B0;&#x6587;&#x7AE0;&#x6570;&#x636E;&#x7684;</li>
+</ul>
+</li>
+<li>&#x5BFC;&#x5165;&#x5305;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-comment"># &#x914D;&#x7F6E;spark driver&#x548C;pyspark&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x6240;&#x4F7F;&#x7528;&#x7684;python&#x89E3;&#x91CA;&#x5668;&#x8DEF;&#x5F84;</span>
+PYSPARK_PYTHON = <span class="hljs-string">&quot;/miniconda2/envs/reco_sys/bin/python&quot;</span>
+<span class="hljs-comment"># &#x5F53;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x7248;&#x672C;&#x65F6;&#xFF0C;&#x4E0D;&#x6307;&#x5B9A;&#x5F88;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x51FA;&#x9519;</span>
+os.environ[<span class="hljs-string">&quot;PYSPARK_PYTHON&quot;</span>] = PYSPARK_PYTHON
+os.environ[<span class="hljs-string">&quot;PYSPARK_DRIVER_PYTHON&quot;</span>] = PYSPARK_PYTHON
+<span class="hljs-keyword">import</span> sys
+BASE_DIR = os.path.dirname(os.getcwd())
+sys.path.insert(<span class="hljs-number">0</span>, os.path.join(BASE_DIR))
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> timedelta
+<span class="hljs-keyword">import</span> pyspark.sql.functions <span class="hljs-keyword">as</span> F
+<span class="hljs-keyword">from</span> offline <span class="hljs-keyword">import</span> SparkSessionBase
+<span class="hljs-keyword">import</span> pyspark
+<span class="hljs-keyword">import</span> gc
+</code></pre>
+<h4 id="2531-&#x5408;&#x5E76;&#x65B0;&#x6587;&#x7AE0;&#x6570;&#x636E;">2.5.3.1 &#x5408;&#x5E76;&#x65B0;&#x6587;&#x7AE0;&#x6570;&#x636E;</h4>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UpdateArticle</span><span class="hljs-params">(SparkSessionBase)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x66F4;&#x65B0;&#x6587;&#x7AE0;&#x753B;&#x50CF;
+    &quot;&quot;&quot;</span>
+    SPARK_APP_NAME = <span class="hljs-string">&quot;updateArticle&quot;</span>
+    ENABLE_HIVE_SUPPORT = <span class="hljs-keyword">True</span>
+
+    SPARK_EXECUTOR_MEMORY = <span class="hljs-string">&quot;7g&quot;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.spark = self._create_spark_session()
+</code></pre>
+<ul>
+<li>&#x589E;&#x91CF;&#x5408;&#x5E76;&#x6587;&#x7AE0;</li>
+</ul>
+<p>&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x4E1A;&#x52A1;&#x5236;&#x5B9A;&#x7B26;&#x5408;&#x73B0;&#x6709;&#x9636;&#x6BB5;&#x7684;&#x66F4;&#x65B0;&#x8BA1;&#x5212;&#xFF0C;&#x6BD4;&#x5982;&#x6309;&#x7167;&#x5929;&#xFF0C;&#x5C0F;&#x65F6;&#x66F4;&#x65B0;, </p>
+<pre><code class="lang-python">ua.spark.sql(<span class="hljs-string">&quot;use toutiao&quot;</span>)
+_yester = datetime.today().replace(minute=<span class="hljs-number">0</span>, second=<span class="hljs-number">0</span>, microsecond=<span class="hljs-number">0</span>)
+start = datetime.strftime(_yester + timedelta(days=<span class="hljs-number">0</span>, hours=-<span class="hljs-number">1</span>, minutes=<span class="hljs-number">0</span>), <span class="hljs-string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)
+end = datetime.strftime(_yester, <span class="hljs-string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)
+</code></pre>
+<p>&#x9009;&#x53D6;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x6BB5;&#x7684;&#x65B0;&#x6587;&#x7AE0;(&#x6D4B;&#x8BD5;&#x65F6;&#x5019;&#xFF0C;&#x4E3A;&#x4E86;&#x6709;&#x6570;&#x636E;&#x51FA;&#x73B0;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x504F;&#x79FB;&#x591A;&#x4E00;&#x4E9B;&#x5929;&#x6570;&#xFF0C;&#x5982;days=-50)</p>
+<p>&#x6CE8;&#xFF1A;&#x786E;&#x4FDD;news_article_basic&#x4E0E;news_article_content&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5408;&#x5E76;&#x540E;&#x4FDD;&#x7559;&#xFF1A;article_id&#x3001;channel_id&#x3001;channel_name&#x3001;title&#x3001;content</span>
+<span class="hljs-comment"># select * from news_article_basic where review_time &gt; &quot;2019-03-05&quot;;</span>
+<span class="hljs-comment"># +----------+----------+--------------------+--------------------+</span>
+<span class="hljs-comment"># | article_id | channel_id | title | content |</span>
+<span class="hljs-comment"># +----------+----------+--------------------+--------------------+</span>
+<span class="hljs-comment"># | 141462 | 3 | test - 20190316 - 115123 | &#x4ECA;&#x5929;&#x5929;&#x6C14;&#x4E0D;&#x9519;&#xFF0C;&#x5FC3;&#x60C5;&#x5F88;&#x7F8E;&#x4E3D;&#xFF01;&#xFF01;&#xFF01; |</span>
+basic_content = ua.spark.sql(
+  <span class="hljs-string">&quot;select a.article_id, a.channel_id, a.title, b.content from news_article_basic a &quot;</span>
+  <span class="hljs-string">&quot;inner join news_article_content b on a.article_id=b.article_id where a.review_time &gt;= &apos;{}&apos; &quot;</span>
+  <span class="hljs-string">&quot;and a.review_time &lt; &apos;{}&apos; and a.status = 2&quot;</span>.format(start, end))
+<span class="hljs-comment"># &#x589E;&#x52A0;channel&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x4F7F;&#x7528;</span>
+basic_content.registerTempTable(<span class="hljs-string">&quot;temparticle&quot;</span>)
+channel_basic_content = ua.spark.sql(
+  <span class="hljs-string">&quot;select t.*, n.channel_name from temparticle t left join news_channel n on t.channel_id=n.channel_id&quot;</span>)
+
+<span class="hljs-comment"># &#x5229;&#x7528;concat_ws&#x65B9;&#x6CD5;&#xFF0C;&#x5C06;&#x591A;&#x5217;&#x6570;&#x636E;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x4E2A;&#x957F;&#x6587;&#x672C;&#x5185;&#x5BB9;&#xFF08;&#x9891;&#x9053;&#xFF0C;&#x6807;&#x9898;&#x4EE5;&#x53CA;&#x5185;&#x5BB9;&#x5408;&#x5E76;&#xFF09;</span>
+ua.spark.sql(<span class="hljs-string">&quot;use article&quot;</span>)
+sentence_df = channel_basic_content.select(<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;channel_name&quot;</span>, <span class="hljs-string">&quot;title&quot;</span>, <span class="hljs-string">&quot;content&quot;</span>, \
+                                           F.concat_ws(
+                                             <span class="hljs-string">&quot;,&quot;</span>,
+                                             channel_basic_content.channel_name,
+                                             channel_basic_content.title,
+                                             channel_basic_content.content
+                                           ).alias(<span class="hljs-string">&quot;sentence&quot;</span>)
+                                          )
+<span class="hljs-keyword">del</span> basic_content
+<span class="hljs-keyword">del</span> channel_basic_content
+gc.collect()
+
+<span class="hljs-comment"># sentence_df.write.insertInto(&quot;article_data&quot;)</span>
+</code></pre>
+<h4 id="2532-&#x66F4;&#x65B0;tfidf">2.5.3.2 &#x66F4;&#x65B0;TFIDF</h4>
+<ul>
+<li>&#x95EE;&#x9898;&#xFF1A;&#x8BA1;&#x7B97;&#x51FA;TFIDF&#xFF0C;TF&#x6587;&#x6863;&#x8BCD;&#x9891;&#xFF0C;IDF &#x9006;&#x6587;&#x6863;&#x9891;&#x7387;&#xFF08;&#x6587;&#x6863;&#x6570;&#x91CF;&#x3001;&#x67D0;&#x8BCD;&#x51FA;&#x73B0;&#x7684;&#x6587;&#x6863;&#x6570;&#x91CF;&#xFF09;&#x5DF2;&#x6709;N&#x4E2A;&#x6587;&#x7AE0;&#x4E2D;&#x8BCD;&#x7684;IDF&#x4F1A;&#x968F;&#x7740;&#x65B0;&#x589E;&#x6587;&#x7AE0;&#x800C;&#x52A8;&#x6001;&#x53D8;&#x5316;&#xFF0C;&#x5C31;&#x4F1A;&#x6D89;&#x53CA;TFIDF&#x7684;&#x589E;&#x91CF;&#x8BA1;&#x7B97;&#x3002;<ul>
+<li>&#x89E3;&#x51B3;&#x529E;&#x6CD5;&#x53EF;&#x4EE5;&#x5728;<strong>&#x56FA;&#x5B9A;&#x65F6;&#x95F4;&#x5B9A;&#x65F6;&#x5BF9;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x5168;&#x90E8;&#x8BA1;&#x7B97;CV&#x548C;IDF&#x7684;&#x6A21;&#x578B;&#x7ED3;&#x679C;&#xFF0C;&#x66FF;&#x6362;&#x6A21;&#x578B;&#x5373;&#x53EF;</strong></li>
+</ul>
+</li>
+</ul>
+<p>&#x5BF9;&#x65B0;&#x6587;&#x7AE0;&#x5206;&#x8BCD;,&#x8BFB;&#x53D6;&#x6A21;&#x578B;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x8FDB;&#x884C;&#x5206;&#x8BCD;&#x524D;&#x9762;&#x8BA1;&#x7B97;&#x51FA;&#x7684;sentence_df</span>
+words_df = sentence_df.rdd.mapPartitions(segmentation).toDF([<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;words&quot;</span>])
+cv_model = get_cv_model()
+idf_model = get_idf_model()
+</code></pre>
+<p>&#x5B9A;&#x4E49;&#x4E24;&#x4E2A;&#x8BFB;&#x53D6;&#x51FD;&#x6570;</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_cv_model</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment"># &#x8BCD;&#x8BED;&#x4E0E;&#x8BCD;&#x9891;&#x7EDF;&#x8BA1;</span>
+        <span class="hljs-keyword">from</span> pyspark.ml.feature <span class="hljs-keyword">import</span> CountVectorizerModel
+    cv_model = CountVectorizerModel.load(cv_path)
+    <span class="hljs-keyword">return</span> cv_model
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_idf_model</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">from</span> pyspark.ml.feature <span class="hljs-keyword">import</span> IDFModel
+    idf_model = IDFModel.load(idf_path)
+    <span class="hljs-keyword">return</span> idf_model
+</code></pre>
+<pre><code class="lang-python">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">compute_keywords_tfidf_topk</span><span class="hljs-params">(words_df, cv_model, idf_model)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;&#x4FDD;&#x5B58;tfidf&#x503C;&#x9AD8;&#x7684;20&#x4E2A;&#x5173;&#x952E;&#x8BCD;
+        :param spark:
+        :param words_df:
+        :return:
+        &quot;&quot;&quot;</span>
+        cv_result = cv_model.transform(words_df)
+        tfidf_result = idf_model.transform(cv_result)
+        <span class="hljs-comment"># print(&quot;transform compelete&quot;)</span>
+
+        <span class="hljs-comment"># &#x53D6;TOP-N&#x7684;TFIDF&#x503C;&#x9AD8;&#x7684;&#x7ED3;&#x679C;</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(partition)</span>:</span>
+            TOPK = <span class="hljs-number">20</span>
+            <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> partition:
+                _ = list(zip(row.idfFeatures.indices, row.idfFeatures.values))
+                _ = sorted(_, key=<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">1</span>], reverse=<span class="hljs-keyword">True</span>)
+                result = _[:TOPK]
+                <span class="hljs-keyword">for</span> word_index, tfidf <span class="hljs-keyword">in</span> result:
+                    <span class="hljs-keyword">yield</span> row.article_id, row.channel_id, int(word_index), round(float(tfidf), <span class="hljs-number">4</span>)
+
+        _keywordsByTFIDF = tfidf_result.rdd.mapPartitions(func).toDF([<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;index&quot;</span>, <span class="hljs-string">&quot;tfidf&quot;</span>])
+
+        <span class="hljs-keyword">return</span> _keywordsByTFIDF
+<span class="hljs-comment"># 1&#x3001;&#x4FDD;&#x5B58;&#x6240;&#x6709;&#x7684;&#x8BCD;&#x7684;idf&#x7684;&#x503C;&#xFF0C;&#x5229;&#x7528;idf&#x4E2D;&#x7684;&#x8BCD;&#x7684;&#x6807;&#x7B7E;&#x7D22;&#x5F15;</span>
+<span class="hljs-comment"># &#x5DE5;&#x5177;&#x4E0E;&#x4E1A;&#x52A1;&#x9694;&#x79BB;</span>
+_keywordsByTFIDF = compute_keywords_tfidf_topk(words_df, cv_model, idf_model)
+
+keywordsIndex = ua.spark.sql(<span class="hljs-string">&quot;select keyword, index idx from idf_keywords_values&quot;</span>)
+
+keywordsByTFIDF = _keywordsByTFIDF.join(keywordsIndex, keywordsIndex.idx == _keywordsByTFIDF.index).select(
+  [<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;keyword&quot;</span>, <span class="hljs-string">&quot;tfidf&quot;</span>])
+
+<span class="hljs-comment"># keywordsByTFIDF.write.insertInto(&quot;tfidf_keywords_values&quot;)</span>
+
+<span class="hljs-keyword">del</span> cv_model
+<span class="hljs-keyword">del</span> idf_model
+<span class="hljs-keyword">del</span> words_df
+<span class="hljs-keyword">del</span> _keywordsByTFIDF
+gc.collect()
+
+<span class="hljs-comment"># &#x8BA1;&#x7B97;textrank</span>
+textrank_keywords_df = sentence_df.rdd.mapPartitions(textrank).toDF(
+  [<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;keyword&quot;</span>, <span class="hljs-string">&quot;textrank&quot;</span>])
+<span class="hljs-comment"># textrank_keywords_df.write.insertInto(&quot;textrank_keywords_values&quot;)</span>
+</code></pre>
+<p>&#x524D;&#x9762;&#x8FD9;&#x4E9B;&#x5F97;&#x5230;textrank_keywords_df&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5F80;&#x540E;&#x8FDB;&#x884C;&#x6587;&#x7AE0;&#x7684;&#x753B;&#x50CF;&#x66F4;&#x65B0;</p>
+<h3 id="2533-&#x589E;&#x91CF;&#x66F4;&#x65B0;&#x6587;&#x7AE0;&#x753B;&#x50CF;&#x7ED3;&#x679C;">2.5.3.3 &#x589E;&#x91CF;&#x66F4;&#x65B0;&#x6587;&#x7AE0;&#x753B;&#x50CF;&#x7ED3;&#x679C;</h3>
+<p>&#x5BF9;&#x4E8E;&#x65B0;&#x6587;&#x7AE0;&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x753B;&#x50CF;</p>
+<ul>
+<li>&#x6B65;&#x9AA4;&#xFF1A;<ul>
+<li>1&#x3001;&#x52A0;&#x8F7D;IDF&#xFF0C;&#x4FDD;&#x7559;&#x5173;&#x952E;&#x8BCD;&#x4EE5;&#x53CA;&#x6743;&#x91CD;&#x8BA1;&#x7B97;(TextRank * IDF)</li>
+<li>2&#x3001;&#x5408;&#x5E76;&#x5173;&#x952E;&#x8BCD;&#x6743;&#x91CD;&#x5230;&#x5B57;&#x5178;&#x7ED3;&#x679C;</li>
+<li>3&#x3001;&#x5C06;tfidf&#x548C;textrank&#x5171;&#x73B0;&#x7684;&#x8BCD;&#x4F5C;&#x4E3A;&#x4E3B;&#x9898;&#x8BCD;</li>
+<li>4&#x3001;&#x5C06;&#x4E3B;&#x9898;&#x8BCD;&#x8868;&#x548C;&#x5173;&#x952E;&#x8BCD;&#x8868;&#x8FDB;&#x884C;&#x5408;&#x5E76;&#xFF0C;&#x63D2;&#x5165;&#x8868;</li>
+</ul>
+</li>
+</ul>
+<p><strong>&#x52A0;&#x8F7D;IDF&#xFF0C;&#x4FDD;&#x7559;&#x5173;&#x952E;&#x8BCD;&#x4EE5;&#x53CA;&#x6743;&#x91CD;&#x8BA1;&#x7B97;(TextRank * IDF)</strong></p>
+<pre><code class="lang-python">idf = ua.spark.sql(<span class="hljs-string">&quot;select * from idf_keywords_values&quot;</span>)
+idf = idf.withColumnRenamed(<span class="hljs-string">&quot;keyword&quot;</span>, <span class="hljs-string">&quot;keyword1&quot;</span>)
+result = textrank_keywords_df.join(idf,textrank_keywords_df.keyword==idf.keyword1)
+keywords_res = result.withColumn(<span class="hljs-string">&quot;weights&quot;</span>, result.textrank * result.idf).select([<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;keyword&quot;</span>, <span class="hljs-string">&quot;weights&quot;</span>])
+</code></pre>
+<p><strong>&#x5408;&#x5E76;&#x5173;&#x952E;&#x8BCD;&#x6743;&#x91CD;&#x5230;&#x5B57;&#x5178;&#x7ED3;&#x679C;</strong></p>
+<pre><code class="lang-python">keywords_res.registerTempTable(<span class="hljs-string">&quot;temptable&quot;</span>)
+merge_keywords = ua.spark.sql(<span class="hljs-string">&quot;select article_id, min(channel_id) channel_id, collect_list(keyword) keywords, collect_list(weights) weights from temptable group by article_id&quot;</span>)
+
+<span class="hljs-comment"># &#x5408;&#x5E76;&#x5173;&#x952E;&#x8BCD;&#x6743;&#x91CD;&#x5408;&#x5E76;&#x6210;&#x5B57;&#x5178;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_func</span><span class="hljs-params">(row)</span>:</span>
+    <span class="hljs-keyword">return</span> row.article_id, row.channel_id, dict(zip(row.keywords, row.weights))
+
+keywords_info = merge_keywords.rdd.map(_func).toDF([<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;keywords&quot;</span>])
+</code></pre>
+<p><strong>&#x5C06;tfidf&#x548C;textrank&#x5171;&#x73B0;&#x7684;&#x8BCD;&#x4F5C;&#x4E3A;&#x4E3B;&#x9898;&#x8BCD;</strong></p>
+<pre><code class="lang-python">topic_sql = <span class="hljs-string">&quot;&quot;&quot;
+                select t.article_id article_id2, collect_set(t.keyword) topics from tfidf_keywords_values t
+                inner join 
+                textrank_keywords_values r
+                where t.keyword=r.keyword
+                group by article_id2
+                &quot;&quot;&quot;</span>
+articleTopics = ua.spark.sql(topic_sql)
+</code></pre>
+<p><strong>&#x5C06;&#x4E3B;&#x9898;&#x8BCD;&#x8868;&#x548C;&#x5173;&#x952E;&#x8BCD;&#x8868;&#x8FDB;&#x884C;&#x5408;&#x5E76;&#x3002;</strong></p>
+<pre><code class="lang-python">article_profile = keywords_info.join(article_topics, keywords_info.article_id==article_topics.article_id2).select([<span class="hljs-string">&quot;article_id&quot;</span>, <span class="hljs-string">&quot;channel_id&quot;</span>, <span class="hljs-string">&quot;keywords&quot;</span>, <span class="hljs-string">&quot;topics&quot;</span>])
+
+<span class="hljs-comment"># articleProfile.write.insertInto(&quot;article_profile&quot;)</span>
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../day01/section3.html" class="navigation navigation-prev " aria-label="Previous page: 离线文章画像计算"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../day01/section5.html" class="navigation navigation-next " aria-label="Next page: Apscheduler定时更新文章画像"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"katex":{},"expandable-chapters-small":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

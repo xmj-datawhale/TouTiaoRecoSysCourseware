@@ -1,0 +1,1705 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>案例：TensorFlow实现线性回归 | 黑马头条推荐系统项目课程定位、目标</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../day06/section5.html" />
+    
+    
+    <link rel="prev" href="../day06/section3.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="7.4"
+        data-chapter-title="案例：TensorFlow实现线性回归"
+        data-filepath="day06/section4.md"
+        data-basepath=".."
+        data-revision="Wed Jun 05 2019 18:41:21 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        黑马头条推荐系统项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="reco/index.html">
+            
+                
+                    <a href="../reco/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        黑马头条推荐架构介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="reco/section1.html">
+            
+                
+                    <a href="../reco/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        头条推荐架构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="reco/section2.html">
+            
+                
+                    <a href="../reco/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        开发环境介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="day01/index.html">
+            
+                
+                    <a href="../day01/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        离线计算更新文章画像
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="day01/section0.html">
+            
+                
+                    <a href="../day01/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        数据库迁移
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="day01/section1.html">
+            
+                
+                    <a href="../day01/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        用户行为收集到HIVE
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="day01/section2.html">
+            
+                
+                    <a href="../day01/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        离线画像业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="day01/section3.html">
+            
+                
+                    <a href="../day01/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        离线文章画像计算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="day01/section4.html">
+            
+                
+                    <a href="../day01/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        离线增量画像更新代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="day01/section5.html">
+            
+                
+                    <a href="../day01/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Apscheduler定时更新文章画像
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="day01/section6.html">
+            
+                
+                    <a href="../day01/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Word2Vec与文章相似度
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="day01/section7.html">
+            
+                
+                    <a href="../day01/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        文章相似度增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="day01/section8.html">
+            
+                
+                    <a href="../day01/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="day01/section9.html">
+            
+                
+                    <a href="../day01/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="day02/index.html">
+            
+                
+                    <a href="../day02/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        离线用户画像更新与召回排序计算
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="day02/section1.html">
+            
+                
+                    <a href="../day02/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        用户画像逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="day02/section2.html">
+            
+                
+                    <a href="../day02/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        用户画像增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="day02/section3.html">
+            
+                
+                    <a href="../day02/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        离线召回与排序介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="day02/section4.html">
+            
+                
+                    <a href="../day02/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        离线用户基于模型召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="day02/section5.html">
+            
+                
+                    <a href="../day02/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        离线用户基于内容召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="day02/section6.html">
+            
+                
+                    <a href="../day02/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        离线用户召回定时更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="day02/section7.html">
+            
+                
+                    <a href="../day02/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        离线排序模型训练基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="day02/section8.html">
+            
+                
+                    <a href="../day02/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        离线ctr特征中心更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="day02/section9.html">
+            
+                
+                    <a href="../day02/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="day02/section10.html">
+            
+                
+                    <a href="../day02/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="day03/index.html">
+            
+                
+                    <a href="../day03/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        实时计算业务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="day03/section0.html">
+            
+                
+                    <a href="../day03/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        实时计算业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="day03/section1.html">
+            
+                
+                    <a href="../day03/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        实时日志分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="day03/section2.html">
+            
+                
+                    <a href="../day03/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        实时召回集业务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="day03/section3.html">
+            
+                
+                    <a href="../day03/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        热门与新文章召回
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="day03/section4.html">
+            
+                
+                    <a href="../day03/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="day03/section5.html">
+            
+                
+                    <a href="../day03/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="day04/index.html">
+            
+                
+                    <a href="../day04/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        推荐业务流实现与ABTest
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="day04/section0.html">
+            
+                
+                    <a href="../day04/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        实时推荐业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="day04/section1.html">
+            
+                
+                    <a href="../day04/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        grpc接口对接
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="day04/section2.html">
+            
+                
+                    <a href="../day04/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        ABTest实验中心
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="day04/section3.html">
+            
+                
+                    <a href="../day04/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        推荐中心逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="day04/section4.html">
+            
+                
+                    <a href="../day04/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        召回集读取服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="day04/section5.html">
+            
+                
+                    <a href="../day04/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        推荐缓存服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="day04/section6.html">
+            
+                
+                    <a href="../day04/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        排序模型在线预测
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="day04/section7.html">
+            
+                
+                    <a href="../day04/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="day04/section8.html">
+            
+                
+                    <a href="../day04/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="day05/index.html">
+            
+                
+                    <a href="../day05/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        深度学习与推荐系统
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="day05/section1.html">
+            
+                
+                    <a href="../day05/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        推荐系统的深度学习关联
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="day05/section2.html">
+            
+                
+                    <a href="../day05/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        深度学习应用简介
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="day06/index.html">
+            
+                
+                    <a href="../day06/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        TensorFlow框架介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="day06/section1.html">
+            
+                
+                    <a href="../day06/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        TF数据流图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="day06/section2.html">
+            
+                
+                    <a href="../day06/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        图与TensorBoard
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="day06/section3.html">
+            
+                
+                    <a href="../day06/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        会话、张量、变量OP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="7.4" data-path="day06/section4.html">
+            
+                
+                    <a href="../day06/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        案例：TensorFlow实现线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="day06/section5.html">
+            
+                
+                    <a href="../day06/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        TFAPI使用2.0建议
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.6" data-path="day06/section6.html">
+            
+                
+                    <a href="../day06/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                        tf.estimator使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.7" data-path="day06/section7.html">
+            
+                
+                    <a href="../day06/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.8" data-path="day06/section8.html">
+            
+                
+                    <a href="../day06/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="day07/index.html">
+            
+                
+                    <a href="../day07/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        黑马头条排序模型进阶
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="day07/section1.html">
+            
+                
+                    <a href="../day07/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        神经网络基础与原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="day07/section2.html">
+            
+                
+                    <a href="../day07/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        tf.data与tf.feature_column
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="day07/section3.html">
+            
+                
+                    <a href="../day07/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        案例：DNN文本分类与word2vec原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="day07/section4.html">
+            
+                
+                    <a href="../day07/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        TFRecords与黑马训练数据存储
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="day07/section5.html">
+            
+                
+                    <a href="../day07/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        深度学习与排序模型发展
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="day07/section6.html">
+            
+                
+                    <a href="../day07/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        分桶与特征交叉
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="day07/section7.html">
+            
+                
+                    <a href="../day07/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        黑马排序模型进阶-FTRL on Tensorflow
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="day07/section8.html">
+            
+                
+                    <a href="../day07/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        黑马排序模型进阶-Wide&amp;Deep
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" data-path="day07/section9.html">
+            
+                
+                    <a href="../day07/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                        WDL模型导出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" data-path="day07/section10.html">
+            
+                
+                    <a href="../day07/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.</b>
+                        
+                        TensorFlow Serving模型部署
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.11" data-path="day07/section11.html">
+            
+                
+                    <a href="../day07/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.11.</b>
+                        
+                        排序模型在线测试
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12" data-path="day07/section12.html">
+            
+                
+                    <a href="../day07/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.12.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13" data-path="day07/section13.html">
+            
+                
+                    <a href="../day07/section13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.13.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >黑马头条推荐系统项目课程定位、目标</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="24-&#x6848;&#x4F8B;&#xFF1A;&#x5B9E;&#x73B0;&#x7EBF;&#x6027;&#x56DE;&#x5F52;">2.4 &#x6848;&#x4F8B;&#xFF1A;&#x5B9E;&#x73B0;&#x7EBF;&#x6027;&#x56DE;&#x5F52;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x76EE;&#x6807;<ul>
+<li>&#x5E94;&#x7528;op&#x7684;name&#x53C2;&#x6570;&#x5B9E;&#x73B0;op&#x7684;&#x540D;&#x5B57;&#x4FEE;&#x6539;</li>
+<li>&#x5E94;&#x7528;variable_scope&#x5B9E;&#x73B0;&#x56FE;&#x7A0B;&#x5E8F;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x6DFB;&#x52A0;</li>
+<li>&#x5E94;&#x7528;scalar&#x6216;histogram&#x5B9E;&#x73B0;&#x5F20;&#x91CF;&#x503C;&#x7684;&#x8DDF;&#x8E2A;&#x663E;&#x793A;</li>
+<li>&#x5E94;&#x7528;merge_all&#x5B9E;&#x73B0;&#x5F20;&#x91CF;&#x503C;&#x7684;&#x5408;&#x5E76;</li>
+<li>&#x5E94;&#x7528;add_summary&#x5B9E;&#x73B0;&#x5F20;&#x91CF;&#x503C;&#x5199;&#x5165;&#x6587;&#x4EF6;</li>
+<li>&#x5E94;&#x7528;tf.train.saver&#x5B9E;&#x73B0;TensorFlow&#x7684;&#x6A21;&#x578B;&#x4FDD;&#x5B58;&#x4EE5;&#x53CA;&#x52A0;&#x8F7D;</li>
+<li>&#x5E94;&#x7528;tf.app.flags&#x5B9E;&#x73B0;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x6DFB;&#x52A0;&#x548C;&#x4F7F;&#x7528;</li>
+<li>&#x5E94;&#x7528;reduce_mean&#x3001;square&#x5B9E;&#x73B0;&#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#x8BA1;&#x7B97;</li>
+<li>&#x5E94;&#x7528;tf.train.GradientDescentOptimizer&#x5B9E;&#x73B0;&#x6709;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x4F18;&#x5316;&#x5668;&#x521B;&#x5EFA;</li>
+<li>&#x5E94;&#x7528;minimize&#x51FD;&#x6570;&#x4F18;&#x5316;&#x635F;&#x5931;</li>
+<li>&#x77E5;&#x9053;&#x68AF;&#x5EA6;&#x7206;&#x70B8;&#x4EE5;&#x53CA;&#x5E38;&#x89C1;&#x89E3;&#x51B3;&#x6280;&#x5DE7;</li>
+</ul>
+</li>
+<li>&#x5E94;&#x7528;<ul>
+<li>&#x5B9E;&#x73B0;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x6A21;&#x578B;</li>
+</ul>
+</li>
+<li>&#x5185;&#x5BB9;&#x9884;&#x89C8;<ul>
+<li>2.6.1 &#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x539F;&#x7406;&#x590D;&#x4E60;</li>
+<li>2.6.2 &#x6848;&#x4F8B;&#xFF1A;&#x5B9E;&#x73B0;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x8BAD;&#x7EC3;</li>
+<li>2.6.3 &#x589E;&#x52A0;&#x5176;&#x4ED6;&#x529F;&#x80FD;<ul>
+<li>1 &#x589E;&#x52A0;&#x53D8;&#x91CF;&#x663E;&#x793A;</li>
+<li>2 &#x589E;&#x52A0;&#x547D;&#x540D;&#x7A7A;&#x95F4;</li>
+<li>3 &#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;&#x4E0E;&#x52A0;&#x8F7D;</li>
+<li>4 &#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x4F7F;&#x7528; </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="241-&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x539F;&#x7406;&#x590D;&#x4E60;">2.4.1 &#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x539F;&#x7406;&#x590D;&#x4E60;</h2>
+<p>&#x6839;&#x636E;&#x6570;&#x636E;&#x5EFA;&#x7ACB;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#xFF0C;w1x1+w2x2+&#x2026;..+b = y&#xFF0C;&#x901A;&#x8FC7;&#x771F;&#x5B9E;&#x503C;&#x4E0E;&#x9884;&#x6D4B;&#x503C;&#x4E4B;&#x95F4;&#x5EFA;&#x7ACB;&#x8BEF;&#x5DEE;&#xFF0C;&#x4F7F;&#x7528;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x4F18;&#x5316;&#x5F97;&#x5230;&#x635F;&#x5931;&#x6700;&#x5C0F;&#x5BF9;&#x5E94;&#x7684;&#x6743;&#x91CD;&#x548C;&#x504F;&#x7F6E;&#x3002;&#x6700;&#x7EC8;&#x786E;&#x5B9A;&#x6A21;&#x578B;&#x7684;&#x6743;&#x91CD;&#x548C;&#x504F;&#x7F6E;&#x53C2;&#x6570;&#x3002;&#x6700;&#x540E;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x9884;&#x6D4B;&#x3002;</p>
+<h2 id="242-&#x6848;&#x4F8B;&#xFF1A;&#x5B9E;&#x73B0;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x8BAD;&#x7EC3;">2.4.2 &#x6848;&#x4F8B;&#xFF1A;&#x5B9E;&#x73B0;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x7684;&#x8BAD;&#x7EC3;</h2>
+<h3 id="1-&#x6848;&#x4F8B;&#x786E;&#x5B9A;">1 &#x6848;&#x4F8B;&#x786E;&#x5B9A;</h3>
+<ul>
+<li>&#x5047;&#x8BBE;&#x968F;&#x673A;&#x6307;&#x5B9A;100&#x4E2A;&#x70B9;&#xFF0C;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x5F81;</li>
+<li>&#x6570;&#x636E;&#x672C;&#x8EAB;&#x7684;&#x5206;&#x5E03;&#x4E3A; y = 0.8 * x + 0.7</li>
+</ul>
+<blockquote>
+<p>&#x8FD9;&#x91CC;&#x5C06;&#x6570;&#x636E;&#x5206;&#x5E03;&#x7684;&#x89C4;&#x5F8B;&#x786E;&#x5B9A;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x4F7F;&#x6211;&#x4EEC;&#x8BAD;&#x7EC3;&#x51FA;&#x7684;&#x53C2;&#x6570;&#x8DDF;&#x771F;&#x5B9E;&#x7684;&#x53C2;&#x6570;&#xFF08;&#x5373;0.8&#x548C;0.7&#xFF09;&#x6BD4;&#x8F83;&#x662F;&#x5426;&#x8BAD;&#x7EC3;&#x51C6;&#x786E;</p>
+</blockquote>
+<h3 id="2-api">2 API</h3>
+<p><strong>&#x8FD0;&#x7B97;</strong></p>
+<ul>
+<li>&#x77E9;&#x9635;&#x8FD0;&#x7B97;<ul>
+<li>tf.matmul(x, w)</li>
+</ul>
+</li>
+<li>&#x5E73;&#x65B9;<ul>
+<li>tf.square(error)</li>
+</ul>
+</li>
+<li>&#x5747;&#x503C;<ul>
+<li>tf.reduce_mean(error)</li>
+</ul>
+</li>
+</ul>
+<p><strong>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x4F18;&#x5316;</strong></p>
+<ul>
+<li>tf.train.GradientDescentOptimizer(learning_rate)<ul>
+<li>&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x4F18;&#x5316;</li>
+<li>learning_rate:&#x5B66;&#x4E60;&#x7387;&#xFF0C;&#x4E00;&#x822C;&#x4E3A;0~1&#x4E4B;&#x95F4;&#x6BD4;&#x8F83;&#x5C0F;&#x7684;&#x503C;</li>
+<li>method:<ul>
+<li>minimize(loss)</li>
+</ul>
+</li>
+<li>return:&#x68AF;&#x5EA6;&#x4E0B;&#x964D;op</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-&#x6B65;&#x9AA4;&#x5206;&#x6790;">3 &#x6B65;&#x9AA4;&#x5206;&#x6790;</h3>
+<ul>
+<li>1 &#x51C6;&#x5907;&#x597D;&#x6570;&#x636E;&#x96C6;&#xFF1A;y = 0.8x + 0.7 100&#x4E2A;&#x6837;&#x672C;</li>
+<li>2 &#x5EFA;&#x7ACB;&#x7EBF;&#x6027;&#x6A21;&#x578B;<ul>
+<li>&#x968F;&#x673A;&#x521D;&#x59CB;&#x5316;W1&#x548C;b1</li>
+<li>y = W&#xB7;X + b&#xFF0C;&#x76EE;&#x6807;&#xFF1A;&#x6C42;&#x51FA;&#x6743;&#x91CD;W&#x548C;&#x504F;&#x7F6E;b</li>
+</ul>
+</li>
+<li>3 &#x786E;&#x5B9A;&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF08;&#x9884;&#x6D4B;&#x503C;&#x4E0E;&#x771F;&#x5B9E;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x8BEF;&#x5DEE;&#xFF09;-&#x5747;&#x65B9;&#x8BEF;&#x5DEE;</li>
+<li>4 &#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x4F18;&#x5316;&#x635F;&#x5931;&#xFF1A;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x5B66;&#x4E60;&#x7387;&#xFF08;&#x8D85;&#x53C2;&#x6570;&#xFF09;</li>
+</ul>
+<h3 id="4-&#x5B9E;&#x73B0;&#x5B8C;&#x6574;&#x529F;&#x80FD;">4 &#x5B9E;&#x73B0;&#x5B8C;&#x6574;&#x529F;&#x80FD;</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf
+<span class="hljs-keyword">import</span> os
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">linear_regression</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x81EA;&#x5B9E;&#x73B0;&#x7EBF;&#x6027;&#x56DE;&#x5F52;
+    :return: None
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment"># 1&#xFF09;&#x51C6;&#x5907;&#x597D;&#x6570;&#x636E;&#x96C6;&#xFF1A;y = 0.8x + 0.7 100&#x4E2A;&#x6837;&#x672C;</span>
+    <span class="hljs-comment"># &#x7279;&#x5F81;&#x503C;X, &#x76EE;&#x6807;&#x503C;y_true</span>
+    X = tf.random_normal(shape=(<span class="hljs-number">100</span>, <span class="hljs-number">1</span>), mean=<span class="hljs-number">2</span>, stddev=<span class="hljs-number">2</span>)
+    <span class="hljs-comment"># y_true [100, 1]</span>
+    <span class="hljs-comment"># &#x77E9;&#x9635;&#x8FD0;&#x7B97; X&#xFF08;100&#xFF0C; 1&#xFF09;* &#xFF08;1, 1&#xFF09;= y_true(100, 1)</span>
+    y_true = tf.matmul(X, [[<span class="hljs-number">0.8</span>]]) + <span class="hljs-number">0.7</span>
+    <span class="hljs-comment"># 2&#xFF09;&#x5EFA;&#x7ACB;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#xFF1A;</span>
+    <span class="hljs-comment"># y = W&#xB7;X + b&#xFF0C;&#x76EE;&#x6807;&#xFF1A;&#x6C42;&#x51FA;&#x6743;&#x91CD;W&#x548C;&#x504F;&#x7F6E;b</span>
+    <span class="hljs-comment"># 3&#xFF09;&#x968F;&#x673A;&#x521D;&#x59CB;&#x5316;W1&#x548C;b1</span>
+    weights = tf.Variable(initial_value=tf.random_normal(shape=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)))
+    bias = tf.Variable(initial_value=tf.random_normal(shape=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)))
+    y_predict = tf.matmul(X, weights) + bias
+    <span class="hljs-comment"># 4&#xFF09;&#x786E;&#x5B9A;&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF08;&#x9884;&#x6D4B;&#x503C;&#x4E0E;&#x771F;&#x5B9E;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x8BEF;&#x5DEE;&#xFF09;-&#x5747;&#x65B9;&#x8BEF;&#x5DEE;</span>
+    error = tf.reduce_mean(tf.square(y_predict - y_true))
+    <span class="hljs-comment"># 5&#xFF09;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x4F18;&#x5316;&#x635F;&#x5931;&#xFF1A;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x5B66;&#x4E60;&#x7387;&#xFF08;&#x8D85;&#x53C2;&#x6570;&#xFF09;</span>
+    <span class="hljs-comment"># W2 = W1 - &#x5B66;&#x4E60;&#x7387;*(&#x65B9;&#x5411;)</span>
+    <span class="hljs-comment"># b2 = b1 - &#x5B66;&#x4E60;&#x7387;*(&#x65B9;&#x5411;)</span>
+    optimizer = tf.train.GradientDescentOptimizer(learning_rate=<span class="hljs-number">0.01</span>).minimize(error)
+
+    <span class="hljs-comment"># &#x521D;&#x59CB;&#x5316;&#x53D8;&#x91CF;</span>
+    init = tf.global_variables_initializer()
+    <span class="hljs-comment"># &#x5F00;&#x542F;&#x4F1A;&#x8BDD;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;</span>
+    <span class="hljs-keyword">with</span> tf.Session() <span class="hljs-keyword">as</span> sess:
+        <span class="hljs-comment"># &#x8FD0;&#x884C;&#x521D;&#x59CB;&#x5316;&#x53D8;&#x91CF;Op</span>
+        sess.run(init)
+        print(<span class="hljs-string">&quot;&#x968F;&#x673A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x6743;&#x91CD;&#x4E3A;%f&#xFF0C; &#x504F;&#x7F6E;&#x4E3A;%f&quot;</span> % (weights.eval(), bias.eval()))
+        <span class="hljs-comment"># &#x8BAD;&#x7EC3;&#x6A21;&#x578B;</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">100</span>):
+            sess.run(optimizer)
+            print(<span class="hljs-string">&quot;&#x7B2C;%d&#x6B65;&#x7684;&#x8BEF;&#x5DEE;&#x4E3A;%f&#xFF0C;&#x6743;&#x91CD;&#x4E3A;%f&#xFF0C; &#x504F;&#x7F6E;&#x4E3A;%f&quot;</span> % (i, error.eval(), weights.eval(), bias.eval()))
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+</code></pre>
+<h3 id="6-&#x53D8;&#x91CF;&#x7684;trainable&#x8BBE;&#x7F6E;&#x89C2;&#x5BDF;">6 &#x53D8;&#x91CF;&#x7684;trainable&#x8BBE;&#x7F6E;&#x89C2;&#x5BDF;</h3>
+<p>trainable&#x7684;&#x53C2;&#x6570;&#x4F5C;&#x7528;&#xFF0C;&#x6307;&#x5B9A;&#x662F;&#x5426;&#x8BAD;&#x7EC3;</p>
+<pre><code class="lang-python">weight = tf.Variable(tf.random_normal([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], mean=<span class="hljs-number">0.0</span>, stddev=<span class="hljs-number">1.0</span>), name=<span class="hljs-string">&quot;weights&quot;</span>, trainable=<span class="hljs-keyword">False</span>)
+</code></pre>
+<h2 id="243-&#x589E;&#x52A0;&#x5176;&#x4ED6;&#x529F;&#x80FD;">2.4.3 &#x589E;&#x52A0;&#x5176;&#x4ED6;&#x529F;&#x80FD;</h2>
+<ul>
+<li><strong>&#x589E;&#x52A0;&#x547D;&#x540D;&#x7A7A;&#x95F4;</strong></li>
+<li><strong>&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;</strong></li>
+</ul>
+<h3 id="2-&#x589E;&#x52A0;&#x547D;&#x540D;&#x7A7A;&#x95F4;">2 &#x589E;&#x52A0;&#x547D;&#x540D;&#x7A7A;&#x95F4;</h3>
+<p>&#x662F;&#x4EE3;&#x7801;&#x7ED3;&#x6784;&#x66F4;&#x52A0;&#x6E05;&#x6670;&#xFF0C;Tensorboard&#x56FE;&#x7ED3;&#x6784;&#x6E05;&#x695A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">with</span> tf.variable_scope(<span class="hljs-string">&quot;lr_model&quot;</span>):
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">linear_regression</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># 1&#xFF09;&#x51C6;&#x5907;&#x597D;&#x6570;&#x636E;&#x96C6;&#xFF1A;y = 0.8x + 0.7 100&#x4E2A;&#x6837;&#x672C;</span>
+    <span class="hljs-comment"># &#x7279;&#x5F81;&#x503C;X, &#x76EE;&#x6807;&#x503C;y_true</span>
+    <span class="hljs-keyword">with</span> tf.variable_scope(<span class="hljs-string">&quot;original_data&quot;</span>):
+        X = tf.random_normal(shape=(<span class="hljs-number">100</span>, <span class="hljs-number">1</span>), mean=<span class="hljs-number">2</span>, stddev=<span class="hljs-number">2</span>, name=<span class="hljs-string">&quot;original_data_x&quot;</span>)
+        <span class="hljs-comment"># y_true [100, 1]</span>
+        <span class="hljs-comment"># &#x77E9;&#x9635;&#x8FD0;&#x7B97; X&#xFF08;100&#xFF0C; 1&#xFF09;* &#xFF08;1, 1&#xFF09;= y_true(100, 1)</span>
+        y_true = tf.matmul(X, [[<span class="hljs-number">0.8</span>]], name=<span class="hljs-string">&quot;original_matmul&quot;</span>) + <span class="hljs-number">0.7</span>
+    <span class="hljs-comment"># 2&#xFF09;&#x5EFA;&#x7ACB;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#xFF1A;</span>
+    <span class="hljs-comment"># y = W&#xB7;X + b&#xFF0C;&#x76EE;&#x6807;&#xFF1A;&#x6C42;&#x51FA;&#x6743;&#x91CD;W&#x548C;&#x504F;&#x7F6E;b</span>
+    <span class="hljs-comment"># 3&#xFF09;&#x968F;&#x673A;&#x521D;&#x59CB;&#x5316;W1&#x548C;b1</span>
+    <span class="hljs-keyword">with</span> tf.variable_scope(<span class="hljs-string">&quot;linear_model&quot;</span>):
+        weights = tf.Variable(initial_value=tf.random_normal(shape=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)), name=<span class="hljs-string">&quot;weights&quot;</span>)
+        bias = tf.Variable(initial_value=tf.random_normal(shape=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)), name=<span class="hljs-string">&quot;bias&quot;</span>)
+        y_predict = tf.matmul(X, weights, name=<span class="hljs-string">&quot;model_matmul&quot;</span>) + bias
+    <span class="hljs-comment"># 4&#xFF09;&#x786E;&#x5B9A;&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF08;&#x9884;&#x6D4B;&#x503C;&#x4E0E;&#x771F;&#x5B9E;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x8BEF;&#x5DEE;&#xFF09;-&#x5747;&#x65B9;&#x8BEF;&#x5DEE;</span>
+    <span class="hljs-keyword">with</span> tf.variable_scope(<span class="hljs-string">&quot;loss&quot;</span>):
+        error = tf.reduce_mean(tf.square(y_predict - y_true), name=<span class="hljs-string">&quot;error_op&quot;</span>)
+    <span class="hljs-comment"># 5&#xFF09;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x4F18;&#x5316;&#x635F;&#x5931;&#xFF1A;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x5B66;&#x4E60;&#x7387;&#xFF08;&#x8D85;&#x53C2;&#x6570;&#xFF09;</span>
+    <span class="hljs-comment"># W2 = W1 - &#x5B66;&#x4E60;&#x7387;*(&#x65B9;&#x5411;)</span>
+    <span class="hljs-comment"># b2 = b1 - &#x5B66;&#x4E60;&#x7387;*(&#x65B9;&#x5411;)</span>
+    <span class="hljs-keyword">with</span> tf.variable_scope(<span class="hljs-string">&quot;gd_optimizer&quot;</span>):
+        optimizer = tf.train.GradientDescentOptimizer(learning_rate=<span class="hljs-number">0.01</span>, name=<span class="hljs-string">&quot;optimizer&quot;</span>).minimize(error)
+
+    <span class="hljs-comment"># 2&#xFF09;&#x6536;&#x96C6;&#x53D8;&#x91CF;</span>
+    tf.summary.scalar(<span class="hljs-string">&quot;error&quot;</span>, error)
+    tf.summary.histogram(<span class="hljs-string">&quot;weights&quot;</span>, weights)
+    tf.summary.histogram(<span class="hljs-string">&quot;bias&quot;</span>, bias)
+
+    <span class="hljs-comment"># 3&#xFF09;&#x5408;&#x5E76;&#x53D8;&#x91CF;</span>
+    merge = tf.summary.merge_all()
+
+    <span class="hljs-comment"># &#x521D;&#x59CB;&#x5316;&#x53D8;&#x91CF;</span>
+    init = tf.global_variables_initializer()
+    <span class="hljs-comment"># &#x5F00;&#x542F;&#x4F1A;&#x8BDD;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;</span>
+    <span class="hljs-keyword">with</span> tf.Session() <span class="hljs-keyword">as</span> sess:
+        <span class="hljs-comment"># &#x8FD0;&#x884C;&#x521D;&#x59CB;&#x5316;&#x53D8;&#x91CF;Op</span>
+        sess.run(init)
+        print(<span class="hljs-string">&quot;&#x968F;&#x673A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x6743;&#x91CD;&#x4E3A;%f&#xFF0C; &#x504F;&#x7F6E;&#x4E3A;%f&quot;</span> % (weights.eval(), bias.eval()))
+        <span class="hljs-comment"># 1&#xFF09;&#x521B;&#x5EFA;&#x4E8B;&#x4EF6;&#x6587;&#x4EF6;</span>
+        file_writer = tf.summary.FileWriter(logdir=<span class="hljs-string">&quot;./summary&quot;</span>, graph=sess.graph)
+        <span class="hljs-comment"># &#x8BAD;&#x7EC3;&#x6A21;&#x578B;</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">100</span>):
+            sess.run(optimizer)
+            print(<span class="hljs-string">&quot;&#x7B2C;%d&#x6B65;&#x7684;&#x8BEF;&#x5DEE;&#x4E3A;%f&#xFF0C;&#x6743;&#x91CD;&#x4E3A;%f&#xFF0C; &#x504F;&#x7F6E;&#x4E3A;%f&quot;</span> % (i, error.eval(), weights.eval(), bias.eval()))
+            <span class="hljs-comment"># 4&#xFF09;&#x8FD0;&#x884C;&#x5408;&#x5E76;&#x53D8;&#x91CF;op</span>
+            summary = sess.run(merge)
+            file_writer.add_summary(summary, i)
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+</code></pre>
+<h3 id="3-&#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;&#x4E0E;&#x52A0;&#x8F7D;">3 &#x6A21;&#x578B;&#x7684;&#x4FDD;&#x5B58;&#x4E0E;&#x52A0;&#x8F7D;</h3>
+<ul>
+<li><strong>tf.train.Saver(var_list=None,max_to_keep=5)</strong><ul>
+<li>&#x4FDD;&#x5B58;&#x548C;&#x52A0;&#x8F7D;&#x6A21;&#x578B;&#xFF08;&#x4FDD;&#x5B58;&#x6587;&#x4EF6;&#x683C;&#x5F0F;&#xFF1A;checkpoint&#x6587;&#x4EF6;&#xFF09;</li>
+<li>var_list:&#x6307;&#x5B9A;&#x5C06;&#x8981;&#x4FDD;&#x5B58;&#x548C;&#x8FD8;&#x539F;&#x7684;&#x53D8;&#x91CF;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;dict&#x6216;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#x4F20;&#x9012;.</li>
+<li>max_to_keep&#xFF1A;&#x6307;&#x793A;&#x8981;&#x4FDD;&#x7559;&#x7684;&#x6700;&#x8FD1;&#x68C0;&#x67E5;&#x70B9;&#x6587;&#x4EF6;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;&#x3002;&#x521B;&#x5EFA;&#x65B0;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x4F1A;&#x5220;&#x9664;&#x8F83;&#x65E7;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x5982;&#x679C;&#x65E0;&#x6216;0&#xFF0C;&#x5219;&#x4FDD;&#x7559;&#x6240;&#x6709;&#x68C0;&#x67E5;&#x70B9;&#x6587;&#x4EF6;&#x3002;&#x9ED8;&#x8BA4;&#x4E3A;5&#xFF08;&#x5373;&#x4FDD;&#x7559;&#x6700;&#x65B0;&#x7684;5&#x4E2A;&#x68C0;&#x67E5;&#x70B9;&#x6587;&#x4EF6;&#x3002;&#xFF09;</li>
+</ul>
+</li>
+</ul>
+<p>&#x4F7F;&#x7528;</p>
+<pre><code class="lang-python">&#x4F8B;&#x5982;&#xFF1A;
+&#x6307;&#x5B9A;&#x76EE;&#x5F55;+&#x6A21;&#x578B;&#x540D;&#x5B57;
+saver.save(sess, <span class="hljs-string">&apos;/tmp/ckpt/test/myregression.ckpt&apos;</span>)
+saver.restore(sess, <span class="hljs-string">&apos;/tmp/ckpt/test/myregression.ckpt&apos;</span>)
+</code></pre>
+<p>&#x5982;&#x8981;&#x5224;&#x65AD;&#x6A21;&#x578B;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x76F4;&#x63A5;&#x6307;&#x5B9A;&#x76EE;&#x5F55;</p>
+<pre><code class="lang-python">checkpoint = tf.train.latest_checkpoint(<span class="hljs-string">&quot;./tmp/model/&quot;</span>)
+
+saver.restore(sess, checkpoint)
+</code></pre>
+<h3 id="4-&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x4F7F;&#x7528;">4 &#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x4F7F;&#x7528;</h3>
+<ul>
+<li><p>1&#x3001;<img src="../Users/huxinghui/Desktop/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%A3%80%E6%B5%8B%E9%A1%B9%E7%9B%AE%E8%AF%BE%E4%BB%B6/images/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0.png" alt=""></p>
+</li>
+<li><p>2&#x3001; tf.app.flags.,&#x5728;flags&#x6709;&#x4E00;&#x4E2A;FLAGS&#x6807;&#x5FD7;&#xFF0C;&#x5B83;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x5230;&#x6211;&#x4EEC;</p>
+</li>
+</ul>
+<p>&#x524D;&#x9762;&#x5177;&#x4F53;&#x5B9A;&#x4E49;&#x7684;flag_name</p>
+<ul>
+<li>3&#x3001;&#x901A;&#x8FC7;tf.app.run()&#x542F;&#x52A8;main(argv)&#x51FD;&#x6570;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;</span>
+<span class="hljs-comment"># &#x8BAD;&#x7EC3;&#x6B65;&#x6570;</span>
+tf.app.flags.DEFINE_integer(<span class="hljs-string">&quot;max_step&quot;</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x7684;&#x6B65;&#x6570;&quot;</span>)
+<span class="hljs-comment"># &#x5B9A;&#x4E49;&#x6A21;&#x578B;&#x7684;&#x8DEF;&#x5F84;</span>
+tf.app.flags.DEFINE_string(<span class="hljs-string">&quot;model_dir&quot;</span>, <span class="hljs-string">&quot; &quot;</span>, <span class="hljs-string">&quot;&#x6A21;&#x578B;&#x4FDD;&#x5B58;&#x7684;&#x8DEF;&#x5F84;+&#x6A21;&#x578B;&#x540D;&#x5B57;&quot;</span>)
+
+<span class="hljs-comment"># &#x5B9A;&#x4E49;&#x83B7;&#x53D6;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;</span>
+FLAGS = tf.app.flags.FLAGS
+
+<span class="hljs-comment"># &#x5F00;&#x542F;&#x8BAD;&#x7EC3;</span>
+<span class="hljs-comment"># &#x8BAD;&#x7EC3;&#x7684;&#x6B65;&#x6570;&#xFF08;&#x4F9D;&#x636E;&#x6A21;&#x578B;&#x5927;&#x5C0F;&#x800C;&#x5B9A;&#xFF09;</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(FLAGS.max_step):
+     sess.run(train_op)
+</code></pre>
+<h3 id="&#x5B8C;&#x6574;&#x4EE3;&#x7801;">&#x5B8C;&#x6574;&#x4EE3;&#x7801;</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf
+<span class="hljs-keyword">import</span> os
+
+tf.app.flags.DEFINE_string(<span class="hljs-string">&quot;model_path&quot;</span>, <span class="hljs-string">&quot;./linear_regression/&quot;</span>, <span class="hljs-string">&quot;&#x6A21;&#x578B;&#x4FDD;&#x5B58;&#x7684;&#x8DEF;&#x5F84;&#x548C;&#x6587;&#x4EF6;&#x540D;&quot;</span>)
+FLAGS = tf.app.flags.FLAGS
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">linear_regression</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># 1&#xFF09;&#x51C6;&#x5907;&#x597D;&#x6570;&#x636E;&#x96C6;&#xFF1A;y = 0.8x + 0.7 100&#x4E2A;&#x6837;&#x672C;</span>
+    <span class="hljs-comment"># &#x7279;&#x5F81;&#x503C;X, &#x76EE;&#x6807;&#x503C;y_true</span>
+    <span class="hljs-keyword">with</span> tf.variable_scope(<span class="hljs-string">&quot;original_data&quot;</span>):
+        X = tf.random_normal(shape=(<span class="hljs-number">100</span>, <span class="hljs-number">1</span>), mean=<span class="hljs-number">2</span>, stddev=<span class="hljs-number">2</span>, name=<span class="hljs-string">&quot;original_data_x&quot;</span>)
+        <span class="hljs-comment"># y_true [100, 1]</span>
+        <span class="hljs-comment"># &#x77E9;&#x9635;&#x8FD0;&#x7B97; X&#xFF08;100&#xFF0C; 1&#xFF09;* &#xFF08;1, 1&#xFF09;= y_true(100, 1)</span>
+        y_true = tf.matmul(X, [[<span class="hljs-number">0.8</span>]], name=<span class="hljs-string">&quot;original_matmul&quot;</span>) + <span class="hljs-number">0.7</span>
+    <span class="hljs-comment"># 2&#xFF09;&#x5EFA;&#x7ACB;&#x7EBF;&#x6027;&#x6A21;&#x578B;&#xFF1A;</span>
+    <span class="hljs-comment"># y = W&#xB7;X + b&#xFF0C;&#x76EE;&#x6807;&#xFF1A;&#x6C42;&#x51FA;&#x6743;&#x91CD;W&#x548C;&#x504F;&#x7F6E;b</span>
+    <span class="hljs-comment"># 3&#xFF09;&#x968F;&#x673A;&#x521D;&#x59CB;&#x5316;W1&#x548C;b1</span>
+    <span class="hljs-keyword">with</span> tf.variable_scope(<span class="hljs-string">&quot;linear_model&quot;</span>):
+        weights = tf.Variable(initial_value=tf.random_normal(shape=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)), name=<span class="hljs-string">&quot;weights&quot;</span>)
+        bias = tf.Variable(initial_value=tf.random_normal(shape=(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)), name=<span class="hljs-string">&quot;bias&quot;</span>)
+        y_predict = tf.matmul(X, weights, name=<span class="hljs-string">&quot;model_matmul&quot;</span>) + bias
+    <span class="hljs-comment"># 4&#xFF09;&#x786E;&#x5B9A;&#x635F;&#x5931;&#x51FD;&#x6570;&#xFF08;&#x9884;&#x6D4B;&#x503C;&#x4E0E;&#x771F;&#x5B9E;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x8BEF;&#x5DEE;&#xFF09;-&#x5747;&#x65B9;&#x8BEF;&#x5DEE;</span>
+    <span class="hljs-keyword">with</span> tf.variable_scope(<span class="hljs-string">&quot;loss&quot;</span>):
+        error = tf.reduce_mean(tf.square(y_predict - y_true), name=<span class="hljs-string">&quot;error_op&quot;</span>)
+    <span class="hljs-comment"># 5&#xFF09;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x4F18;&#x5316;&#x635F;&#x5931;&#xFF1A;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x5B66;&#x4E60;&#x7387;&#xFF08;&#x8D85;&#x53C2;&#x6570;&#xFF09;</span>
+    <span class="hljs-comment"># W2 = W1 - &#x5B66;&#x4E60;&#x7387;*(&#x65B9;&#x5411;)</span>
+    <span class="hljs-comment"># b2 = b1 - &#x5B66;&#x4E60;&#x7387;*(&#x65B9;&#x5411;)</span>
+    <span class="hljs-keyword">with</span> tf.variable_scope(<span class="hljs-string">&quot;gd_optimizer&quot;</span>):
+        optimizer = tf.train.GradientDescentOptimizer(learning_rate=<span class="hljs-number">0.01</span>, name=<span class="hljs-string">&quot;optimizer&quot;</span>).minimize(error)
+
+    <span class="hljs-comment"># 2&#xFF09;&#x6536;&#x96C6;&#x53D8;&#x91CF;</span>
+    tf.summary.scalar(<span class="hljs-string">&quot;error&quot;</span>, error)
+    tf.summary.histogram(<span class="hljs-string">&quot;weights&quot;</span>, weights)
+    tf.summary.histogram(<span class="hljs-string">&quot;bias&quot;</span>, bias)
+
+    <span class="hljs-comment"># 3&#xFF09;&#x5408;&#x5E76;&#x53D8;&#x91CF;</span>
+    merge = tf.summary.merge_all()
+
+    <span class="hljs-comment"># &#x521D;&#x59CB;&#x5316;&#x53D8;&#x91CF;</span>
+    init = tf.global_variables_initializer()
+
+    <span class="hljs-comment"># &#x5F00;&#x542F;&#x4F1A;&#x8BDD;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;</span>
+    <span class="hljs-keyword">with</span> tf.Session() <span class="hljs-keyword">as</span> sess:
+        <span class="hljs-comment"># &#x8FD0;&#x884C;&#x521D;&#x59CB;&#x5316;&#x53D8;&#x91CF;Op</span>
+        sess.run(init)
+        <span class="hljs-comment"># &#x672A;&#x7ECF;&#x8BAD;&#x7EC3;&#x7684;&#x6743;&#x91CD;&#x548C;&#x504F;&#x7F6E;</span>
+        print(<span class="hljs-string">&quot;&#x968F;&#x673A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x6743;&#x91CD;&#x4E3A;%f&#xFF0C; &#x504F;&#x7F6E;&#x4E3A;%f&quot;</span> % (weights.eval(), bias.eval()))
+        <span class="hljs-comment"># &#x5F53;&#x5B58;&#x5728;checkpoint&#x6587;&#x4EF6;&#xFF0C;&#x5C31;&#x52A0;&#x8F7D;&#x6A21;&#x578B;</span>
+
+        <span class="hljs-comment"># 1&#xFF09;&#x521B;&#x5EFA;&#x4E8B;&#x4EF6;&#x6587;&#x4EF6;</span>
+        file_writer = tf.summary.FileWriter(logdir=<span class="hljs-string">&quot;./summary&quot;</span>, graph=sess.graph)
+        <span class="hljs-comment"># &#x8BAD;&#x7EC3;&#x6A21;&#x578B;</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">100</span>):
+            sess.run(optimizer)
+            print(<span class="hljs-string">&quot;&#x7B2C;%d&#x6B65;&#x7684;&#x8BEF;&#x5DEE;&#x4E3A;%f&#xFF0C;&#x6743;&#x91CD;&#x4E3A;%f&#xFF0C; &#x504F;&#x7F6E;&#x4E3A;%f&quot;</span> % (i, error.eval(), weights.eval(), bias.eval()))
+            <span class="hljs-comment"># 4&#xFF09;&#x8FD0;&#x884C;&#x5408;&#x5E76;&#x53D8;&#x91CF;op</span>
+            summary = sess.run(merge)
+            file_writer.add_summary(summary, i)
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(argv)</span>:</span>
+    print(<span class="hljs-string">&quot;&#x8FD9;&#x662F;main&#x51FD;&#x6570;&quot;</span>)
+    print(argv)
+    print(FLAGS.model_path)
+    linear_regression()
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    tf.app.run()
+</code></pre>
+<h3 id="&#x4F5C;&#x4E1A;&#xFF1A;&#x5C06;&#x9762;&#x5411;&#x8FC7;&#x7A0B;&#x6539;&#x4E3A;&#x9762;&#x5411;&#x5BF9;&#x8C61;">&#x4F5C;&#x4E1A;&#xFF1A;&#x5C06;&#x9762;&#x5411;&#x8FC7;&#x7A0B;&#x6539;&#x4E3A;&#x9762;&#x5411;&#x5BF9;&#x8C61;</h3>
+<p>&#x53C2;&#x8003;&#x4EE3;&#x7801;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x7528;tensorflow&#x81EA;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7EBF;&#x6027;&#x56DE;&#x5F52;&#x6848;&#x4F8B;</span>
+
+<span class="hljs-comment"># &#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;</span>
+<span class="hljs-comment"># &#x8BAD;&#x7EC3;&#x6B65;&#x6570;</span>
+tf.app.flags.DEFINE_integer(<span class="hljs-string">&quot;max_step&quot;</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#x7684;&#x6B65;&#x6570;&quot;</span>)
+<span class="hljs-comment"># &#x5B9A;&#x4E49;&#x6A21;&#x578B;&#x7684;&#x8DEF;&#x5F84;</span>
+tf.app.flags.DEFINE_string(<span class="hljs-string">&quot;model_dir&quot;</span>, <span class="hljs-string">&quot; &quot;</span>, <span class="hljs-string">&quot;&#x6A21;&#x578B;&#x4FDD;&#x5B58;&#x7684;&#x8DEF;&#x5F84;+&#x6A21;&#x578B;&#x540D;&#x5B57;&quot;</span>)
+
+FLAGS = tf.app.flags.FLAGS
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyLinearRegression</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    &#x81EA;&#x5B9E;&#x73B0;&#x7EBF;&#x6027;&#x56DE;&#x5F52;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inputs</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x83B7;&#x53D6;&#x7279;&#x5F81;&#x503C;&#x76EE;&#x6807;&#x503C;&#x6570;&#x636E;&#x6570;&#x636E;
+        :return:
+        &quot;&quot;&quot;</span>
+        x_data = tf.random_normal([<span class="hljs-number">100</span>, <span class="hljs-number">1</span>], mean=<span class="hljs-number">1.0</span>, stddev=<span class="hljs-number">1.0</span>, name=<span class="hljs-string">&quot;x_data&quot;</span>)
+        y_true = tf.matmul(x_data, [[<span class="hljs-number">0.7</span>]]) + <span class="hljs-number">0.8</span>
+
+        <span class="hljs-keyword">return</span> x_data, y_true
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inference</span><span class="hljs-params">(self, feature)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x6839;&#x636E;&#x8F93;&#x5165;&#x6570;&#x636E;&#x5EFA;&#x7ACB;&#x6A21;&#x578B;
+        :param feature:
+        :param label:
+        :return:
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">with</span> tf.variable_scope(<span class="hljs-string">&quot;linea_model&quot;</span>):
+            <span class="hljs-comment"># 2&#x3001;&#x5EFA;&#x7ACB;&#x56DE;&#x5F52;&#x6A21;&#x578B;&#xFF0C;&#x5206;&#x6790;&#x522B;&#x4EBA;&#x7684;&#x6570;&#x636E;&#x7684;&#x7279;&#x5F81;&#x6570;&#x91CF;---&gt;&#x6743;&#x91CD;&#x6570;&#x91CF;&#xFF0C; &#x504F;&#x7F6E;b</span>
+            <span class="hljs-comment"># &#x7531;&#x4E8E;&#x6709;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7B97;&#x6CD5;&#x4F18;&#x5316;&#xFF0C;&#x6240;&#x4EE5;&#x4E00;&#x5F00;&#x59CB;&#x7ED9;&#x968F;&#x673A;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x6743;&#x91CD;&#x548C;&#x504F;&#x7F6E;</span>
+            <span class="hljs-comment"># &#x88AB;&#x4F18;&#x5316;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5FC5;&#x987B;&#x5F97;&#x4F7F;&#x7528;&#x53D8;&#x91CF;op&#x53BB;&#x5B9A;&#x4E49;</span>
+            <span class="hljs-comment"># &#x53D8;&#x91CF;&#x521D;&#x59CB;&#x5316;&#x6743;&#x91CD;&#x548C;&#x504F;&#x7F6E;</span>
+            <span class="hljs-comment"># weight 2&#x7EF4;[1, 1]    bias [1]</span>
+            <span class="hljs-comment"># &#x53D8;&#x91CF;op&#x5F53;&#x4E2D;&#x4F1A;&#x6709;trainable&#x53C2;&#x6570;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x8BAD;&#x7EC3;</span>
+            self.weight = tf.Variable(tf.random_normal([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], mean=<span class="hljs-number">0.0</span>, stddev=<span class="hljs-number">1.0</span>),
+                                 name=<span class="hljs-string">&quot;weights&quot;</span>)
+
+            self.bias = tf.Variable(<span class="hljs-number">0.0</span>, name=<span class="hljs-string">&apos;biases&apos;</span>)
+
+            <span class="hljs-comment"># &#x5EFA;&#x7ACB;&#x56DE;&#x5F52;&#x516C;&#x5F0F;&#x53BB;&#x5F97;&#x51FA;&#x9884;&#x6D4B;&#x7ED3;&#x679C;</span>
+            y_predict = tf.matmul(feature, self.weight) + self.bias
+
+        <span class="hljs-keyword">return</span> y_predict
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">loss</span><span class="hljs-params">(self, y_true, y_predict)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x76EE;&#x6807;&#x503C;&#x548C;&#x771F;&#x5B9E;&#x503C;&#x8BA1;&#x7B97;&#x635F;&#x5931;
+        :return: loss
+        &quot;&quot;&quot;</span>
+        <span class="hljs-comment"># 3&#x3001;&#x6C42;&#x51FA;&#x6211;&#x4EEC;&#x6A21;&#x578B;&#x8DDF;&#x771F;&#x5B9E;&#x6570;&#x636E;&#x4E4B;&#x95F4;&#x7684;&#x635F;&#x5931;</span>
+        <span class="hljs-comment"># &#x5747;&#x65B9;&#x8BEF;&#x5DEE;&#x516C;&#x5F0F;</span>
+        loss = tf.reduce_mean(tf.square(y_true - y_predict))
+
+        <span class="hljs-keyword">return</span> loss
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">merge_summary</span><span class="hljs-params">(self, loss)</span>:</span>
+
+        <span class="hljs-comment"># 1&#x3001;&#x6536;&#x96C6;&#x5F20;&#x91CF;&#x7684;&#x503C;</span>
+        tf.summary.scalar(<span class="hljs-string">&quot;losses&quot;</span>, loss)
+
+        tf.summary.histogram(<span class="hljs-string">&quot;w&quot;</span>, self.weight)
+        tf.summary.histogram(<span class="hljs-string">&apos;b&apos;</span>, self.bias)
+
+        <span class="hljs-comment"># 2&#x3001;&#x5408;&#x5E76;&#x53D8;&#x91CF;</span>
+        merged = tf.summary.merge_all()
+
+        <span class="hljs-keyword">return</span> merged
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sgd_op</span><span class="hljs-params">(self, loss)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x83B7;&#x53D6;&#x8BAD;&#x7EC3;OP
+        :return:
+        &quot;&quot;&quot;</span>
+        <span class="hljs-comment"># 4&#x3001;&#x4F7F;&#x7528;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x4F18;&#x5316;&#x5668;&#x4F18;&#x5316;</span>
+        <span class="hljs-comment"># &#x586B;&#x5145;&#x5B66;&#x4E60;&#x7387;&#xFF1A;0 ~ 1    &#x5B66;&#x4E60;&#x7387;&#x662F;&#x975E;&#x5E38;&#x5C0F;&#xFF0C;</span>
+        <span class="hljs-comment"># &#x5B66;&#x4E60;&#x7387;&#x5927;&#x5C0F;&#x51B3;&#x5B9A;&#x4F60;&#x5230;&#x8FBE;&#x635F;&#x5931;&#x4E00;&#x4E2A;&#x6B65;&#x6570;&#x591A;&#x5C11;</span>
+        <span class="hljs-comment"># &#x6700;&#x5C0F;&#x5316;&#x635F;&#x5931;</span>
+        train_op = tf.train.GradientDescentOptimizer(<span class="hljs-number">0.1</span>).minimize(loss)
+
+        <span class="hljs-keyword">return</span> train_op
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">train</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x8BAD;&#x7EC3;&#x6A21;&#x578B;
+        :param loss:
+        :return:
+        &quot;&quot;&quot;</span>
+
+        g = tf.get_default_graph()
+
+        <span class="hljs-keyword">with</span> g.as_default():
+
+            x_data, y_true = self.inputs()
+
+            y_predict = self.inference(x_data)
+
+            loss = self.loss(y_true, y_predict)
+
+            train_op = self.sgd_op(loss)
+
+            <span class="hljs-comment"># &#x6536;&#x96C6;&#x89C2;&#x5BDF;&#x7684;&#x7ED3;&#x679C;&#x503C;</span>
+            merged = self.merge_summary(loss)
+
+            saver = tf.train.Saver()
+
+            <span class="hljs-keyword">with</span> tf.Session() <span class="hljs-keyword">as</span> sess:
+
+                sess.run(tf.global_variables_initializer())
+
+                <span class="hljs-comment"># &#x5728;&#x6CA1;&#x8BAD;&#x7EC3;&#xFF0C;&#x6A21;&#x578B;&#x7684;&#x53C2;&#x6570;&#x503C;</span>
+                print(<span class="hljs-string">&quot;&#x521D;&#x59CB;&#x5316;&#x7684;&#x6743;&#x91CD;&#xFF1A;%f, &#x504F;&#x7F6E;&#xFF1A;%f&quot;</span> % (self.weight.eval(), self.bias.eval()))
+
+                <span class="hljs-comment"># &#x5F00;&#x542F;&#x8BAD;&#x7EC3;</span>
+                <span class="hljs-comment"># &#x8BAD;&#x7EC3;&#x7684;&#x6B65;&#x6570;&#xFF08;&#x4F9D;&#x636E;&#x6A21;&#x578B;&#x5927;&#x5C0F;&#x800C;&#x5B9A;&#xFF09;</span>
+                <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(FLAGS.max_step):
+
+                    sess.run(train_op)
+
+                    <span class="hljs-comment"># &#x751F;&#x6210;&#x4E8B;&#x4EF6;&#x6587;&#x4EF6;&#xFF0C;&#x89C2;&#x5BDF;&#x56FE;&#x7ED3;&#x6784;</span>
+                    file_writer = tf.summary.FileWriter(<span class="hljs-string">&quot;./tmp/summary/&quot;</span>, graph=sess.graph)
+
+                    print(<span class="hljs-string">&quot;&#x8BAD;&#x7EC3;&#x7B2C;%d&#x6B65;&#x4E4B;&#x540E;&#x7684;&#x635F;&#x5931;:%f, &#x6743;&#x91CD;&#xFF1A;%f, &#x504F;&#x7F6E;&#xFF1A;%f&quot;</span> % (
+                        i,
+                        loss.eval(),
+                        self.weight.eval(),
+                        self.bias.eval()))
+
+                    <span class="hljs-comment"># &#x8FD0;&#x884C;&#x6536;&#x96C6;&#x53D8;&#x91CF;&#x7684;&#x7ED3;&#x679C;</span>
+                    summary = sess.run(merged)
+
+                    <span class="hljs-comment"># &#x6DFB;&#x52A0;&#x5230;&#x6587;&#x4EF6;</span>
+                    file_writer.add_summary(summary, i)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    lr = MyLinearRegression()
+    lr.train()
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../day06/section3.html" class="navigation navigation-prev " aria-label="Previous page: 会话、张量、变量OP"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../day06/section5.html" class="navigation navigation-next " aria-label="Next page: TFAPI使用2.0建议"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"katex":{},"expandable-chapters-small":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

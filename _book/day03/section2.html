@@ -1,0 +1,1484 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>实时召回集业务 | 黑马头条推荐系统项目课程定位、目标</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../day03/section3.html" />
+    
+    
+    <link rel="prev" href="../day03/section1.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="4.3"
+        data-chapter-title="实时召回集业务"
+        data-filepath="day03/section2.md"
+        data-basepath=".."
+        data-revision="Wed Jun 05 2019 18:41:21 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        黑马头条推荐系统项目
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="reco/index.html">
+            
+                
+                    <a href="../reco/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        黑马头条推荐架构介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="reco/section1.html">
+            
+                
+                    <a href="../reco/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        头条推荐架构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="reco/section2.html">
+            
+                
+                    <a href="../reco/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        开发环境介绍
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="day01/index.html">
+            
+                
+                    <a href="../day01/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        离线计算更新文章画像
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="day01/section0.html">
+            
+                
+                    <a href="../day01/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        数据库迁移
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="day01/section1.html">
+            
+                
+                    <a href="../day01/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        用户行为收集到HIVE
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="day01/section2.html">
+            
+                
+                    <a href="../day01/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        离线画像业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="day01/section3.html">
+            
+                
+                    <a href="../day01/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        离线文章画像计算
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="day01/section4.html">
+            
+                
+                    <a href="../day01/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        离线增量画像更新代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="day01/section5.html">
+            
+                
+                    <a href="../day01/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Apscheduler定时更新文章画像
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="day01/section6.html">
+            
+                
+                    <a href="../day01/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Word2Vec与文章相似度
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="day01/section7.html">
+            
+                
+                    <a href="../day01/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        文章相似度增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="day01/section8.html">
+            
+                
+                    <a href="../day01/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="day01/section9.html">
+            
+                
+                    <a href="../day01/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="day02/index.html">
+            
+                
+                    <a href="../day02/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        离线用户画像更新与召回排序计算
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="day02/section1.html">
+            
+                
+                    <a href="../day02/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        用户画像逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="day02/section2.html">
+            
+                
+                    <a href="../day02/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        用户画像增量更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="day02/section3.html">
+            
+                
+                    <a href="../day02/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        离线召回与排序介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="day02/section4.html">
+            
+                
+                    <a href="../day02/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        离线用户基于模型召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="day02/section5.html">
+            
+                
+                    <a href="../day02/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        离线用户基于内容召回集
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="day02/section6.html">
+            
+                
+                    <a href="../day02/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        离线用户召回定时更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="day02/section7.html">
+            
+                
+                    <a href="../day02/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        离线排序模型训练基础
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="day02/section8.html">
+            
+                
+                    <a href="../day02/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        离线ctr特征中心更新
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="day02/section9.html">
+            
+                
+                    <a href="../day02/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="day02/section10.html">
+            
+                
+                    <a href="../day02/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="day03/index.html">
+            
+                
+                    <a href="../day03/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        实时计算业务
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="day03/section0.html">
+            
+                
+                    <a href="../day03/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        实时计算业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="day03/section1.html">
+            
+                
+                    <a href="../day03/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        实时日志分析
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.3" data-path="day03/section2.html">
+            
+                
+                    <a href="../day03/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        实时召回集业务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="day03/section3.html">
+            
+                
+                    <a href="../day03/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        热门与新文章召回
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="day03/section4.html">
+            
+                
+                    <a href="../day03/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="day03/section5.html">
+            
+                
+                    <a href="../day03/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="day04/index.html">
+            
+                
+                    <a href="../day04/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        推荐业务流实现与ABTest
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1" data-path="day04/section0.html">
+            
+                
+                    <a href="../day04/section0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        实时推荐业务介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="day04/section1.html">
+            
+                
+                    <a href="../day04/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                        grpc接口对接
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="day04/section2.html">
+            
+                
+                    <a href="../day04/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                        ABTest实验中心
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="day04/section3.html">
+            
+                
+                    <a href="../day04/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                        推荐中心逻辑
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="day04/section4.html">
+            
+                
+                    <a href="../day04/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                        召回集读取服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.6" data-path="day04/section5.html">
+            
+                
+                    <a href="../day04/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                        推荐缓存服务
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="day04/section6.html">
+            
+                
+                    <a href="../day04/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                        排序模型在线预测
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="day04/section7.html">
+            
+                
+                    <a href="../day04/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="day04/section8.html">
+            
+                
+                    <a href="../day04/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="day05/index.html">
+            
+                
+                    <a href="../day05/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        深度学习与推荐系统
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1" data-path="day05/section1.html">
+            
+                
+                    <a href="../day05/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        推荐系统的深度学习关联
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="day05/section2.html">
+            
+                
+                    <a href="../day05/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        深度学习应用简介
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="day06/index.html">
+            
+                
+                    <a href="../day06/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        TensorFlow框架介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1" data-path="day06/section1.html">
+            
+                
+                    <a href="../day06/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                        TF数据流图
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="day06/section2.html">
+            
+                
+                    <a href="../day06/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                        图与TensorBoard
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.3" data-path="day06/section3.html">
+            
+                
+                    <a href="../day06/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                        会话、张量、变量OP
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.4" data-path="day06/section4.html">
+            
+                
+                    <a href="../day06/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                        案例：TensorFlow实现线性回归
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.5" data-path="day06/section5.html">
+            
+                
+                    <a href="../day06/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                        TFAPI使用2.0建议
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.6" data-path="day06/section6.html">
+            
+                
+                    <a href="../day06/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                        tf.estimator使用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.7" data-path="day06/section7.html">
+            
+                
+                    <a href="../day06/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7.8" data-path="day06/section8.html">
+            
+                
+                    <a href="../day06/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="day07/index.html">
+            
+                
+                    <a href="../day07/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        黑马头条排序模型进阶
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="day07/section1.html">
+            
+                
+                    <a href="../day07/section1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        神经网络基础与原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="day07/section2.html">
+            
+                
+                    <a href="../day07/section2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        tf.data与tf.feature_column
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="day07/section3.html">
+            
+                
+                    <a href="../day07/section3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        案例：DNN文本分类与word2vec原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="day07/section4.html">
+            
+                
+                    <a href="../day07/section4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        TFRecords与黑马训练数据存储
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="day07/section5.html">
+            
+                
+                    <a href="../day07/section5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        深度学习与排序模型发展
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="day07/section6.html">
+            
+                
+                    <a href="../day07/section6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        分桶与特征交叉
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="day07/section7.html">
+            
+                
+                    <a href="../day07/section7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        黑马排序模型进阶-FTRL on Tensorflow
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="day07/section8.html">
+            
+                
+                    <a href="../day07/section8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.8.</b>
+                        
+                        黑马排序模型进阶-Wide&amp;Deep
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" data-path="day07/section9.html">
+            
+                
+                    <a href="../day07/section9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.9.</b>
+                        
+                        WDL模型导出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" data-path="day07/section10.html">
+            
+                
+                    <a href="../day07/section10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.10.</b>
+                        
+                        TensorFlow Serving模型部署
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.11" data-path="day07/section11.html">
+            
+                
+                    <a href="../day07/section11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.11.</b>
+                        
+                        排序模型在线测试
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12" data-path="day07/section12.html">
+            
+                
+                    <a href="../day07/section12.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.12.</b>
+                        
+                        总结
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13" data-path="day07/section13.html">
+            
+                
+                    <a href="../day07/section13.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.13.</b>
+                        
+                        每日作业
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >黑马头条推荐系统项目课程定位、目标</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="43-&#x5B9E;&#x65F6;&#x53EC;&#x56DE;&#x96C6;&#x4E1A;&#x52A1;">4.3 &#x5B9E;&#x65F6;&#x53EC;&#x56DE;&#x96C6;&#x4E1A;&#x52A1;</h1>
+<h2 id="&#x5B66;&#x4E60;&#x76EE;&#x6807;">&#x5B66;&#x4E60;&#x76EE;&#x6807;</h2>
+<ul>
+<li>&#x76EE;&#x6807;<ul>
+<li>&#x5B9E;&#x65F6;&#x5185;&#x5BB9;&#x53EC;&#x56DE;&#x7684;&#x4F5C;&#x7528;</li>
+</ul>
+</li>
+<li>&#x5E94;&#x7528;<ul>
+<li>&#x5E94;&#x7528;spark streaming&#x5B8C;&#x6210;&#x5B9E;&#x65F6;&#x53EC;&#x56DE;&#x96C6;&#x7684;&#x521B;&#x5EFA;</li>
+</ul>
+</li>
+</ul>
+<h3 id="431-&#x5B9E;&#x65F6;&#x53EC;&#x56DE;&#x5B9E;&#x73B0;">4.3.1 &#x5B9E;&#x65F6;&#x53EC;&#x56DE;&#x5B9E;&#x73B0;</h3>
+<p>&#x5B9E;&#x65F6;&#x53EC;&#x56DE;&#x4F1A;&#x7528;&#x57FA;&#x4E8E;&#x753B;&#x50CF;&#x76F8;&#x4F3C;&#x7684;&#x6587;&#x7AE0;&#x63A8;&#x8350;</p>
+<p>&#x521B;&#x5EFA;online&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5EFA;&#x7ACB;&#x5728;&#x7EBF;&#x5B9E;&#x65F6;&#x5904;&#x7406;&#x7A0B;&#x5E8F;</p>
+<p><img src="../images/&#x5728;&#x7EBF;&#x76EE;&#x5F55;.png" alt=""></p>
+<ul>
+<li>&#x76EE;&#x7684;&#xFF1A;&#x5BF9;&#x7528;&#x6237;&#x65E5;&#x5FD7;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5B9E;&#x65F6;&#x8FBE;&#x5230;&#x6C42;&#x51FA;&#x76F8;&#x4F3C;&#x6587;&#x7AE0;&#xFF0C;&#x653E;&#x5165;&#x7528;&#x6237;&#x53EC;&#x56DE;&#x96C6;&#x5408;&#x4E2D;</li>
+<li>&#x6B65;&#x9AA4;&#xFF1A;<ul>
+<li>1&#x3001;&#x914D;&#x7F6E;spark streaming&#x4FE1;&#x606F;</li>
+<li>2&#x3001;&#x8BFB;&#x53D6;&#x70B9;&#x51FB;&#x884C;&#x4E3A;&#x65E5;&#x5FD7;&#x6570;&#x636E;&#xFF0C;&#x83B7;&#x53D6;&#x76F8;&#x4F3C;&#x6587;&#x7AE0;&#x5217;&#x8868;</li>
+<li>3&#x3001;&#x8FC7;&#x6EE4;&#x5386;&#x53F2;&#x6587;&#x7AE0;&#x96C6;&#x5408;</li>
+<li>4&#x3001;&#x5B58;&#x5165;&#x53EC;&#x56DE;&#x7ED3;&#x679C;&#x4EE5;&#x53CA;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x7ED3;&#x679C;</li>
+<li>5&#x3001;&#x5199;&#x5165;&#x65E5;&#x5FD7;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</li>
+</ul>
+</li>
+</ul>
+<h4 id="1&#x3001;&#x521B;&#x5EFA;spark-streaming&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x4EE5;&#x53CA;happybase">1&#x3001;&#x521B;&#x5EFA;spark streaming&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x4EE5;&#x53CA;happybase</h4>
+<p>&#x5BFC;&#x5165;&#x9ED8;&#x8BA4;&#x7684;&#x914D;&#x7F6E;&#xFF0C;SPARK_ONLINE_CONFIG</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x589E;&#x52A0;spark online &#x542F;&#x52A8;&#x914D;&#x7F6E;</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DefaultConfig</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&#x9ED8;&#x8BA4;&#x7684;&#x4E00;&#x4E9B;&#x914D;&#x7F6E;&#x4FE1;&#x606F;
+    &quot;&quot;&quot;</span>
+    SPARK_ONLINE_CONFIG = (
+        (<span class="hljs-string">&quot;spark.app.name&quot;</span>, <span class="hljs-string">&quot;onlineUpdate&quot;</span>),  <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x542F;&#x52A8;&#x7684;spark&#x7684;app&#x540D;&#x79F0;&#xFF0C;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#xFF0C;&#x5C06;&#x968F;&#x673A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x540D;&#x79F0;</span>
+        (<span class="hljs-string">&quot;spark.master&quot;</span>, <span class="hljs-string">&quot;yarn&quot;</span>),
+        (<span class="hljs-string">&quot;spark.executor.instances&quot;</span>, <span class="hljs-number">4</span>)
+    )
+</code></pre>
+<p>&#x914D;&#x7F6E;StreamingContext&#xFF0C;&#x5728;online&#x7684;__init__.py&#x6587;&#x4EF6;&#x6DFB;&#x52A0;&#xFF0C;&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x65F6;&#x76F4;&#x63A5;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x6DFB;&#x52A0;sparkstreaming&#x542F;&#x52A8;&#x5BF9;&#x63A5;kafka&#x7684;&#x914D;&#x7F6E;</span>
+
+<span class="hljs-keyword">from</span> pyspark <span class="hljs-keyword">import</span> SparkConf
+<span class="hljs-keyword">from</span> pyspark.sql <span class="hljs-keyword">import</span> SparkSession
+<span class="hljs-keyword">from</span> pyspark <span class="hljs-keyword">import</span> SparkContext
+<span class="hljs-keyword">from</span> pyspark.streaming <span class="hljs-keyword">import</span> StreamingContext
+<span class="hljs-keyword">from</span> pyspark.streaming.kafka <span class="hljs-keyword">import</span> KafkaUtils
+<span class="hljs-keyword">from</span> setting.default <span class="hljs-keyword">import</span> DefaultConfig
+
+<span class="hljs-keyword">import</span> happybase
+
+<span class="hljs-comment">#  &#x7528;&#x4E8E;&#x8BFB;&#x53D6;hbase&#x7F13;&#x5B58;&#x7ED3;&#x679C;&#x914D;&#x7F6E;</span>
+pool = happybase.ConnectionPool(size=<span class="hljs-number">10</span>, host=<span class="hljs-string">&apos;hadoop-master&apos;</span>, port=<span class="hljs-number">9090</span>)
+<span class="hljs-comment"># 1&#x3001;&#x521B;&#x5EFA;conf</span>
+conf = SparkConf()
+conf.setAll(DefaultConfig.SPARK_ONLINE_CONFIG)
+<span class="hljs-comment"># &#x5EFA;&#x7ACB;spark session&#x4EE5;&#x53CA;spark streaming context</span>
+sc = SparkContext(conf=conf)
+<span class="hljs-comment"># &#x521B;&#x5EFA;Streaming Context</span>
+stream_c = StreamingContext(sc, <span class="hljs-number">60</span>)
+</code></pre>
+<p>&#x914D;&#x7F6E;streaming &#x8BFB;&#x53D6;Kafka&#x7684;&#x914D;&#x7F6E;,&#x5728;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x589E;&#x52A0;KAFKAIP&#x548C;&#x7AEF;&#x53E3;</p>
+<pre><code># KAFKA&#x914D;&#x7F6E;
+KAFKA_SERVER = &quot;192.168.19.137:9092&quot;
+</code></pre><pre><code class="lang-python"><span class="hljs-comment"># &#x57FA;&#x4E8E;&#x5185;&#x5BB9;&#x53EC;&#x56DE;&#x914D;&#x7F6E;&#xFF0C;&#x7528;&#x4E8E;&#x6536;&#x96C6;&#x7528;&#x6237;&#x884C;&#x4E3A;&#xFF0C;&#x83B7;&#x53D6;&#x76F8;&#x4F3C;&#x6587;&#x7AE0;&#x5B9E;&#x65F6;&#x63A8;&#x8350;</span>
+similar_kafkaParams = {<span class="hljs-string">&quot;metadata.broker.list&quot;</span>: DefaultConfig.KAFKA_SERVER, <span class="hljs-string">&quot;group.id&quot;</span>: <span class="hljs-string">&apos;similar&apos;</span>}
+SIMILAR_DS = KafkaUtils.createDirectStream(stream_c, [<span class="hljs-string">&apos;click-trace&apos;</span>], similar_kafkaParams)
+</code></pre>
+<p>&#x521B;&#x5EFA;online_update&#x6587;&#x4EF6;&#xFF0C;&#x5EFA;&#x7ACB;&#x5728;&#x7EBF;&#x53EC;&#x56DE;&#x7C7B;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> sys
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(<span class="hljs-number">0</span>, os.path.join(BASE_DIR))
+<span class="hljs-keyword">from</span> online <span class="hljs-keyword">import</span> stream_sc, SIMILAR_DS, pool
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime
+<span class="hljs-keyword">from</span> setting.default <span class="hljs-keyword">import</span> DefaultConfig
+<span class="hljs-keyword">import</span> redis
+<span class="hljs-keyword">import</span> json
+<span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> setting.logging <span class="hljs-keyword">as</span> lg
+<span class="hljs-keyword">import</span> logging
+</code></pre>
+<h4 id="&#x6CE8;&#x610F;&#x6DFB;&#x52A0;&#x8FD0;&#x884C;&#x65F6;&#x73AF;&#x5883;">&#x6CE8;&#x610F;&#x6DFB;&#x52A0;&#x8FD0;&#x884C;&#x65F6;&#x73AF;&#x5883;</h4>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4F7F;&#x7528;jupyter&#x6216;ipython&#x4E2D;&#xFF0C;&#x5229;&#x7528;spark streaming&#x94FE;&#x63A5;kafka&#x7684;&#x8BDD;&#xFF0C;&#x5FC5;&#x987B;&#x52A0;&#x4E0A;&#x4E0B;&#x9762;&#x8BED;&#x53E5;</span>
+<span class="hljs-comment"># &#x540C;&#x65F6;&#x6CE8;&#x610F;&#xFF1A;spark version&gt;2.2.2&#x7684;&#x8BDD;&#xFF0C;pyspark&#x4E2D;&#x7684;kafka&#x5BF9;&#x5E94;&#x6A21;&#x5757;&#x5DF2;&#x88AB;&#x9057;&#x5F03;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x91CC;&#x6682;&#x65F6;&#x53EA;&#x80FD;&#x7528;2.2.2&#x7248;&#x672C;&#x7684;spark</span>
+os.environ[<span class="hljs-string">&quot;PYSPARK_SUBMIT_ARGS&quot;</span>] = <span class="hljs-string">&quot;--packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.2.2 pyspark-shell&quot;</span>
+</code></pre>
+<ul>
+<li><strong>2&#x3001;Kafka&#x8BFB;&#x53D6;&#x70B9;&#x51FB;&#x884C;&#x4E3A;&#x65E5;&#x5FD7;&#x6570;&#x636E;&#xFF0C;&#x83B7;&#x53D6;&#x76F8;&#x4F3C;&#x6587;&#x7AE0;&#x5217;&#x8868;</strong></li>
+</ul>
+<p>&#x4F20;&#x5165;Kafka&#x7684;&#x6570;&#x636E;&#xFF1A;</p>
+<pre><code>OK
+{&quot;actionTime&quot;:&quot;2019-04-10 21:04:39&quot;,&quot;readTime&quot;:&quot;&quot;,&quot;channelId&quot;:18,&quot;param&quot;:{&quot;action&quot;: &quot;click&quot;, &quot;userId&quot;: &quot;2&quot;, &quot;articleId&quot;: &quot;116644&quot;, &quot;algorithmCombine&quot;: &quot;C2&quot;}}
+Time taken: 3.72 seconds, Fetched: 1 row(s)
+</code></pre><ul>
+<li>3&#x3001;&#x8FC7;&#x6EE4;&#x5386;&#x53F2;&#x6587;&#x7AE0;&#x96C6;&#x5408;</li>
+<li>4&#x3001;&#x5B58;&#x5165;&#x53EC;&#x56DE;&#x7ED3;&#x679C;&#x4EE5;&#x53CA;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x7ED3;&#x679C;</li>
+</ul>
+<pre><code class="lang-python">   <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OnlineRecall</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&#x5728;&#x7EBF;&#x5904;&#x7406;&#x8BA1;&#x7B97;&#x5E73;&#x53F0;
+    &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_update_content_recall</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        &#x5728;&#x7EBF;&#x5185;&#x5BB9;&#x53EC;&#x56DE;&#x8BA1;&#x7B97;
+        :return:
+        &quot;&quot;&quot;</span>
+        <span class="hljs-comment"># {&quot;actionTime&quot;:&quot;2019-04-10 21:04:39&quot;,&quot;readTime&quot;:&quot;&quot;,&quot;channelId&quot;:18,</span>
+        <span class="hljs-comment"># &quot;param&quot;:{&quot;action&quot;: &quot;click&quot;, &quot;userId&quot;: &quot;2&quot;, &quot;articleId&quot;: &quot;116644&quot;, &quot;algorithmCombine&quot;: &quot;C2&quot;}}</span>
+        <span class="hljs-comment"># x [,&apos;json.....&apos;]</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_similar_online_recall</span><span class="hljs-params">(rdd)</span>:</span>
+            <span class="hljs-string">&quot;&quot;&quot;
+            &#x89E3;&#x6790;rdd&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x83B7;&#x53D6;&#x8BA1;&#x7B97;
+            :param rdd:
+            :return:
+            &quot;&quot;&quot;</span>
+            <span class="hljs-comment"># rdd---&gt; &#x6570;&#x636E;&#x672C;&#x8EAB;</span>
+            <span class="hljs-comment"># [row(1,2,3), row(4,5,6)]-----&gt;[[1,2,3], [4,5,6]]</span>
+            <span class="hljs-keyword">import</span> happybase
+            <span class="hljs-comment"># &#x521D;&#x59CB;&#x5316;happybase&#x8FDE;&#x63A5;</span>
+            pool = happybase.ConnectionPool(size=<span class="hljs-number">10</span>, host=<span class="hljs-string">&apos;hadoop-master&apos;</span>, port=<span class="hljs-number">9090</span>)
+            <span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> rdd.collect():
+
+                <span class="hljs-comment"># &#x8FDB;&#x884C;data&#x5B57;&#x5178;&#x5904;&#x7406;&#x8FC7;&#x6EE4;</span>
+                <span class="hljs-keyword">if</span> data[<span class="hljs-string">&apos;param&apos;</span>][<span class="hljs-string">&apos;action&apos;</span>] <span class="hljs-keyword">in</span> [<span class="hljs-string">&quot;click&quot;</span>, <span class="hljs-string">&quot;collect&quot;</span>, <span class="hljs-string">&quot;share&quot;</span>]:
+
+                    logger.info(
+                        <span class="hljs-string">&quot;{} INFO: get user_id:{} action:{}  log&quot;</span>.format(datetime.now().strftime(<span class="hljs-string">&apos;%Y-%m-%d %H:%M:%S&apos;</span>),
+                                                                        data[<span class="hljs-string">&apos;param&apos;</span>][<span class="hljs-string">&apos;userId&apos;</span>], data[<span class="hljs-string">&apos;param&apos;</span>][<span class="hljs-string">&apos;action&apos;</span>]))
+
+                    <span class="hljs-comment"># &#x8BFB;&#x53D6;param&#x5F53;&#x4E2D;articleId&#xFF0C;&#x76F8;&#x4F3C;&#x7684;&#x6587;&#x7AE0;</span>
+                    <span class="hljs-keyword">with</span> pool.connection() <span class="hljs-keyword">as</span> conn:
+
+                        sim_table = conn.table(<span class="hljs-string">&quot;article_similar&quot;</span>)
+
+                        <span class="hljs-comment"># &#x6839;&#x636E;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x6D41;&#x65E5;&#x5FD7;&#x6D89;&#x53CA;&#x6587;&#x7AE0;&#x627E;&#x51FA;&#x4E0E;&#x4E4B;&#x6700;&#x76F8;&#x4F3C;&#x6587;&#x7AE0;(&#x57FA;&#x4E8E;&#x5185;&#x5BB9;&#x7684;&#x76F8;&#x4F3C;)&#xFF0C;&#x9009;&#x53D6;TOP-k&#x76F8;&#x4F3C;&#x7684;&#x4F5C;&#x4E3A;&#x53EC;&#x56DE;&#x63A8;&#x8350;&#x7ED3;&#x679C;</span>
+                        _dic = sim_table.row(str(data[<span class="hljs-string">&quot;param&quot;</span>][<span class="hljs-string">&quot;articleId&quot;</span>]).encode(), columns=[<span class="hljs-string">b&quot;similar&quot;</span>])
+                        _srt = sorted(_dic.items(), key=<span class="hljs-keyword">lambda</span> obj: obj[<span class="hljs-number">1</span>], reverse=<span class="hljs-keyword">True</span>)  <span class="hljs-comment"># &#x6309;&#x76F8;&#x4F3C;&#x5EA6;&#x6392;&#x5E8F;</span>
+                        <span class="hljs-keyword">if</span> _srt:
+
+                            topKSimIds = [int(i[<span class="hljs-number">0</span>].split(<span class="hljs-string">b&quot;:&quot;</span>)[<span class="hljs-number">1</span>]) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> _srt[:<span class="hljs-number">10</span>]]
+
+                            <span class="hljs-comment"># &#x6839;&#x636E;&#x5386;&#x53F2;&#x63A8;&#x8350;&#x96C6;&#x8FC7;&#x6EE4;&#xFF0C;&#x5DF2;&#x7ECF;&#x7ED9;&#x7528;&#x6237;&#x63A8;&#x8350;&#x8FC7;&#x7684;&#x6587;&#x7AE0;</span>
+                            history_table = conn.table(<span class="hljs-string">&quot;history_recall&quot;</span>)
+
+                            _history_data = history_table.cells(
+                                <span class="hljs-string">b&quot;reco:his:%s&quot;</span> % data[<span class="hljs-string">&quot;param&quot;</span>][<span class="hljs-string">&quot;userId&quot;</span>].encode(),
+                                <span class="hljs-string">b&quot;channel:%d&quot;</span> % data[<span class="hljs-string">&quot;channelId&quot;</span>]
+                            )
+
+                            history = []
+                            <span class="hljs-keyword">if</span> len(_history_data) &gt; <span class="hljs-number">1</span>:
+                                <span class="hljs-keyword">for</span> l <span class="hljs-keyword">in</span> _history_data:
+                                    history.extend(l)
+
+                            <span class="hljs-comment"># &#x6839;&#x636E;&#x5386;&#x53F2;&#x53EC;&#x56DE;&#x8BB0;&#x5F55;&#xFF0C;&#x8FC7;&#x6EE4;&#x53EC;&#x56DE;&#x7ED3;&#x679C;</span>
+                            recall_list = list(set(topKSimIds) - set(history))
+
+                            <span class="hljs-comment"># &#x5982;&#x679C;&#x6709;&#x63A8;&#x8350;&#x7ED3;&#x679C;&#x96C6;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x6570;&#x636E;&#x6DFB;&#x52A0;&#x5230;cb_recall&#x8868;&#x4E2D;&#xFF0C;&#x540C;&#x65F6;&#x8BB0;&#x5F55;&#x5230;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x8868;&#x4E2D;</span>
+                            logger.info(
+                                <span class="hljs-string">&quot;{} INFO: store online recall data:{}&quot;</span>.format(
+                                    datetime.now().strftime(<span class="hljs-string">&apos;%Y-%m-%d %H:%M:%S&apos;</span>), str(recall_list)))
+
+                            <span class="hljs-keyword">if</span> recall_list:
+
+                                recall_table = conn.table(<span class="hljs-string">&quot;cb_recall&quot;</span>)
+
+                                recall_table.put(
+                                    <span class="hljs-string">b&quot;recall:user:%s&quot;</span> % data[<span class="hljs-string">&quot;param&quot;</span>][<span class="hljs-string">&quot;userId&quot;</span>].encode(),
+                                    {<span class="hljs-string">b&quot;online:%d&quot;</span> % data[<span class="hljs-string">&quot;channelId&quot;</span>]: str(recall_list).encode()}
+                                )
+
+                                history_table.put(
+                                    <span class="hljs-string">b&quot;reco:his:%s&quot;</span> % data[<span class="hljs-string">&quot;param&quot;</span>][<span class="hljs-string">&quot;userId&quot;</span>].encode(),
+                                    {<span class="hljs-string">b&quot;channel:%d&quot;</span> % data[<span class="hljs-string">&quot;channelId&quot;</span>]: str(recall_list).encode()}
+                                )
+                        conn.close()
+
+        <span class="hljs-comment"># x&#x53EF;&#x4EE5;&#x662F;&#x591A;&#x6B21;&#x70B9;&#x51FB;&#x884C;&#x4E3A;&#x6570;&#x636E;&#xFF0C;&#x540C;&#x65F6;&#x62FF;&#x5230;&#x591A;&#x6761;&#x6570;&#x636E;</span>
+        SIMILAR_DS.map(<span class="hljs-keyword">lambda</span> x: json.loads(x[<span class="hljs-number">1</span>])).foreachRDD(get_similar_online_recall)
+</code></pre>
+<p>&#x5F00;&#x542F;&#x5B9E;&#x65F6;&#x8FD0;&#x884C;,&#x540C;&#x65F6;&#x589E;&#x52A0;&#x65E5;&#x5FD7;&#x6253;&#x5370;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&apos;__main__&apos;</span>:
+    <span class="hljs-comment"># &#x542F;&#x52A8;&#x65E5;&#x5FD7;&#x914D;&#x7F6E;</span>
+    lg.create_logger()
+    op = OnlineRecall()
+    op._update_online_cb()
+    stream_c.start()
+    <span class="hljs-comment"># &#x4F7F;&#x7528; ctrl+c &#x53EF;&#x4EE5;&#x9000;&#x51FA;&#x670D;&#x52A1;</span>
+    _ONE_DAY_IN_SECONDS = <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+            time.sleep(_ONE_DAY_IN_SECONDS)
+    <span class="hljs-keyword">except</span> KeyboardInterrupt:
+        <span class="hljs-keyword">pass</span>
+</code></pre>
+<h4 id="&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x6253;&#x5370;&#x65E5;&#x5FD7;">&#x6DFB;&#x52A0;&#x6587;&#x4EF6;&#x6253;&#x5370;&#x65E5;&#x5FD7;</h4>
+<pre><code class="lang-python"><span class="hljs-comment"># &#x6DFB;&#x52A0;&#x5230;&#x9700;&#x8981;&#x6253;&#x5370;&#x65E5;&#x5FD7;&#x5185;&#x5BB9;&#x7684;&#x6587;&#x4EF6;&#x4E2D;</span>
+logger = logging.getLogger(<span class="hljs-string">&apos;online&apos;</span>)
+
+
+<span class="hljs-comment"># &#x5728;&#x7EBF;&#x66F4;&#x65B0;&#x65E5;&#x5FD7;</span>
+<span class="hljs-comment"># &#x79BB;&#x7EBF;&#x5904;&#x7406;&#x66F4;&#x65B0;&#x6253;&#x5370;&#x65E5;&#x5FD7;</span>
+trace_file_handler = logging.FileHandler(
+  os.path.join(logging_file_dir, <span class="hljs-string">&apos;online.log&apos;</span>)
+)
+trace_file_handler.setFormatter(logging.Formatter(<span class="hljs-string">&apos;%(message)s&apos;</span>))
+log_trace = logging.getLogger(<span class="hljs-string">&apos;online&apos;</span>)
+log_trace.addHandler(trace_file_handler)
+log_trace.setLevel(logging.INFO)
+</code></pre>
+<p><strong>&#x6DFB;&#x52A0;&#x65E5;&#x5FD7;&#x6570;&#x636E;&#xFF0C;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</strong></p>
+<pre><code>echo {\&quot;actionTime\&quot;:\&quot;2019-04-10 21:04:39\&quot;,\&quot;readTime\&quot;:\&quot;\&quot;,\&quot;channelId\&quot;:18,\&quot;param\&quot;:{\&quot;action\&quot;: \&quot;click\&quot;, \&quot;userId\&quot;: \&quot;2\&quot;, \&quot;articleId\&quot;: \&quot;116644\&quot;, \&quot;algorithmCombine\&quot;: \&quot;C2\&quot;}} &gt;&gt; userClick.log
+</code></pre><pre><code>2019-05-29 07:37:00 INFO: get user_id:2 action:click  log
+2019-05-29 07:37:02 INFO: store online recall data:[118560, 18530, 59747, 118370, 49962, 17613, 117199, 15315, 118550, 140376]
+</code></pre><p>&#x7ED3;&#x679C;&#x67E5;&#x8BE2;&#xFF1A;</p>
+<pre><code class="lang-python">hbase(main):<span class="hljs-number">028</span>:<span class="hljs-number">0</span>&gt; get <span class="hljs-string">&apos;cb_recall&apos;</span>, <span class="hljs-string">&apos;recall:user:2&apos;</span>
+COLUMN                     CELL                                                                        
+ als:<span class="hljs-number">13</span>                    timestamp=<span class="hljs-number">1558041569201</span>, value=[<span class="hljs-number">141431</span>]                                     
+ als:<span class="hljs-number">18</span>                    timestamp=<span class="hljs-number">1558041572176</span>, value=[<span class="hljs-number">19200</span>, <span class="hljs-number">17665</span>, <span class="hljs-number">19476</span>, <span class="hljs-number">16151</span>, <span class="hljs-number">16411</span>, <span class="hljs-number">19233</span>, <span class="hljs-number">13</span>
+                           <span class="hljs-number">090</span>, <span class="hljs-number">15140</span>, <span class="hljs-number">16421</span>, <span class="hljs-number">19494</span>, <span class="hljs-number">14381</span>, <span class="hljs-number">17966</span>, <span class="hljs-number">17454</span>, <span class="hljs-number">14125</span>, <span class="hljs-number">16174</span>, <span class="hljs-number">14899</span>, <span class="hljs-number">44339</span>, <span class="hljs-number">1</span>
+                           <span class="hljs-number">6437</span>, <span class="hljs-number">18743</span>, <span class="hljs-number">44090</span>, <span class="hljs-number">18238</span>, <span class="hljs-number">13890</span>, <span class="hljs-number">14915</span>, <span class="hljs-number">15429</span>, <span class="hljs-number">15944</span>, <span class="hljs-number">44371</span>, <span class="hljs-number">18005</span>, <span class="hljs-number">15196</span>, 
+                           <span class="hljs-number">13410</span>, <span class="hljs-number">13672</span>, <span class="hljs-number">44137</span>, <span class="hljs-number">18795</span>, <span class="hljs-number">19052</span>, <span class="hljs-number">44652</span>, <span class="hljs-number">44654</span>, <span class="hljs-number">44657</span>, <span class="hljs-number">14961</span>, <span class="hljs-number">17522</span>, <span class="hljs-number">43894</span>,
+                            <span class="hljs-number">44412</span>, <span class="hljs-number">16000</span>, <span class="hljs-number">14208</span>, <span class="hljs-number">44419</span>, <span class="hljs-number">17802</span>, <span class="hljs-number">14223</span>, <span class="hljs-number">18836</span>, <span class="hljs-number">140956</span>, <span class="hljs-number">18335</span>, <span class="hljs-number">13728</span>, <span class="hljs-number">1449</span>
+                           <span class="hljs-number">8</span>, <span class="hljs-number">44451</span>, <span class="hljs-number">44456</span>, <span class="hljs-number">18609</span>, <span class="hljs-number">18353</span>, <span class="hljs-number">44468</span>, <span class="hljs-number">18103</span>, <span class="hljs-number">13757</span>, <span class="hljs-number">14015</span>, <span class="hljs-number">13249</span>, <span class="hljs-number">44739</span>, <span class="hljs-number">444</span>
+                           <span class="hljs-number">83</span>, <span class="hljs-number">17605</span>, <span class="hljs-number">14021</span>, <span class="hljs-number">15309</span>, <span class="hljs-number">18127</span>, <span class="hljs-number">43983</span>, <span class="hljs-number">44754</span>, <span class="hljs-number">43986</span>, <span class="hljs-number">19413</span>, <span class="hljs-number">14805</span>, <span class="hljs-number">18904</span>, <span class="hljs-number">44</span>
+                           <span class="hljs-number">761</span>, <span class="hljs-number">17114</span>, <span class="hljs-number">13272</span>, <span class="hljs-number">14810</span>, <span class="hljs-number">18907</span>, <span class="hljs-number">13022</span>, <span class="hljs-number">14299</span>, <span class="hljs-number">17120</span>, <span class="hljs-number">17632</span>, <span class="hljs-number">43997</span>, <span class="hljs-number">17889</span>, <span class="hljs-number">1</span>
+                           <span class="hljs-number">7385</span>, <span class="hljs-number">18156</span>, <span class="hljs-number">15085</span>, <span class="hljs-number">13295</span>, <span class="hljs-number">44020</span>, <span class="hljs-number">14839</span>, <span class="hljs-number">44024</span>, <span class="hljs-number">14585</span>, <span class="hljs-number">18172</span>, <span class="hljs-number">44541</span>]        
+ als:<span class="hljs-number">5</span>                     timestamp=<span class="hljs-number">1558041564163</span>, value=[<span class="hljs-number">141440</span>]                                     
+ als:<span class="hljs-number">7</span>                     timestamp=<span class="hljs-number">1558041568776</span>, value=[<span class="hljs-number">141437</span>]                                     
+ online:<span class="hljs-number">18</span>                 timestamp=<span class="hljs-number">1559086622107</span>, value=[<span class="hljs-number">118560</span>, <span class="hljs-number">18530</span>, <span class="hljs-number">59747</span>, <span class="hljs-number">118370</span>, <span class="hljs-number">49962</span>, <span class="hljs-number">17613</span>, 
+                           <span class="hljs-number">117199</span>, <span class="hljs-number">15315</span>, <span class="hljs-number">118550</span>, <span class="hljs-number">140376</span>]
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../day03/section1.html" class="navigation navigation-prev " aria-label="Previous page: 实时日志分析"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../day03/section3.html" class="navigation navigation-next " aria-label="Next page: 热门与新文章召回"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"katex":{},"expandable-chapters-small":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
